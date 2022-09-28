@@ -1,0 +1,19 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1fcd4f90_002De3c7_002D401c_002Da836_002Da4ef240ec486/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Session #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;And&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;xUnit::9EDA63E0-2BA0-4B6F-94A1-CAD8C6C5A98D::net6.0::NibblePoker.Library.Arguments.Tests.UnitTest1.Test1&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+    &lt;Project Location="D:\DevelopmentNew\DotNet\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.Tests" Presentation="&amp;lt;NibblePoker.Library.Arguments.Tests&amp;gt;" /&gt;&#xD;
+    &lt;Namespace&gt;NibblePoker.Library.Arguments.Tests&lt;/Namespace&gt;&#xD;
+  &lt;/And&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7913ee2c_002D3b28_002D4309_002Da4c5_002D75c2ede47b8b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Session" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;And&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;xUnit::9EDA63E0-2BA0-4B6F-94A1-CAD8C6C5A98D::net6.0::NibblePoker.Library.Arguments.Tests.UnitTest1.Test1&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+    &lt;Project Location="D:\DevelopmentNew\DotNet\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.Tests" Presentation="&amp;lt;NibblePoker.Library.Arguments.Tests&amp;gt;" /&gt;&#xD;
+    &lt;Namespace&gt;NibblePoker.Library.Arguments.Tests&lt;/Namespace&gt;&#xD;
+  &lt;/And&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
