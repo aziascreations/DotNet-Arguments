@@ -1,8 +1,13 @@
 ﻿namespace NibblePoker.Library.Arguments; 
 
 public static class Exceptions {
+	// Common exception
+	public class ArgumentsException : Exception {
+		protected ArgumentsException(string message) : base(message) {}
+	}
+	
 	// Option exceptions
-	public class OptionException : Exception {
+	public class OptionException : ArgumentsException {
 		protected OptionException(string message) : base(message) {}
 	}
 
@@ -11,7 +16,7 @@ public static class Exceptions {
 	}
 
 	// Verb exceptions
-	public class VerbException : Exception {
+	public class VerbException : ArgumentsException {
 		protected VerbException(string message) : base(message) {}
 	}
 
@@ -32,7 +37,7 @@ public static class Exceptions {
 	}
 	
 	// Parser exceptions
-	public class ParserException : Exception {
+	public class ParserException : ArgumentsException {
 		protected ParserException(string message) : base(message) {}
 	}
 	

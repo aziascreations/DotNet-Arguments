@@ -110,6 +110,14 @@ public class Verb {
 		return null;
 	}
 	
+	public bool HasOptionByToken(char token) {
+		return GetOptionByToken(token) != null;
+	}
+	
+	public bool HasOptionByName(string name) {
+		return GetOptionByName(name) != null;
+	}
+	
 	public void Clear() {
 		foreach(Option option in Options) {
 			option.Clear();

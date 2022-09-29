@@ -8,5 +8,8 @@ public enum OptionFlags {
 	Repeatable = 0b0000_0100,
 	HasMultipleValue = HasValue | Repeatable,
 	Hidden = 0b0000_1000,
+	//Required
+	//StopsParsing
+	//CatchAllFallbackForVerb
 	All = None | Default | HasValue | Repeatable | HasMultipleValue | Hidden,
 }

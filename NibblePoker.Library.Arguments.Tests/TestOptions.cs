@@ -8,9 +8,9 @@ public class TestOptions {
 	
 	[SetUp]
 	public void Setup() {
-		_shortOption = new Option('d', null);  // Implies: "", OptionFlags.None
-		_longOption = new Option(null, "deez", "", OptionFlags.All);
-		_mixedOption = new Option('n', "nuts", "", OptionFlags.HasValue);
+		_shortOption = new Option('a', null);  // Implies: "", OptionFlags.None
+		_longOption = new Option(null, "bravo", "", OptionFlags.All);
+		_mixedOption = new Option('c', "charlie", "", OptionFlags.HasValue);
 	}
 
 	[Test]
