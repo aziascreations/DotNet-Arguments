@@ -16,14 +16,10 @@ This library is an improved port of my [PB-Arguments](https://github.com/aziascr
   * Hidden in help text
   * <s>Early parser exit</s> (TODO)
 * <s>Configurable help text printer</s> (TODO)
-* Human-readable declaration, registration and usage. *
 * Easy exception filtering with inheritance
   * 1 common parent
   * 3 child for distinct parts of the library
   * 13 final errors thrown in specific places.
-
-<sub>*: See the ['commandlineparser/commandline/' demo](https://github.com/commandlineparser/commandline/blob/f738eeff7c698bfb01d0e085e97dc65d07c8aaa9/demo/ReadText.Demo/Program.cs)
-for a common example of unreadable hieroglyphs looking code...</sub>
 
 ## Requirements
 * Any OS

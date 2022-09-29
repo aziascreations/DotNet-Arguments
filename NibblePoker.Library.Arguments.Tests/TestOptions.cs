@@ -62,4 +62,19 @@ public class TestOptions {
 			Option unused = new Option('a', "alpha", "", OptionFlags.Default);
 		});
 	}
+
+	[Test]
+	public void TestOtherGetters() {
+		_mixedOption.Clear();
+		Assert.That(_mixedOption.HasValue(), Is.False);
+		_mixedOption.Arguments.Add("abc");
+		Assert.That(_mixedOption.HasValue(), Is.True);
+	}
+
+	[Test]
+	public void TestOtherErrors() {
+		Assert.Throws<Exceptions.MissingOptionIdentifierException>(delegate {
+			Option unused = new Option(null, null);
+		});
+	}
 }

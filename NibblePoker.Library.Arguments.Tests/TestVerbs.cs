@@ -100,6 +100,14 @@ public class TestVerbs {
 			Assert.That(_rootVerb.GetOptionByToken('d'), Is.Null);
 		});
 		
+		// Testing duplicates by token & name
+		Assert.Throws<Exceptions.DuplicateOptionException>(delegate {
+			_rootVerb.RegisterOption(new Option(_mixedOption.Token, null));
+		});
+		Assert.Throws<Exceptions.DuplicateOptionException>(delegate {
+			_rootVerb.RegisterOption(new Option(null, _mixedOption.Name));
+		});
+		
 		// TODO: Add defaults checks
 	}
 }

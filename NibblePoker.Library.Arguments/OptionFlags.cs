@@ -36,9 +36,14 @@ public enum OptionFlags {
 	/// </summary>
 	Hidden = 0b0000_1000,
 	
-	//Required
+	/// <summary>
+	/// Used to indicate that an <c>Option</c> must be used in the final <c>Verb</c>.
+	/// </summary>
+	Required = 0b0001_0000,
 	
 	//StopsParsing
+	
+	//AllowMissingValue
 	
 	//CatchAllFallbackForVerb - What's the point ?
 	

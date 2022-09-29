@@ -11,6 +11,10 @@ public static class Exceptions {
 		protected OptionException(string message) : base(message) {}
 	}
 
+	public class MissingOptionIdentifierException : OptionException {
+		public MissingOptionIdentifierException(string message) : base(message) {}
+	}
+
 	public class InvalidFlagsException : OptionException {
 		public InvalidFlagsException(string message) : base(message) {}
 	}
@@ -71,5 +75,9 @@ public static class Exceptions {
 	
 	public class OptionHasValueAndMoreShortsException : ParserException {
 		public OptionHasValueAndMoreShortsException(string message) : base(message) {}
+	}
+	
+	public class MissingRequiredOptionException : ParserException {
+		public MissingRequiredOptionException(string message) : base(message) {}
 	}
 }

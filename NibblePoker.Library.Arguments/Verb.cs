@@ -68,7 +68,19 @@ public class Verb {
 				"The given option '" + option.GetFullName() + "' is already registered !");
 		}
 		
-		// TODO: Check for options with the same token and name !
+		if(option.Token != null) {
+			if(HasOptionByToken((char) option.Token)) {
+				throw new Exceptions.DuplicateOptionException(
+					"The given option token '" + option.Token+ "' is already used by another option !");
+			}
+		}
+		
+		if(option.Name != null) {
+			if(HasOptionByName(option.Name)) {
+				throw new Exceptions.DuplicateOptionException(
+					"The given option name '" + option.Name+ "' is already used by another option !");
+			}
+		}
 		
 		if(option.IsDefault()) {
 			foreach(Option existingOption in Options) {

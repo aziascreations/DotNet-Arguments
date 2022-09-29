@@ -22,7 +22,9 @@ public class Option {
 		Arguments = new List<string>();
 		Occurrences = 0;
 		
-		// TODO: Add check for token | name requirement !
+		if(!HasToken() && !HasName()) {
+			throw new Exceptions.MissingOptionIdentifierException("The option doesn't have a token or name !");
+		}
 		
 		if(IsDefault() && !CanHaveValue()) {
 			throw new Exceptions.InvalidFlagsException("A default options must have one or more value !");
@@ -95,6 +97,14 @@ public class Option {
 	/// <returns>True if the flag was given, false otherwise.</returns>
 	public bool IsHidden() {
 		return Flags.HasFlag(OptionFlags.Hidden);
+	}
+	
+	/// <summary>
+	/// Checks if the option was used and received a value during the parsing process.
+	/// </summary>
+	/// <returns>True if it one or more value, false otherwise.</returns>
+	public bool HasValue() {
+		return Arguments.Count >= 1;
 	}
 
 	/// <summary>

@@ -7,6 +7,7 @@ public static class ArgumentsParser {
 		bool hasFinishedParsingVerbs = false;
 		bool hasReachedEndOfOptions = false;
 		
+		// Parsing arguments
 		for(int iArg = 0; iArg < arguments.Length; iArg++) {
 			currentVerb.WasUsed = true;
 			Option? relevantOption = null;
@@ -152,6 +153,14 @@ public static class ArgumentsParser {
 			}
 		}
 
+		// Checking the "Required" flag.
+		foreach(Option option in currentVerb.Options) {
+			if(option.Flags.HasFlag(OptionFlags.Required) && !option.WasUsed()) {
+				throw new Exceptions.MissingRequiredOptionException(
+					"The required option '" + option.GetFullName() + "' wasn't given !");
+			}
+		}
+		
 		return currentVerb;
 	}
 }

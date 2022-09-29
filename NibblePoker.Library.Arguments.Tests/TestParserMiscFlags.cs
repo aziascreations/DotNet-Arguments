@@ -12,6 +12,10 @@ public class TestParserMiscFlags {
 	private Option _multipleDefaultOption1 = null!;
 	private Option _multipleDefaultOption2 = null!;
 	
+	// Required option's flag
+	private Option _requiredOption1 = null!;
+	private Option _requiredOption2 = null!;
+	
 	[SetUp]
 	public void Setup() {
 		_rootVerb = new Verb(null);
@@ -21,6 +25,9 @@ public class TestParserMiscFlags {
 		_singleDefaultOption3 = new Option('c', null, "", OptionFlags.HasValue | OptionFlags.Default);
 		_multipleDefaultOption1 = new Option('d', null, "", OptionFlags.HasMultipleValue | OptionFlags.Default);
 		_multipleDefaultOption2 = new Option('e', null, "", OptionFlags.HasMultipleValue | OptionFlags.Default);
+		
+		_requiredOption1 = new Option('f', null, "", OptionFlags.Required | OptionFlags.HasValue);
+		_requiredOption2 = new Option('g', null, "", OptionFlags.Required);
 	}
 	
 	[Test]
@@ -73,5 +80,36 @@ public class TestParserMiscFlags {
 		});
 		
 		// TODO: Test the '--' argument and its effects.
+	}
+
+
+	[Test]
+	public void TestRequiredOptions() {
+		Assert.DoesNotThrow(() => {
+			// test.exe <-f <value>> <-g>
+			_rootVerb.RegisterOption(_requiredOption1).RegisterOption(_requiredOption2);
+		});
+		
+		_rootVerb.Clear();
+		Assert.DoesNotThrow(() => {
+			ArgumentsParser.ParseArguments(_rootVerb, new[]{"-f", "one", "-g"});
+		});
+		Assert.Multiple(() => {
+			Assert.That(_requiredOption1.WasUsed, Is.True);
+			Assert.That(_requiredOption1.Occurrences, Is.EqualTo(1));
+			Assert.That(_requiredOption1.Arguments[0], Is.EqualTo("one"));
+			Assert.That(_requiredOption2.WasUsed, Is.True);
+			Assert.That(_requiredOption2.Occurrences, Is.EqualTo(1));
+		});
+		
+		_rootVerb.Clear();
+		Assert.Throws<Exceptions.MissingRequiredOptionException>(delegate {
+			ArgumentsParser.ParseArguments(_rootVerb, new[]{"-f", "one"});
+		});
+		
+		_rootVerb.Clear();
+		Assert.Throws<Exceptions.MissingRequiredOptionException>(delegate {
+			ArgumentsParser.ParseArguments(_rootVerb, new[]{"-g"});
+		});
 	}
 }
