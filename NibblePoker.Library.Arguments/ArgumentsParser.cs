@@ -91,6 +91,7 @@ public static class ArgumentsParser {
 					}
 					
 					if(!relevantOption.CanHaveMultipleValue() && relevantOption.Arguments.Count >= 1) {
+						// This condition might be redundant ! -> See (used && !repeat) ~15 lines above.
 						throw new Exceptions.OptionValueOverflowException(
 							"The short option '" + arguments[iArg][iChar] + "' can only have 1 argument !");
 					}
@@ -102,6 +103,7 @@ public static class ArgumentsParser {
 					
 					relevantOption.Arguments.Add(arguments[iArg + 1]);
 					iArg++;
+					break;
 				}
 			} else {
 				// Verb or default argument

@@ -12,7 +12,7 @@ public class TestParserWithNoValues {
 	private Option _mixedFlagOption2 = null!;
 	
 	private Option _countingOption = null!;
-
+	
 	[SetUp]
 	public void Setup() {
 		// Definition
@@ -107,7 +107,7 @@ public class TestParserWithNoValues {
 		});
 		
 		Assert.DoesNotThrow(() => {
-			ArgumentsParser.ParseArguments(_rootVerb, new[]{"-e", "--echo"});
+			ArgumentsParser.ParseArguments(_rootVerb, new[]{"-e", "--echo", "-ee"});
 		});
 		Assert.Multiple(() => {
 			Assert.That(_shortFlagOption.WasUsed, Is.True);
@@ -119,7 +119,7 @@ public class TestParserWithNoValues {
 			Assert.That(_mixedFlagOption2.WasUsed, Is.True);
 			Assert.That(_mixedFlagOption2.Occurrences, Is.EqualTo(1));
 			Assert.That(_countingOption.WasUsed, Is.True);
-			Assert.That(_countingOption.Occurrences, Is.EqualTo(2));
+			Assert.That(_countingOption.Occurrences, Is.EqualTo(4));
 		});
 	}
 }

@@ -1,7 +1,7 @@
 ﻿namespace NibblePoker.Library.Arguments; 
 
 /// <summary>
-/// Class <c>Option</c> models an option linked to a <c>Verb</c> that can be given in launch arguments to pass a valid
+/// Class <c>Option</c> models an option linked to one or more <c>Verb</c> that can be given in launch arguments to pass a valid
 ///  or toggle some actions.
 /// </summary>
 public class Option {

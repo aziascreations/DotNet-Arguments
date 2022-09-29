@@ -44,7 +44,9 @@ public class Verb {
 			throw new Exceptions.DuplicateOptionException(
 				"The given option '" + option.GetFullName() + "' is already registered !");
 		}
-
+		
+		// TODO: Check for options with the same token and name !
+		
 		if(option.IsDefault()) {
 			foreach(Option existingOption in Options) {
 				if(!existingOption.IsDefault()) {
@@ -110,14 +112,27 @@ public class Verb {
 		return null;
 	}
 	
+	/// <summary>
+	/// Checks if a given token is used by a registered <c>Option</c>.
+	/// </summary>
+	/// <param name="token">???</param>
+	/// <returns>True if a matching <c>Option</c> was found, false otherwise.</returns>
 	public bool HasOptionByToken(char token) {
 		return GetOptionByToken(token) != null;
 	}
 	
+	/// <summary>
+	/// Checks if a given name is used by a registered <c>Option</c>.
+	/// </summary>
+	/// <param name="name">???</param>
+	/// <returns>True if a matching <c>Option</c> was found, false otherwise.</returns>
 	public bool HasOptionByName(string name) {
 		return GetOptionByName(name) != null;
 	}
 	
+	/// <summary>
+	/// Clears any field and registered member's fields that may be modified once the launch arguments are parsed.
+	/// </summary>
 	public void Clear() {
 		foreach(Option option in Options) {
 			option.Clear();
