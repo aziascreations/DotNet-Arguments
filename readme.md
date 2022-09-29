@@ -5,16 +5,17 @@ This library is an improved port of my [PB-Arguments](https://github.com/aziascr
 
 ## Features
 * Easy to use and 'to-the-point' philosophy
-  * No unnecessary types, classes and whatnot
-  * Loose declaration, registration and parsing can be done in a [**single** human-readable 'nested' statement]().
+  * No unnecessary types, classes, procedures and whatnot
+  * Loose declaration, registration and parsing can be done in a [**single** human-readable 'nested' statement](NibblePoker.Library.Arguments.Demo.LooseDeclaration/Program.cs).
 * Support for 'git-like' verbs
 * Different behavior for options
-  * Required options (TODO)
+  * <s>Required options</s> (TODO)
   * Repeatable flag-like options
   * Multiple value
   * Multiple default option per verb with index-based ordering
   * Hidden in help text
-  * Early parser exit (TODO)
+  * <s>Early parser exit</s> (TODO)
+* <s>Configurable help text printer</s> (TODO)
 * Human-readable declaration, registration and usage. *
 * Easy exception filtering with inheritance
   * 1 common parent
@@ -30,8 +31,11 @@ for a common example of unreadable hieroglyphs looking code...</sub>
 * .NET v6.0
 * C# 10.0
 
+## Installation
+TODO
+
 ## Documentation
-TODo: Automate it !
+TODO
 
 ## Examples
 * [Loose Declaration](NibblePoker.Library.Arguments.Demo.LooseDeclaration/)

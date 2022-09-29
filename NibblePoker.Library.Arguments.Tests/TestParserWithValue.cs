@@ -1,5 +1,6 @@
 ﻿namespace NibblePoker.Library.Arguments.Tests; 
 
+[TestFixture]
 public class TestParserWithValue {
 	// Root verb
 	private Verb _rootVerb = null!;

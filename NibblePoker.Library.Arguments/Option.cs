@@ -22,23 +22,42 @@ public class Option {
 		Arguments = new List<string>();
 		Occurrences = 0;
 		
+		// TODO: Add check for token | name requirement !
+		
 		if(IsDefault() && !CanHaveValue()) {
 			throw new Exceptions.InvalidFlagsException("A default options must have one or more value !");
 		}
 	}
-
+	
+	/// <summary>
+	/// Checks if the <c>Option</c> has a token.
+	/// </summary>
+	/// <returns>True if it has a token, false otherwise</returns>
 	public bool HasToken() {
 		return Token != null;
 	}
-
+	
+	/// <summary>
+	/// Checks if the <c>Option</c> has a name.
+	/// </summary>
+	/// <returns>True if it has a name, false otherwise</returns>
 	public bool HasName() {
 		return Name != null;
 	}
-
+	
+	/// <summary>
+	/// Retrieve a proper and safe to print name for the option.
+	/// </summary>
+	/// <returns>The name in the 't', 'token' or 't|token' format.</returns>
 	public string GetFullName() {
 		return (HasToken() ? Token : "") + (HasToken() && HasName() ? "|" : "") + (HasName() ? Name : "");
 	}
-
+	
+	/// <summary>
+	/// Checks if the option was given the "F:NibblePoker.Library.Arguments.OptionFlags.Default" flag in its
+	///  constructor.
+	/// </summary>
+	/// <returns>True if the flag was given, false otherwise.</returns>
 	public bool IsDefault() {
 		return Flags.HasFlag(OptionFlags.Default);
 	}

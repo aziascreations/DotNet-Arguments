@@ -4,13 +4,31 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <PackageVersion>0.0.1</PackageVersion>
+        <PackageVersion>0.1.0</PackageVersion>
         <Title>NibblePoker Arguments</Title>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Description>A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications.</Description>
+        <PackageProjectUrl>https://github.com/aziascreations/DotNet-Arguments</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/aziascreations/DotNet-Arguments/blob/master/LICENSE</PackageLicenseUrl>
+        <PackageIcon>icon.png</PackageIcon>
+        <RepositoryUrl>https://github.com/aziascreations/DotNet-Arguments</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>argument-parser</PackageTags>
+        <PackageReleaseNotes>Initial release</PackageReleaseNotes>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
       <DebugType>none</DebugType>
     </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="..\icon.png">
+        <Link>icon.png</Link>
+      </None>
+      <None Update="icon.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
+    </ItemGroup>
 
 </Project>

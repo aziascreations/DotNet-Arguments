@@ -5,11 +5,11 @@
 ///  usable launch parameters.
 /// </summary>
 public class Verb {
-	public string Name;
-	public string Description;
+	public readonly string Name;
+	public readonly string Description;
 	
-	public List<Option> Options;
-	public List<Verb> Verbs;
+	public readonly List<Option> Options;
+	public readonly List<Verb> Verbs;
 	public bool WasUsed;
 	public Verb? ParentVerb;
 	
@@ -23,12 +23,21 @@ public class Verb {
 		ParentVerb = null;
 	}
 	
+	/// <summary>
+	/// Attempts to register a sub-<c>Verb</c> in the current <c>Verb</c>.
+	/// </summary>
+	/// <param name="verb">The <c>Verb</c> to register in the current <c>Verb</c>.</param>
+	/// <returns>The current <c>Verb</c> for registration daisy-chaining.</returns>
+	/// <exception cref="InvalidVerbNameException">If the registered <c>Verb</c>'s name is empty or null.</exception>
+	/// <exception cref="DuplicateVerbException">
+	/// If the given <c>Verb</c> or one with the same name is already registered
+	/// </exception>
 	public Verb RegisterVerb(Verb verb) {
 		if(string.IsNullOrWhiteSpace(verb.Name)) {
 			throw new Exceptions.InvalidVerbNameException("The given verb's name is empty !");
 		}
 		
-		if(Verbs.Contains(verb)) {
+		if(Verbs.Contains(verb) || GetSubVerbByName(verb.Name) != null) {
 			throw new Exceptions.DuplicateVerbException("The given verb '" + verb.Name +
 			                                            "'is already registered !");
 		}
@@ -39,6 +48,20 @@ public class Verb {
 		return this;
 	}
 	
+	/// <summary>
+	/// Attempts to register an <c>Option</c> in the current <c>Verb</c>.
+	/// </summary>
+	/// <param name="option">The <c>Option</c> to register in the current <c>Verb</c>.</param>
+	/// <returns>The current <c>Verb</c> for registration daisy-chaining.</returns>
+	/// <exception cref="DuplicateOptionException">
+	/// If the given <c>Option</c> or one with the same token/name is already registered
+	/// </exception>
+	/// <exception cref="ExistingDefaultMultipleOptionException">
+	/// If the given <c>Option</c> has the "F:NibblePoker.Library.Arguments.OptionFlags.Default" flag and is registered
+	///  after one that has the "F:NibblePoker.Library.Arguments.OptionFlags.Default",
+	///  "F:NibblePoker.Library.Arguments.OptionFlags.HasValue" and
+	///  "F:NibblePoker.Library.Arguments.OptionFlags.Repeatable" flags.
+	/// </exception>
 	public Verb RegisterOption(Option option) {
 		if(Options.Contains(option)) {
 			throw new Exceptions.DuplicateOptionException(
@@ -63,7 +86,12 @@ public class Verb {
 		
 		return this;
 	}
-
+	
+	/// <summary>
+	/// Attempts to retrieve a registered <c>Verb</c> using its name.
+	/// </summary>
+	/// <param name="name">The desired <c>Verb</c>'s name</param>
+	/// <returns>The relevant <c>Verb</c>, null otherwise.</returns>
 	public Verb? GetSubVerbByName(string name) {
 		foreach(Verb verb in Verbs) {
 			if(verb.Name.Equals(name)) {
@@ -73,7 +101,7 @@ public class Verb {
 
 		return null;
 	}
-
+	
 	public Option? GetRelevantDefaultOption() {
 		foreach(Option option in Options) {
 			if(!option.IsDefault()) {
@@ -92,6 +120,11 @@ public class Verb {
 		return null;
 	}
 	
+	/// <summary>
+	/// Attempts to retrieve a registered <c>Option</c> using its token.
+	/// </summary>
+	/// <param name="token">The desired <c>Option</c>'s token</param>
+	/// <returns>The relevant <c>Option</c>, null otherwise.</returns>
 	public Option? GetOptionByToken(char token) {
 		foreach(Option option in Options) {
 			if(option.HasToken() && option.Token!.Equals(token)) {
@@ -102,6 +135,11 @@ public class Verb {
 		return null;
 	}
 	
+	/// <summary>
+	/// Attempts to retrieve a registered <c>Option</c> using its name.
+	/// </summary>
+	/// <param name="name">The desired <c>Option</c>'s name</param>
+	/// <returns>The relevant <c>Option</c>, null otherwise.</returns>
 	public Option? GetOptionByName(string name) {
 		foreach(Option option in Options) {
 			if(option.HasName() && option.Name!.Equals(name)) {
@@ -115,7 +153,7 @@ public class Verb {
 	/// <summary>
 	/// Checks if a given token is used by a registered <c>Option</c>.
 	/// </summary>
-	/// <param name="token">???</param>
+	/// <param name="token">The desired <c>Option</c>'s token</param>
 	/// <returns>True if a matching <c>Option</c> was found, false otherwise.</returns>
 	public bool HasOptionByToken(char token) {
 		return GetOptionByToken(token) != null;
@@ -124,7 +162,7 @@ public class Verb {
 	/// <summary>
 	/// Checks if a given name is used by a registered <c>Option</c>.
 	/// </summary>
-	/// <param name="name">???</param>
+	/// <param name="name">The desired <c>Option</c>'s name</param>
 	/// <returns>True if a matching <c>Option</c> was found, false otherwise.</returns>
 	public bool HasOptionByName(string name) {
 		return GetOptionByName(name) != null;

@@ -93,3 +93,7 @@ fabric.properties
 
 # Custom
 *.DotSettings.user
+NibblePoker.Library.Arguments.Documentation/
+.idea/
+action.yml
+doxygen.conf
