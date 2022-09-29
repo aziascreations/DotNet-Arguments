@@ -1,5 +1,9 @@
 ﻿namespace NibblePoker.Library.Arguments; 
 
+/// <summary>
+/// Class <c>Verb</c> models a verb that can be given in launch arguments to select a specific action or subset of
+///  usable launch parameters.
+/// </summary>
 public class Verb {
 	public string Name;
 	public string Description;
@@ -37,7 +41,8 @@ public class Verb {
 	
 	public Verb RegisterOption(Option option) {
 		if(Options.Contains(option)) {
-			throw new ArgumentException("The given option is already registered !");
+			throw new Exceptions.DuplicateOptionException(
+				"The given option '" + option.GetFullName() + "' is already registered !");
 		}
 
 		if(option.IsDefault()) {
@@ -57,6 +62,16 @@ public class Verb {
 		return this;
 	}
 
+	public Verb? GetSubVerbByName(string name) {
+		foreach(Verb verb in Verbs) {
+			if(verb.Name.Equals(name)) {
+				return verb;
+			}
+		}
+
+		return null;
+	}
+
 	public Option? GetRelevantDefaultOption() {
 		foreach(Option option in Options) {
 			if(!option.IsDefault()) {
@@ -74,7 +89,17 @@ public class Verb {
 
 		return null;
 	}
-
+	
+	public Option? GetOptionByToken(char token) {
+		foreach(Option option in Options) {
+			if(option.HasToken() && option.Token!.Equals(token)) {
+				return option;
+			}
+		}
+		
+		return null;
+	}
+	
 	public Option? GetOptionByName(string name) {
 		foreach(Option option in Options) {
 			if(option.HasName() && option.Name!.Equals(name)) {
@@ -84,7 +109,7 @@ public class Verb {
 		
 		return null;
 	}
-
+	
 	public void Clear() {
 		foreach(Option option in Options) {
 			option.Clear();

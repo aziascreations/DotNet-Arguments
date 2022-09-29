@@ -49,5 +49,17 @@ public class TestOptions {
 			Assert.That(_mixedOption.CanHaveMultipleValue(), Is.False);
 			Assert.That(_mixedOption.IsHidden(), Is.False);
 		});
+		
+		Assert.DoesNotThrow(() => {
+			Option unused = new Option('a', "alpha", "",
+				OptionFlags.Default | OptionFlags.HasValue);
+		});
+		Assert.DoesNotThrow(() => {
+			Option unused = new Option('a', "alpha", "",
+				OptionFlags.Default | OptionFlags.HasMultipleValue);
+		});
+		Assert.Throws<Exceptions.InvalidFlagsException>(delegate {
+			Option unused = new Option('a', "alpha", "", OptionFlags.Default);
+		});
 	}
 }

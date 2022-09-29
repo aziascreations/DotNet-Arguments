@@ -1,13 +1,26 @@
 ﻿namespace NibblePoker.Library.Arguments; 
 
 public static class Exceptions {
+	// Option exceptions
+	public class OptionException : Exception {
+		protected OptionException(string message) : base(message) {}
+	}
+
+	public class InvalidFlagsException : OptionException {
+		public InvalidFlagsException(string message) : base(message) {}
+	}
+
 	// Verb exceptions
 	public class VerbException : Exception {
 		protected VerbException(string message) : base(message) {}
 	}
-	
+
 	public class InvalidVerbNameException : VerbException {
 		public InvalidVerbNameException(string message) : base(message) {}
+	}
+	
+	public class DuplicateOptionException : VerbException {
+		public DuplicateOptionException(string message) : base(message) {}
 	}
 	
 	public class DuplicateVerbException : VerbException {
@@ -41,5 +54,17 @@ public static class Exceptions {
 	
 	public class NotEnoughArgumentsException : ParserException {
 		public NotEnoughArgumentsException(string message) : base(message) {}
+	}
+	
+	public class NoDefaultOptionFoundException : ParserException {
+		public NoDefaultOptionFoundException(string message) : base(message) {}
+	}
+	
+	public class OptionHasNotArgumentsException : ParserException {
+		public OptionHasNotArgumentsException(string message) : base(message) {}
+	}
+	
+	public class OptionHasValueAndMoreShortsException : ParserException {
+		public OptionHasValueAndMoreShortsException(string message) : base(message) {}
 	}
 }
