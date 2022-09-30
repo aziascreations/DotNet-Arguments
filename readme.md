@@ -15,7 +15,7 @@ This library is an improved port of my [PB-Arguments](https://github.com/aziascr
   * Multiple default option per verb with index-based ordering
   * Hidden in help text
   * Early parser exit
-* <s>Configurable help text printer</s> (TODO)
+* Configurable help text printer
 * Easy exception filtering with inheritance
   * 1 common parent
   * 3 child for distinct parts of the library
@@ -27,8 +27,8 @@ This library is an improved port of my [PB-Arguments](https://github.com/aziascr
 * .NET v6.0
 * C# 10.0
 
-## Installation
-TODO
+## Building
+See [building.md](building.md)
 
 ## Documentation
 TODO
