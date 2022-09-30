@@ -16,6 +16,10 @@ public class TestParserMiscFlags {
 	private Option _requiredOption1 = null!;
 	private Option _requiredOption2 = null!;
 	
+	// Stopping option's flag
+	private Option _nonStoppingOption = null!;
+	private Option _stoppingOption = null!;
+	
 	[SetUp]
 	public void Setup() {
 		_rootVerb = new Verb(null);
@@ -28,6 +32,9 @@ public class TestParserMiscFlags {
 		
 		_requiredOption1 = new Option('f', null, "", OptionFlags.Required | OptionFlags.HasValue);
 		_requiredOption2 = new Option('g', null, "", OptionFlags.Required);
+		
+		_nonStoppingOption = new Option('h', null, "", OptionFlags.Repeatable);
+		_stoppingOption = new Option('i', null, "", OptionFlags.StopsParsing);
 	}
 	
 	[Test]
@@ -82,7 +89,6 @@ public class TestParserMiscFlags {
 		// TODO: Test the '--' argument and its effects.
 	}
 
-
 	[Test]
 	public void TestRequiredOptions() {
 		Assert.DoesNotThrow(() => {
@@ -110,6 +116,26 @@ public class TestParserMiscFlags {
 		_rootVerb.Clear();
 		Assert.Throws<Exceptions.MissingRequiredOptionException>(delegate {
 			ArgumentsParser.ParseArguments(_rootVerb, new[]{"-g"});
+		});
+	}
+
+	[Test]
+	public void TestStoppingOptions() {
+		Assert.DoesNotThrow(() => {
+			// test.exe [-h] [-i]
+			// '-i' stops parsing earlier 
+			_rootVerb.RegisterOption(_stoppingOption).RegisterOption(_nonStoppingOption);
+		});
+		
+		_rootVerb.Clear();
+		Assert.DoesNotThrow(() => {
+			ArgumentsParser.ParseArguments(_rootVerb, new[]{"-h", "-h", "-i", "-h"});
+		});
+		Assert.Multiple(() => {
+			Assert.That(_stoppingOption.WasUsed, Is.True);
+			Assert.That(_stoppingOption.Occurrences, Is.EqualTo(1));
+			Assert.That(_nonStoppingOption.WasUsed, Is.True);
+			Assert.That(_nonStoppingOption.Occurrences, Is.EqualTo(2));
 		});
 	}
 }

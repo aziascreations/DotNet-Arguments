@@ -1,7 +1,7 @@
 ﻿namespace NibblePoker.Library.Arguments.Tests; 
 
 [TestFixture]
-public class TestNestedParser {
+public class TestParserNestedVerbs {
 	// Default verb
 	private Verb _rootVerb = null!;
 	
@@ -34,16 +34,16 @@ public class TestNestedParser {
 		_subSubVerb1 = new Verb("new");
 
 		_shortFlagOption = new Option('a', null);
-		_longFlagOption = new Option(null, "byte");
-		_mixedFlagOption1 = new Option('h', "help");
-		_mixedFlagOption2 = new Option('v', "version");
+		_longFlagOption = new Option(null, "bravo");
+		_mixedFlagOption1 = new Option('c', "charlie");
+		_mixedFlagOption2 = new Option('d', "delta");
 		
-		_shortNestedFlagOption = new Option('i', "integer");
-		_longNestedFlagOption = new Option('J', "John");
+		_shortNestedFlagOption = new Option('e', "echo");
+		_longNestedFlagOption = new Option('f', "foxtrot");
 		
-		_shortCountOption = new Option('c', null);
-		_longCountOption = new Option(null, "count");
-		_mixedCountOption = new Option('C', "cumulate");
+		_shortCountOption = new Option('g', null);
+		_longCountOption = new Option(null, "hotel");
+		_mixedCountOption = new Option('i', "india");
 		
 		// Registration
 		_rootVerb
@@ -63,9 +63,9 @@ public class TestNestedParser {
 		
 		// Result
 		// test.exe (
-		//   create [ new | [-i|--integer] [-J|--John] ] |
-		//   delete [-c] [--count] [-C|--cumulate] |
-		//   [-a] [--byte] [-h|--help] [-v|--version]
+		//   create [ new | [-e|--echo] [-f|--foxtrot] ] |
+		//   delete [-g] [--hotel] [-i|--india] |
+		//   [-a] [--bravo] [-c|--charlie] [-d|--delta]
 		// )
 	}
 

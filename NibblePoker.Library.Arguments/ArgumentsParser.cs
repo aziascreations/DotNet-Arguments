@@ -1,17 +1,41 @@
 ﻿namespace NibblePoker.Library.Arguments; 
 
 public static class ArgumentsParser {
+	/// <summary>
+	/// Parses the given arguments into the given root <c>Verb</c>.
+	/// </summary>
+	/// <param name="rootVerb"></param>
+	/// <param name="arguments"></param>
+	/// <returns>The last used <c>Verb</c> when parsing.</returns>
+	/// <exception cref="ParserException">Extended by all the following exceptions.</exception>
+	/// <exception cref="InvalidArgumentException">TODO</exception>
+	/// <exception cref="NoDefaultOptionFoundException">TODO</exception>
+	/// <exception cref="UnknownOptionException">TODO</exception>
+	/// <exception cref="RepeatedSingularOptionException">TODO</exception>
+	/// <exception cref="OptionValueOverflowException">TODO</exception>
+	/// <exception cref="NotEnoughArgumentsException">TODO</exception>
+	/// <exception cref="OptionHasValueAndMoreShortsException">TODO</exception>
+	/// <exception cref="MissingRequiredOptionException">TODO</exception>
 	public static Verb ParseArguments(Verb rootVerb, string[] arguments) {
 		Verb currentVerb = rootVerb;
 
 		bool hasFinishedParsingVerbs = false;
 		bool hasReachedEndOfOptions = false;
 		
+		Option? relevantOption = null;
+		
 		// Parsing arguments
 		for(int iArg = 0; iArg < arguments.Length; iArg++) {
 			currentVerb.WasUsed = true;
-			Option? relevantOption = null;
-		
+			
+			// Checking for the 'StopsParsing' flags and setting 'relevantOption' to null if not encountered.
+			if(relevantOption != null) {
+				if(relevantOption.ShouldStopParsing()) {
+					return currentVerb;
+				}
+				relevantOption = null;
+			}
+			
 			if(arguments[iArg].StartsWith("--")) {
 				// Long option or end of parameters
 				hasFinishedParsingVerbs = true;
@@ -142,6 +166,7 @@ public static class ArgumentsParser {
 				if(desiredVerb != null) {
 					desiredVerb.WasUsed = true;
 					currentVerb = desiredVerb;
+					// 'relevantOption' will always be null in this case, there is no need to reset it !
 				} else if(relevantOption != null) {
 					hasFinishedParsingVerbs = true;
 					
@@ -155,7 +180,7 @@ public static class ArgumentsParser {
 
 		// Checking the "Required" flag.
 		foreach(Option option in currentVerb.Options) {
-			if(option.Flags.HasFlag(OptionFlags.Required) && !option.WasUsed()) {
+			if(option.IsRequired() && !option.WasUsed()) {
 				throw new Exceptions.MissingRequiredOptionException(
 					"The required option '" + option.GetFullName() + "' wasn't given !");
 			}

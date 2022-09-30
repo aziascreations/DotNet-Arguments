@@ -4,17 +4,17 @@ A simple and 'to-the-point' library to parse launch arguments in .NET and .NET C
 This library is an improved port of my [PB-Arguments](https://github.com/aziascreations/PB-Arguments) library that intended to achieve the same goals but was missing support for some features.
 
 ## Features
-* Easy to use and 'to-the-point' philosophy
+* Easy to use, lightweight and 'to-the-point' philosophy
   * No unnecessary types, classes, procedures and whatnot
   * Loose declaration, registration and parsing can be done in a [**single** human-readable 'nested' statement](NibblePoker.Library.Arguments.Demo.LooseDeclaration/Program.cs).
-* Support for 'git-like' verbs
+* Support for 'git-like' verbs - **(Not tested yet)**
 * Different behavior for options
-  * <s>Required options</s> (TODO)
+  * Required options
   * Repeatable flag-like options
   * Multiple value
   * Multiple default option per verb with index-based ordering
   * Hidden in help text
-  * <s>Early parser exit</s> (TODO)
+  * Early parser exit
 * <s>Configurable help text printer</s> (TODO)
 * Easy exception filtering with inheritance
   * 1 common parent
@@ -35,7 +35,7 @@ TODO
 
 ## Examples
 * [Loose Declaration](NibblePoker.Library.Arguments.Demo.LooseDeclaration/)
-  * *Declaration, registration and arsing done in a single nested statement*
+  * *Declaration, registration and parsing done in a single nested statement*
 * ???
 
 ## License

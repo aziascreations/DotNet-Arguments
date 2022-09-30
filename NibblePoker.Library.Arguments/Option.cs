@@ -50,9 +50,12 @@ public class Option {
 	/// <summary>
 	/// Retrieve a proper and safe to print name for the option.
 	/// </summary>
+	/// <param name="addTicks">Add the '-' and '--' to the output</param>
 	/// <returns>The name in the 't', 'token' or 't|token' format.</returns>
-	public string GetFullName() {
-		return (HasToken() ? Token : "") + (HasToken() && HasName() ? "|" : "") + (HasName() ? Name : "");
+	public string GetFullName(bool addTicks = false) {
+		return (HasToken() ? (addTicks ? "-" : "") + Token : "") +
+		       (HasToken() && HasName() ? "|" : "") +
+		       (HasName() ? (addTicks ? "--" : "") + Name : "");
 	}
 	
 	/// <summary>
@@ -97,6 +100,24 @@ public class Option {
 	/// <returns>True if the flag was given, false otherwise.</returns>
 	public bool IsHidden() {
 		return Flags.HasFlag(OptionFlags.Hidden);
+	}
+
+	/// <summary>
+	/// Checks if the option was given the "F:NibblePoker.Library.Arguments.OptionFlags.Required" flag in its
+	///  constructor.
+	/// </summary>
+	/// <returns>True if the flag was given, false otherwise.</returns>
+	public bool IsRequired() {
+		return Flags.HasFlag(OptionFlags.Required);
+	}
+
+	/// <summary>
+	/// Checks if the option was given the "F:NibblePoker.Library.Arguments.OptionFlags.Required" flag in its
+	///  constructor.
+	/// </summary>
+	/// <returns>True if the flag was given, false otherwise.</returns>
+	public bool ShouldStopParsing() {
+		return Flags.HasFlag(OptionFlags.StopsParsing);
 	}
 	
 	/// <summary>

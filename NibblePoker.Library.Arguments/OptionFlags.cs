@@ -41,9 +41,12 @@ public enum OptionFlags {
 	/// </summary>
 	Required = 0b0001_0000,
 	
-	//StopsParsing
+	/// <summary>
+	/// Used to indicate that an <c>Option</c> must stop the parsing process as soon as it has been handled.
+	/// </summary>
+	StopsParsing = 0b0010_0000,
 	
-	//AllowMissingValue
+	//AllowMissingValue - Meh...
 	
 	//CatchAllFallbackForVerb - What's the point ?
 	
