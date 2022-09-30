@@ -128,4 +128,37 @@ public static class HelpText {
 		
 		return outputString.TrimEnd('\n');
 	}
+	
+	
+	public static string GetVerbsDetails(Verb verb, uint consoleWidth = 80, uint leftSpace = 2, uint innerSpace = 2) {
+		string outputString = "";
+		int maxSubVerbSize = 0;
+
+		foreach(Verb subVerb in verb.Verbs) {
+			if(subVerb.Name.Length > maxSubVerbSize) {
+				maxSubVerbSize = subVerb.Name.Length;
+			}
+		}
+		
+		foreach(Verb subVerb in verb.Verbs) {
+			outputString += new string(' ', (int) leftSpace) + subVerb.Name +
+			                new string(' ', maxSubVerbSize - subVerb.Name.Length + (int) innerSpace) + 
+			                SplitToMultiline(subVerb.Description,
+				                (int) consoleWidth - maxSubVerbSize - (int) innerSpace - (int) leftSpace - 1,
+				                new string(' ', (int) leftSpace + maxSubVerbSize + (int)innerSpace + 1)
+				                ) + "\n";
+		}
+		
+		return outputString.TrimEnd('\n');
+	}
+	
+	public static string GetFullHelpText(Verb verb, string programName, uint consoleWidth = 80, uint leftSpace = 2,
+		uint innerSpace = 2, bool addVerbs = true) {
+		if(addVerbs && verb.Verbs.Count == 0) {
+			addVerbs = false;
+		}
+		return GetUsageString(verb, programName, consoleWidth) + "\n\n" +
+		       (addVerbs ? "Actions:\n" + GetVerbsDetails(verb, consoleWidth, leftSpace, innerSpace) + "\n\n" : "") +
+		       (verb.Options.Count > 0 ? "Options:\n" + GetOptionsDetails(verb, consoleWidth, leftSpace, innerSpace) : "");
+	}
 }

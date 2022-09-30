@@ -14,9 +14,9 @@ public class TestHelpPrinter {
 			.RegisterOption(new Option('e', "echo", "Lorem Ipsum", OptionFlags.HasValue))
 			.RegisterOption(new Option('f', null, "Test 123", OptionFlags.HasMultipleValue))
 			.RegisterOption(new Option(null, "golf", "Hello world", OptionFlags.HasValue))
-			.RegisterVerb(new Verb("create"))
-			.RegisterVerb(new Verb("delete"))
-			.RegisterVerb(new Verb("update"));
+			.RegisterVerb(new Verb("create", "Create something"))
+			.RegisterVerb(new Verb("delete", "Delete something"))
+			.RegisterVerb(new Verb("update", "Testing line return a b c d e f g h i j k l m n o p q r s t u v w x y z"));
 	}
 
 	[Test]
@@ -31,5 +31,12 @@ public class TestHelpPrinter {
 		Console.WriteLine("Testing options text renderer:");
 		Console.WriteLine(new string('-', 60));
 		Console.WriteLine(HelpText.GetOptionsDetails(_rootVerb, 60));
+	}
+
+	[Test]
+	public void TestFullText() {
+		Console.WriteLine("Testing full text renderer:");
+		Console.WriteLine(new string('-', 60));
+		Console.WriteLine(HelpText.GetFullHelpText(_rootVerb, "test.exe", 60));
 	}
 }
