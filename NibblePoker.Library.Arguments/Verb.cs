@@ -5,14 +5,41 @@
 ///  usable launch parameters.
 /// </summary>
 public class Verb {
+	/// <summary>
+	/// Name used when searching for sub-verbs or rendering the help text.
+	/// </summary>
 	public readonly string Name;
+	
+	/// <summary>
+	/// Description that is shown in the help text.
+	/// </summary>
 	public readonly string Description;
 	
+	/// <summary>
+	/// List of registered <c>Option</c> via the 'RegisterOption' function.
+	/// </summary>
 	public readonly List<Option> Options;
+	
+	/// <summary>
+	/// List of registered sub-<c>Verb</c> via the 'RegisterVerb' function.
+	/// </summary>
 	public readonly List<Verb> Verbs;
+	
+	/// <summary>
+	/// Flag used to indicate if the verb was used at any point during the parsing process.
+	/// </summary>
 	public bool WasUsed;
+	
+	/// <summary>
+	/// Reference to a potential <c>Verb</c> into which this one was registered.
+	/// </summary>
 	public Verb? ParentVerb;
 	
+	/// <summary>
+	/// Common constructor for any <c>Verb</c>.
+	/// </summary>
+	/// <param name="name">Name used when searching for sub-verbs.</param>
+	/// <param name="description">Description that is shown in the help text.</param>
 	public Verb(string? name, string description = "") {
 		Name = name ?? "";
 		Description = description;
@@ -28,8 +55,8 @@ public class Verb {
 	/// </summary>
 	/// <param name="verb">The <c>Verb</c> to register in the current <c>Verb</c>.</param>
 	/// <returns>The current <c>Verb</c> for registration daisy-chaining.</returns>
-	/// <exception cref="InvalidVerbNameException">If the registered <c>Verb</c>'s name is empty or null.</exception>
-	/// <exception cref="DuplicateVerbException">
+	/// <exception cref="Exceptions.InvalidVerbNameException">If the registered <c>Verb</c>'s name is empty or null.</exception>
+	/// <exception cref="Exceptions.DuplicateVerbException">
 	/// If the given <c>Verb</c> or one with the same name is already registered
 	/// </exception>
 	public Verb RegisterVerb(Verb verb) {
@@ -53,10 +80,10 @@ public class Verb {
 	/// </summary>
 	/// <param name="option">The <c>Option</c> to register in the current <c>Verb</c>.</param>
 	/// <returns>The current <c>Verb</c> for registration daisy-chaining.</returns>
-	/// <exception cref="DuplicateOptionException">
+	/// <exception cref="Exceptions.DuplicateOptionException">
 	/// If the given <c>Option</c> or one with the same token/name is already registered
 	/// </exception>
-	/// <exception cref="ExistingDefaultMultipleOptionException">
+	/// <exception cref="Exceptions.ExistingDefaultMultipleOptionException">
 	/// If the given <c>Option</c> has the "F:NibblePoker.Library.Arguments.OptionFlags.Default" flag and is registered
 	///  after one that has the "F:NibblePoker.Library.Arguments.OptionFlags.Default",
 	///  "F:NibblePoker.Library.Arguments.OptionFlags.HasValue" and
@@ -114,6 +141,11 @@ public class Verb {
 		return null;
 	}
 	
+	/// <summary>
+	/// Attempts to grab the default <c>Option</c> that should be used as one during the parsing process based on
+	/// whether it has been used before.
+	/// </summary>
+	/// <returns></returns>
 	public Option? GetRelevantDefaultOption() {
 		foreach(Option option in Options) {
 			if(!option.IsDefault()) {

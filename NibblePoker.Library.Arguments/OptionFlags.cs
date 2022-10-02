@@ -1,7 +1,7 @@
 ﻿namespace NibblePoker.Library.Arguments; 
 
 /// <summary>
-/// ???
+/// Binary enum that contains all the flags an <c>Option</c> object can use.
 /// </summary>
 [Flags]
 public enum OptionFlags {
@@ -45,10 +45,6 @@ public enum OptionFlags {
 	/// Used to indicate that an <c>Option</c> must stop the parsing process as soon as it has been handled.
 	/// </summary>
 	StopsParsing = 0b0010_0000,
-	
-	//AllowMissingValue - Meh...
-	
-	//CatchAllFallbackForVerb - What's the point ?
 	
 	/// <summary>
 	/// Used for tests, do not use in any program !

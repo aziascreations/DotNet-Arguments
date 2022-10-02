@@ -5,14 +5,50 @@
 ///  or toggle some actions.
 /// </summary>
 public class Option {
+	/// <summary>
+	/// Token character used when searching for the <c>Option</c> or rendering the help text.
+	/// </summary>
 	public readonly char? Token;
+	
+	/// <summary>
+	/// Name string used when searching for the <c>Option</c> or rendering the help text.
+	/// </summary>
 	public readonly string? Name;
+	
+	/// <summary>
+	/// Description that is shown in the help text.
+	/// </summary>
 	public readonly string Description;
+	
+	/// <summary>
+	/// Binary flags used to toggle some special behaviour for the <c>Option</c> during the parsing process.
+	/// See <see cref="OptionFlags">OptionFlags</see>.
+	/// </summary>
 	public readonly OptionFlags Flags;
 	
+	/// <summary>
+	/// List of values given to the <c>Option</c> if it is allowed to have any.
+	/// </summary>
 	public readonly List<string> Arguments;
+	
+	/// <summary>
+	/// Counter used to indicate how many times the <c>Option</c> was used during the parsing process.
+	/// </summary>
 	public int Occurrences;
 	
+	/// <summary>
+	/// Common constructor for any <c>Option</c>.
+	/// </summary>
+	/// <param name="token">Token used when searching for it in a verb.</param>
+	/// <param name="name">Name used when searching for it in a verb.</param>
+	/// <param name="description">Description that is shown in the help text.</param>
+	/// <param name="flags"> Binary flags used to toggle some special behaviour.</param>
+	/// <exception cref="Exceptions.MissingOptionIdentifierException">
+	/// Thrown is a null 'Token' and 'Name' was given.
+	/// </exception>
+	/// <exception cref="Exceptions.InvalidFlagsException">
+	/// Thrown if some invalid <see cref="OptionFlags">OptionFlags</see> combination is given in 'flags'.
+	/// </exception>
 	public Option(char? token, string? name, string description = "", OptionFlags flags = OptionFlags.None) {
 		Token = token;
 		Name = name;
@@ -59,8 +95,9 @@ public class Option {
 	}
 	
 	/// <summary>
-	/// Checks if the option was given the "F:NibblePoker.Library.Arguments.OptionFlags.Default" flag in its
-	///  constructor.
+	/// Checks if the option was given the
+	/// <see cref="NibblePoker.Library.Arguments.OptionFlags.Default">OptionFlags.Default</see> flag in its
+	/// constructor.
 	/// </summary>
 	/// <returns>True if the flag was given, false otherwise.</returns>
 	public bool IsDefault() {
@@ -68,7 +105,8 @@ public class Option {
 	}
 	
 	/// <summary>
-	/// Checks if the option was given the "F:NibblePoker.Library.Arguments.OptionFlags.HasValue" flag in its
+	/// Checks if the option was given the
+	/// <see cref="NibblePoker.Library.Arguments.OptionFlags.HasValue">OptionFlags.HasValue</see> flag in its
 	///  constructor.
 	/// </summary>
 	/// <returns>True if the flag was given, false otherwise.</returns>
@@ -77,8 +115,9 @@ public class Option {
 	}
 	
 	/// <summary>
-	/// Checks if the option was given the "F:NibblePoker.Library.Arguments.OptionFlags.Repeatable" flag in its
-	///  constructor.
+	/// Checks if the option was given the
+	/// <see cref="NibblePoker.Library.Arguments.OptionFlags.Repeatable">OptionFlags.Repeatable</see> flag in its
+	/// constructor.
 	/// </summary>
 	/// <returns>True if the flag was given, false otherwise.</returns>
 	public bool IsRepeatable() {
@@ -86,8 +125,10 @@ public class Option {
 	}
 
 	/// <summary>
-	/// Checks if the option was given the "F:NibblePoker.Library.Arguments.OptionFlags.HasValue" and
-	///  "F:NibblePoker.Library.Arguments.OptionFlags.Repeatable" flags in its constructor.
+	/// Checks if the option was given the
+	/// <see cref="NibblePoker.Library.Arguments.OptionFlags.HasValue">OptionFlags.HasValue</see> and
+	/// <see cref="NibblePoker.Library.Arguments.OptionFlags.Repeatable">OptionFlags.Repeatable</see> flags in its
+	/// constructor.
 	/// </summary>
 	/// <returns>True if the flags were given, false otherwise.</returns>
 	public bool CanHaveMultipleValue() {
@@ -95,7 +136,8 @@ public class Option {
 	}
 
 	/// <summary>
-	/// Checks if the option was given the "F:NibblePoker.Library.Arguments.OptionFlags.Hidden" flag in its constructor.
+	/// Checks if the option was given the
+	/// <see cref="NibblePoker.Library.Arguments.OptionFlags.Hidden">OptionFlags.Hidden</see> flag in its constructor.
 	/// </summary>
 	/// <returns>True if the flag was given, false otherwise.</returns>
 	public bool IsHidden() {
@@ -103,8 +145,9 @@ public class Option {
 	}
 
 	/// <summary>
-	/// Checks if the option was given the "F:NibblePoker.Library.Arguments.OptionFlags.Required" flag in its
-	///  constructor.
+	/// Checks if the option was given the
+	/// <see cref="NibblePoker.Library.Arguments.OptionFlags.Required">OptionFlags.Required</see> flag in its
+	/// constructor.
 	/// </summary>
 	/// <returns>True if the flag was given, false otherwise.</returns>
 	public bool IsRequired() {
@@ -112,8 +155,9 @@ public class Option {
 	}
 
 	/// <summary>
-	/// Checks if the option was given the "F:NibblePoker.Library.Arguments.OptionFlags.Required" flag in its
-	///  constructor.
+	/// Checks if the option was given the
+	/// <see cref="NibblePoker.Library.Arguments.OptionFlags.Required">OptionFlags.Required</see> flag in its
+	/// constructor.
 	/// </summary>
 	/// <returns>True if the flag was given, false otherwise.</returns>
 	public bool ShouldStopParsing() {

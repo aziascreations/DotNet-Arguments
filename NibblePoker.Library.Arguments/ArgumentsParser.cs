@@ -1,21 +1,24 @@
 ﻿namespace NibblePoker.Library.Arguments; 
 
+/// <summary>
+/// Static class that contains a function related to parsing launch arguments.
+/// </summary>
 public static class ArgumentsParser {
 	/// <summary>
 	/// Parses the given arguments into the given root <c>Verb</c>.
 	/// </summary>
-	/// <param name="rootVerb"></param>
-	/// <param name="arguments"></param>
+	/// <param name="rootVerb">The <c>Verb</c> for which the arguments should be processed, preferably the root <c>Verb</c>.</param>
+	/// <param name="arguments">Array of launch arguments to parse.</param>
 	/// <returns>The last used <c>Verb</c> when parsing.</returns>
-	/// <exception cref="ParserException">Extended by all the following exceptions.</exception>
-	/// <exception cref="InvalidArgumentException">TODO</exception>
-	/// <exception cref="NoDefaultOptionFoundException">TODO</exception>
-	/// <exception cref="UnknownOptionException">TODO</exception>
-	/// <exception cref="RepeatedSingularOptionException">TODO</exception>
-	/// <exception cref="OptionValueOverflowException">TODO</exception>
-	/// <exception cref="NotEnoughArgumentsException">TODO</exception>
-	/// <exception cref="OptionHasValueAndMoreShortsException">TODO</exception>
-	/// <exception cref="MissingRequiredOptionException">TODO</exception>
+	/// <exception cref="Exceptions.ParserException">Extended by all the following exceptions.</exception>
+	/// <exception cref="Exceptions.InvalidArgumentException">TODO</exception>
+	/// <exception cref="Exceptions.NoDefaultOptionFoundException">TODO</exception>
+	/// <exception cref="Exceptions.UnknownOptionException">TODO</exception>
+	/// <exception cref="Exceptions.RepeatedSingularOptionException">TODO</exception>
+	/// <exception cref="Exceptions.OptionValueOverflowException">TODO</exception>
+	/// <exception cref="Exceptions.NotEnoughArgumentsException">TODO</exception>
+	/// <exception cref="Exceptions.OptionHasValueAndMoreShortsException">TODO</exception>
+	/// <exception cref="Exceptions.MissingRequiredOptionException">TODO</exception>
 	public static Verb ParseArguments(Verb rootVerb, string[] arguments) {
 		Verb currentVerb = rootVerb;
 

@@ -1,4 +1,8 @@
 # .NET - Launch Arguments Parser Library
+![Nuget.org latest version](https://img.shields.io/nuget/v/NibblePoker.Library.Arguments?label=Latest%20version)
+![Nuget.org downloads count](https://img.shields.io/nuget/dt/NibblePoker.Library.Arguments?label=Downloads)
+
+
 A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications.
 
 This library is an improved port of my [PB-Arguments](https://github.com/aziascreations/PB-Arguments) library that intended to achieve the same goals but was missing support for some features.
@@ -19,7 +23,7 @@ This library is an improved port of my [PB-Arguments](https://github.com/aziascr
 * Easy exception filtering with inheritance
   * 1 common parent
   * 3 child for distinct parts of the library
-  * 13 final errors thrown in specific places.
+  * 14 final errors thrown in specific places.
 
 ## Requirements
 * Any OS

@@ -2,6 +2,9 @@
 
 namespace NibblePoker.Library.Arguments; 
 
+/// <summary>
+/// Static class that contains helpers related to printing a help text.
+/// </summary>
 public static class HelpText {
 	private static string SplitToMultiline(string inputText, int maxLineLength, string sequentialPrefix) {        
 		StringBuilder result = new StringBuilder();
@@ -31,6 +34,7 @@ public static class HelpText {
 		result.Append(line);
 		return result.ToString().TrimEnd();
 	}
+	
 	private static string GetOptionUsagePart(Option option) {
 		return (option.IsRequired() ? "<" : "[") + option.GetFullName(true) + 
 		       (option.CanHaveValue() ? " " + (option.HasName() ? "<" + option.Name!.ToUpper() + ">" : "<VALUE>") : "") +
@@ -41,10 +45,10 @@ public static class HelpText {
 	/// <summary>
 	/// Processes a given <c>Verb</c> to get the associated usage text in POSIX format.
 	/// </summary>
-	/// <param name="verb"><c>Verb</c> to process</param>
-	/// <param name="programName"></param>
-	/// <param name="consoleWidth"></param>
-	/// <param name="addVerbs"></param>
+	/// <param name="verb">The <c>Verb</c> for which the help text should be rendered.</param>
+	/// <param name="programName">Executable's name to use.</param>
+	/// <param name="consoleWidth">The console width used to calculate properly formatted and spaced line returns.</param>
+	/// <param name="addVerbs">Toggle to include or exclude the <c>Verb</c>s.</param>
 	/// <returns></returns>
 	public static string GetUsageString(Verb verb, string programName, uint consoleWidth = 80, bool addVerbs = true) {
 		List<string> usageParts = new List<string>();
@@ -89,10 +93,10 @@ public static class HelpText {
 	/// <summary>
 	/// Processes a given <c>Verb</c> to get the associated options' details text in POSIX format.
 	/// </summary>
-	/// <param name="verb"><c>Verb</c> to process</param>
-	/// <param name="consoleWidth"></param>
-	/// <param name="leftSpace"></param>
-	/// <param name="innerSpace"></param>
+	/// <param name="verb">The <c>Verb</c> for which the help text should be rendered.</param>
+	/// <param name="consoleWidth">The console width used to calculate properly formatted and spaced line returns.</param>
+	/// <param name="leftSpace">Amount of spaces for any non-heading text.</param>
+	/// <param name="innerSpace">Amount of spaces between the <c>Option</c> and their description.</param>
 	/// <returns></returns>
 	public static string GetOptionsDetails(Verb verb, uint consoleWidth = 80, uint leftSpace = 2, uint innerSpace = 2) {
 		string outputString = "";
@@ -129,7 +133,14 @@ public static class HelpText {
 		return outputString.TrimEnd('\n');
 	}
 	
-	
+	/// <summary>
+	/// Retrieves the sub-<c>Verb</c> details section for the given <c>Verb</c>.
+	/// </summary>
+	/// <param name="verb">The <c>Verb</c> for which the help text should be rendered.</param>
+	/// <param name="consoleWidth">The console width used to calculate properly formatted and spaced line returns.</param>
+	/// <param name="leftSpace">Amount of spaces for any non-heading text.</param>
+	/// <param name="innerSpace">Amount of spaces between the <c>Verb</c> and their description.</param>
+	/// <returns></returns>
 	public static string GetVerbsDetails(Verb verb, uint consoleWidth = 80, uint leftSpace = 2, uint innerSpace = 2) {
 		string outputString = "";
 		int maxSubVerbSize = 0;
@@ -152,6 +163,16 @@ public static class HelpText {
 		return outputString.TrimEnd('\n');
 	}
 	
+	/// <summary>
+	/// Retrieves the complete help text with the usage and verb/options info and description.
+	/// </summary>
+	/// <param name="verb">The <c>Verb</c> for which the help text should be rendered, preferably the root <c>Verb</c>.</param>
+	/// <param name="programName">Executable's name to use in the usage text.</param>
+	/// <param name="consoleWidth">The console width used to calculate properly formatted and spaced line returns.</param>
+	/// <param name="leftSpace">Amount of spaces for any non-heading text in the <c>Verb</c> and <c>Option</c> sections.</param>
+	/// <param name="innerSpace">Amount of spaces between the <c>Verb</c> and <c>Option</c> and their description.</param>
+	/// <param name="addVerbs">Toggle to include or exclude the <c>Verb</c> section.</param>
+	/// <returns>The complete help text as a string.</returns>
 	public static string GetFullHelpText(Verb verb, string programName, uint consoleWidth = 80, uint leftSpace = 2,
 		uint innerSpace = 2, bool addVerbs = true) {
 		if(addVerbs && verb.Verbs.Count == 0) {
