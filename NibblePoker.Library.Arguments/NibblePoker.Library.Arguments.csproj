@@ -4,7 +4,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <PackageVersion>0.3.0</PackageVersion>
+        <PackageVersion>1.0.0</PackageVersion>
         <Title>NibblePoker Arguments</Title>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Description>A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications.</Description>

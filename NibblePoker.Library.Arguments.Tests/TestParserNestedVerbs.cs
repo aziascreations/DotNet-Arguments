@@ -70,7 +70,66 @@ public class TestParserNestedVerbs {
 	}
 
 	[Test]
-	public void TestNothing() {
+	public void TestNonNestedOption() {
+		// Safety clear
+		_rootVerb.Clear();
 		
+		Assert.DoesNotThrow(() => {
+			Verb returnedVerb = ArgumentsParser.ParseArguments(_rootVerb, new[]{"-a", "--bravo"});
+			Assert.That(returnedVerb, Is.EqualTo(_rootVerb));
+		});
+
+		Assert.Multiple(() => {
+			Assert.That(_subVerb1.WasUsed, Is.False);
+			Assert.That(_subSubVerb1.WasUsed, Is.False);
+			Assert.That(_subVerb2.WasUsed, Is.False);
+			Assert.That(_shortFlagOption.WasUsed, Is.True);
+			Assert.That(_longFlagOption.WasUsed, Is.True);
+		});
+	}
+
+	[Test]
+	public void TestValidNestedOptions() {
+		_rootVerb.Clear();
+		Assert.DoesNotThrow(() => {
+			Verb returnedVerb = ArgumentsParser.ParseArguments(_rootVerb, new[]{"create", "-e"});
+			Assert.That(returnedVerb, Is.EqualTo(_subVerb1));
+		});
+		Assert.Multiple(() => {
+			Assert.That(_subVerb1.WasUsed, Is.True);
+			Assert.That(_subSubVerb1.WasUsed, Is.False);
+			Assert.That(_subVerb2.WasUsed, Is.False);
+			Assert.That(_shortNestedFlagOption.WasUsed, Is.True);
+		});
+		
+		_rootVerb.Clear();
+		Assert.DoesNotThrow(() => {
+			Verb returnedVerb = ArgumentsParser.ParseArguments(_rootVerb, new[]{"create", "new"});
+			Assert.That(returnedVerb, Is.EqualTo(_subSubVerb1));
+		});
+		Assert.Multiple(() => {
+			Assert.That(_subVerb1.WasUsed, Is.True);
+			Assert.That(_subSubVerb1.WasUsed, Is.True);
+			Assert.That(_subVerb2.WasUsed, Is.False);
+		});
+	}
+
+	[Test]
+	public void TestInvalidNestedOptions() {
+		// Testing '-a create' which isn't allowed since the verb parsing flag is set in the parser
+		// In this case, it attempts to parse the verb as a value for the default argument.
+		_rootVerb.Clear();
+		
+		Assert.Throws<Exceptions.NoDefaultOptionFoundException>(delegate {
+			ArgumentsParser.ParseArguments(_rootVerb, new[]{"-a", "create"});
+		});
+		
+		// Testing 'create' and 'delete' in the same process which shouldn't work since they both belong to the same parent verb.
+		// Same reasoning for the exception here !
+		_rootVerb.Clear();
+		
+		Assert.Throws<Exceptions.NoDefaultOptionFoundException>(delegate {
+			ArgumentsParser.ParseArguments(_rootVerb, new[]{"create", "delete"});
+		});
 	}
 }
