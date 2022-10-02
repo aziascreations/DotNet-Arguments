@@ -21,6 +21,11 @@
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
       <DebugType>none</DebugType>
+      <DocumentationFile>bin\Release\NibblePoker.Library.Arguments.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\NibblePoker.Library.Arguments.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
