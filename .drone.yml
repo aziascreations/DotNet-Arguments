@@ -1,0 +1,13 @@
+# https://docs.drone.io/quickstart/docker/
+# https://docs.drone.io/pipeline/docker/examples/languages/csharp/
+
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: greeting
+  image: alpine
+  commands:
+  - echo hello
+  - echo world
