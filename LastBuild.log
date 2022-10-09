@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2022.8.14.1" projectFile="D:\DevelopmentNew\DotNet\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.Documentation\SandcastleProject.shfbproj" started="02/10/2022 15:28:38">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2022.8.14.1" projectFile="D:\DevelopmentNew\DotNet\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.Documentation\SandcastleProject.shfbproj" started="09/10/2022 16:55:33">
 <buildStep step="Initializing">
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder&#39;
 Locating components in the following folder(s):
@@ -189,17 +189,17 @@ Copying XML comments files
 </buildStep>
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
-    Last step completed in 00:00:00,0020
+    Last step completed in 00:00:00,0110
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00,0060
+    Last step completed in 00:00:00,0090
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
-[D:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe - GenerateRefInfo-dad00a43-7abf-458d-a833-21421c4b6ed5.proj]
-Build started 02/10/2022 15:28:39.
-Project &quot;D:\DevelopmentNew\DotNet\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.Documentation\Help\Working\GenerateRefInfo-dad00a43-7abf-458d-a833-21421c4b6ed5.proj&quot; on node 1 (default targets).
+[D:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe - GenerateRefInfo-55303b64-a6de-40fa-8ea2-b12a37e3591b.proj]
+Build started 09/10/2022 16:55:38.
+Project &quot;D:\DevelopmentNew\DotNet\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.Documentation\Help\Working\GenerateRefInfo-55303b64-a6de-40fa-8ea2-b12a37e3591b.proj&quot; on node 1 (default targets).
 PrepareForBuild:
   Creating directory &quot;obj\Debug\&quot;.
 GenerateBindingRedirects:
@@ -209,32 +209,32 @@ GenerateRefInfo:
   &#184; Microsoft Corporation. All rights reserved.
   No source code context base path specified.  Source context information is unavailable.
   Loaded 1 assemblies for reflection and 163 dependency assemblies.
-  Wrote information on 1 namespaces, 24 types, and 70 members
+  Wrote information on 1 namespaces, 24 types, and 73 members
   Merging duplicate type and member information
   Merged 0 duplicate type(s) and 0 duplicate member(s)
-Done Building Project &quot;D:\DevelopmentNew\DotNet\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.Documentation\Help\Working\GenerateRefInfo-dad00a43-7abf-458d-a833-21421c4b6ed5.proj&quot; (default targets).
-    Last step completed in 00:00:00,8960
+Done Building Project &quot;D:\DevelopmentNew\DotNet\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.Documentation\Help\Working\GenerateRefInfo-55303b64-a6de-40fa-8ea2-b12a37e3591b.proj&quot; (default targets).
+    Last step completed in 00:00:04,9480
 </buildStep>
 <buildStep step="ApplyDocumentModel">
 Applying document model to reflection output...
-    Last step completed in 00:00:00,0320
+    Last step completed in 00:00:00,0480
 </buildStep>
 <buildStep step="AddApiTopicFilenames">
 Adding topic filenames to API members...
-    Last step completed in 00:00:00,0550
+    Last step completed in 00:00:00,0520
 </buildStep>
 <buildStep step="GenerateApiTopicManifest">
 Generating API topic manifest...
-    Last step completed in 00:00:00,0420
+    Last step completed in 00:00:00,0440
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:02,0465
+    Last step completed in 00:00:02,4410
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
 No additional content to copy
-    Last step completed in 00:00:00,0000
+    Last step completed in 00:00:00,0020
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
@@ -243,22 +243,22 @@ Merging conceptual and additional tables of contents...
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file for API content...
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:00,0190
+    Last step completed in 00:00:00,0340
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
-    Last step completed in 00:00:00,4750
+    Last step completed in 00:00:01,3293
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
-    Last step completed in 00:00:00,0000
+    Last step completed in 00:00:00,0080
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
 D:\DevelopmentNew\DotNet\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.Documentation\Help\Working\BuildAssembler.config
   Updating reference topic configurations.
   No conceptual content.  Removing conceptual content components.
-    Last step completed in 00:00:00,0110
+    Last step completed in 00:00:00,0140
 </buildStep>
 <buildStep step="BuildTopics">
 Building help topics...
@@ -267,26 +267,17 @@ Loading TOC info and adding unique IDs to parent nodes
 </plugIn>Loading configuration...
 Processing topics...
 SHFB: Warning BE0066: ShowMissingComponent: [N:NibblePoker.Library.Arguments] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [M:NibblePoker.Library.Arguments.HelpText.GetOptionsDetails(NibblePoker.Library.Arguments.Verb,System.UInt32,System.UInt32,System.UInt32)] Missing &lt;returns&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [M:NibblePoker.Library.Arguments.HelpText.GetOptionUsagePart(NibblePoker.Library.Arguments.Option)] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [M:NibblePoker.Library.Arguments.HelpText.GetOptionUsagePart(NibblePoker.Library.Arguments.Option)] Missing &lt;returns&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [M:NibblePoker.Library.Arguments.HelpText.GetOptionUsagePart(NibblePoker.Library.Arguments.Option)] Missing &lt;param name=&quot;option&quot;/&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [M:NibblePoker.Library.Arguments.HelpText.GetUsageString(NibblePoker.Library.Arguments.Verb,System.String,System.UInt32,System.Boolean)] Missing &lt;returns&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [M:NibblePoker.Library.Arguments.HelpText.GetVerbsDetails(NibblePoker.Library.Arguments.Verb,System.UInt32,System.UInt32,System.UInt32)] Missing &lt;returns&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [M:NibblePoker.Library.Arguments.HelpText.SplitToMultiline(System.String,System.Int32,System.String)] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [M:NibblePoker.Library.Arguments.HelpText.SplitToMultiline(System.String,System.Int32,System.String)] Missing &lt;returns&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [M:NibblePoker.Library.Arguments.HelpText.SplitToMultiline(System.String,System.Int32,System.String)] Missing &lt;param name=&quot;inputText&quot;/&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [M:NibblePoker.Library.Arguments.HelpText.SplitToMultiline(System.String,System.Int32,System.String)] Missing &lt;param name=&quot;maxLineLength&quot;/&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [M:NibblePoker.Library.Arguments.HelpText.SplitToMultiline(System.String,System.Int32,System.String)] Missing &lt;param name=&quot;sequentialPrefix&quot;/&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [M:NibblePoker.Library.Arguments.Verb.GetRelevantDefaultOption] Missing &lt;returns&gt; documentation
-Processed 146 topic(s)
-13 warning(s)
+Processed 149 topic(s)
+4 warning(s)
 CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 3 of 15.
 CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 2 of 30.
-ResolveReferenceLinksComponent: 30 entries added to the member ID URL cache.  New cache size: 30 entries
+SaveComponent: Waiting for the document writer task to finish (12 Website API file(s) remaining)...
 <plugIn name="Website Table of Contents Generator" behavior="After" priority="1000">
 Generating TOC fragment files
-</plugIn>    Last step completed in 00:00:06,8438
+</plugIn>    Last step completed in 00:00:07,5520
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -322,26 +313,26 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Defaul
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\SearchHelp.inc.php -&gt; D:\DevelopmentNew\DotNet\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.Documentation\Help\Working\Output\Website\SearchHelp.inc.php
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\SearchHelp.php -&gt; D:\DevelopmentNew\DotNet\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.Documentation\Help\Working\Output\Website\SearchHelp.php
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\Web.Config -&gt; D:\DevelopmentNew\DotNet\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.Documentation\Help\Working\Output\Website\Web.Config
-    Last step completed in 00:00:00,0870
+    Last step completed in 00:00:00,2830
 </buildStep>
 <buildStep step="GenerateFullTextIndex">
 Generating full-text index for the website...
 
-    Last step completed in 00:00:00,0960
+    Last step completed in 00:00:00,1480
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
 
-Copied 230 files for the website content
-    Last step completed in 00:00:00,4710
+Copied 233 files for the website content
+    Last step completed in 00:00:00,4760
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00,1530
+    Last step completed in 00:00:00,2600
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 02/10/2022 15:28:50.  Total time: 00:00:11,7932
+Build completed successfully at 09/10/2022 16:55:55.  Total time: 00:00:21,8099
 
 </buildStep>
 </shfbBuild>
