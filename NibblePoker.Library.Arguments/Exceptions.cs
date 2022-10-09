@@ -9,7 +9,7 @@ public static class Exceptions {
 	/// </summary>
 	public class ArgumentsException : Exception {
 		/// <summary>
-		/// TODO
+		/// Common parent exception extended by all exceptions in this library.
 		/// </summary>
 		/// <param name="message">Exception's detailed error message.</param>
 		protected ArgumentsException(string message) : base(message) {}
@@ -20,7 +20,7 @@ public static class Exceptions {
 	/// </summary>
 	public class OptionException : ArgumentsException {
 		/// <summary>
-		/// TODO
+		/// Common parent exception extended by all exceptions thrown by <c>Option</c> class.
 		/// </summary>
 		/// <param name="message">Exception's detailed error message.</param>
 		protected OptionException(string message) : base(message) {}
@@ -53,7 +53,7 @@ public static class Exceptions {
 	/// </summary>
 	public class VerbException : ArgumentsException {
 		/// <summary>
-		/// TODO
+		/// Common parent exception extended by all exceptions thrown by <c>Verb</c> class.
 		/// </summary>
 		/// <param name="message">Exception's detailed error message.</param>
 		protected VerbException(string message) : base(message) {}
@@ -108,7 +108,7 @@ public static class Exceptions {
 	/// </summary>
 	public class ParserException : ArgumentsException {
 		/// <summary>
-		/// TODO
+		/// Common parent exception extended by all exceptions thrown by the parser.
 		/// </summary>
 		/// <param name="message">Exception's detailed error message.</param>
 		protected ParserException(string message) : base(message) {}

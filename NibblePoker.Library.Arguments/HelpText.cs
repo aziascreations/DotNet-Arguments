@@ -6,11 +6,23 @@ namespace NibblePoker.Library.Arguments;
 /// Static class that contains helpers related to printing a help text.
 /// </summary>
 public static class HelpText {
-	private static string SplitToMultiline(string inputText, int maxLineLength, string sequentialPrefix) {        
+	/// <summary>
+	/// Splits a given text in a series of lines with a given line prefix that fit in a given width. 
+	/// </summary>
+	/// <param name="inputText">Text to split.</param>
+	/// <param name="maxLineLength">Maximum line size.</param>
+	/// <param name="sequentialPrefix">Prefix text to use for any split line.</param>
+	/// <returns>The split text as a single string.</returns>
+	public static string SplitToMultiline(string inputText, int maxLineLength, string sequentialPrefix) {        
 		StringBuilder result = new StringBuilder();
 		StringBuilder line = new StringBuilder();
 		
-		Stack<string> stack = new Stack<string>(inputText.Split(' '));
+		Stack<string> inversedStack = new Stack<string>(inputText.Split(' '));
+		
+		Stack<string> stack = new Stack<string>();
+		while(inversedStack.Count != 0) {
+			stack.Push(inversedStack.Pop());
+		}
 		
 		while(stack.Count > 0) {
 			string word = stack.Pop();
@@ -35,7 +47,12 @@ public static class HelpText {
 		return result.ToString().TrimEnd();
 	}
 	
-	private static string GetOptionUsagePart(Option option) {
+	/// <summary>
+	/// Processes a given <c>Option</c> and returns the usage part in POSIX format.
+	/// </summary>
+	/// <param name="option">The <c>Option</c> to process.</param>
+	/// <returns>The formatted text as a string.</returns>
+	public static string GetOptionUsagePart(Option option) {
 		return (option.IsRequired() ? "<" : "[") + option.GetFullName(true) + 
 		       (option.CanHaveValue() ? " " + (option.HasName() ? "<" + option.Name!.ToUpper() + ">" : "<VALUE>") : "") +
 		       (option.IsRepeatable() || option.CanHaveMultipleValue() ? "..." : "") +
@@ -43,17 +60,43 @@ public static class HelpText {
 	}
 	
 	/// <summary>
-	/// Processes a given <c>Verb</c> to get the associated usage text in POSIX format.
+	/// Processes a given <c>Option</c> and returns the details part.
+	/// </summary>
+	/// <param name="option">The <c>Option</c> to process.</param>
+	/// <param name="shortOptionSpace">Amount of spaces used by short options in other lines, must include the inner comma and space.</param>
+	/// <param name="addValueToShort">Add the value's name part to both the short version if both short and long options are available.</param>
+	/// <returns>The formatted text as a string.</returns>
+	public static string GetOptionDetailsPart(Option option, uint shortOptionSpace = 0, bool addValueToShort = false) {
+		return (option.HasToken() ? "-" + option.Token + (
+			       option.CanHaveValue() && (addValueToShort || !option.HasName()) ? 
+				       (option.HasName() ? " <" + option.Name!.ToUpper() + ">" : " <VALUE>") +
+				       (option.IsRepeatable() || option.CanHaveMultipleValue() ? "..." : "")
+				       : ""
+				) : new string(' ', (int) shortOptionSpace)) +
+		       (option.HasToken() && option.HasName() ? ", " : "") +
+		       (option.HasName() ? "--" + option.Name + (
+			       option.CanHaveValue() ? 
+				       (option.HasName() ? " <" + option.Name!.ToUpper() + ">" : " <VALUE>") +
+				       (option.IsRepeatable() || option.CanHaveMultipleValue() ? "..." : "")
+				       : ""
+		       ) : "");
+	}
+	
+	/// <summary>
+	/// Processes a given <c>Verb</c> to get the associated usage text in POSIX format as a list of lines.
 	/// </summary>
 	/// <param name="verb">The <c>Verb</c> for which the help text should be rendered.</param>
 	/// <param name="programName">Executable's name to use.</param>
 	/// <param name="consoleWidth">The console width used to calculate properly formatted and spaced line returns.</param>
 	/// <param name="addVerbs">Toggle to include or exclude the <c>Verb</c>s.</param>
-	/// <returns></returns>
-	public static string GetUsageString(Verb verb, string programName, uint consoleWidth = 80, bool addVerbs = true) {
+	/// <returns>The formatted lines as a list.</returns>
+	/// <remarks>It is recommended to subtract 1 from the console's max width to prevent weird line returns in some command prompts.</remarks>
+	public static List<string> GetUsageLines(Verb verb, string programName, uint consoleWidth = 80, bool addVerbs = true) {
+		List<string> usageLines = new List<string>();
 		List<string> usageParts = new List<string>();
-
-		if(addVerbs) {
+		
+		// Grabbing the verb usage
+		if(addVerbs && verb.Verbs.Count > 0) {
 			string verbs = "[";
 			
 			foreach(Verb subVerb in verb.Verbs) {
@@ -63,6 +106,7 @@ public static class HelpText {
 			usageParts.Add(verbs.TrimEnd('|')+"]");
 		}
 		
+		// Getting the non-default options and then the default ones.
 		foreach(Option option in verb.Options) {
 			if(!option.IsDefault()) {
 				usageParts.Add(GetOptionUsagePart(option));
@@ -74,22 +118,103 @@ public static class HelpText {
 				usageParts.Add(GetOptionUsagePart(option));
 			}
 		}
-
-		string outputString = programName + " ";
-		int currentLineLength = outputString.Length;
-
+		
+		// Composing the lines
+		string currentLine = programName;
+		int currentLineLength = currentLine.Length;
+		
 		foreach(string usagePart in usageParts) {
-			if(currentLineLength + usagePart.Length > consoleWidth - 1) {
-				currentLineLength = programName.Length + 1;
-				outputString += "\n" + new string(' ', programName.Length + 1);
+			if(currentLineLength + usagePart.Length >= consoleWidth) {
+				usageLines.Add(currentLine);
+				
+				currentLineLength = programName.Length;
+				currentLine = new string(' ', programName.Length);
 			}
-			outputString += usagePart + " ";
+			
+			currentLine += " " + usagePart;
 			currentLineLength += usagePart.Length + 1;
 		}
 		
-		return outputString;
+		usageLines.Add(currentLine);
+		
+		return usageLines;
+	}
+	
+	/// <summary>
+	/// Processes a given <c>Verb</c> to get the associated usage text in POSIX format.
+	/// </summary>
+	/// <param name="verb">The <c>Verb</c> for which the help text should be rendered.</param>
+	/// <param name="programName">Executable's name to use.</param>
+	/// <param name="consoleWidth">The console width used to calculate properly formatted and spaced line returns.</param>
+	/// <param name="addVerbs">Toggle to include or exclude the <c>Verb</c>s.</param>
+	/// <remarks>It is recommended to subtract 1 from the console's max width to prevent weird line returns in some command prompts.</remarks>
+	public static string GetUsageString(Verb verb, string programName, uint consoleWidth = 80, bool addVerbs = true) {
+		return string.Join('\n', GetUsageLines(verb, programName, consoleWidth, addVerbs));
 	}
 
+	/// <summary>
+	/// Processes a given <c>Verb</c> to get the associated options' details text in POSIX format as a list.
+	/// </summary>
+	/// <param name="verb">The <c>Verb</c> for which the help text should be rendered.</param>
+	/// <param name="consoleWidth">The console width used to calculate properly formatted and spaced line returns.</param>
+	/// <param name="leftSpace">Amount of spaces for any non-heading text.</param>
+	/// <param name="innerSpace">Amount of spaces between the <c>Option</c> and their description.</param>
+	/// <param name="addValueToShort">Add the value's name part to both the short version if both short and long options are available.</param>
+	/// <returns>The <c>Option</c>s' details as a list of string.</returns>
+	/// <remarks>It is recommended to subtract 1 from the console's max width to prevent weird line returns in some command prompts.</remarks>
+	public static List<string> GetOptionsDetailsLines(Verb verb, uint consoleWidth = 80, uint leftSpace = 2, uint innerSpace = 2, bool addValueToShort = false) {
+		// Calculating the maximum token size for the spacing later on
+		int maxTokenSize = 0;
+		foreach(Option option in verb.Options) {
+			if(!option.HasToken()) {
+				continue;
+			}
+			
+			// Calculated as: '-a' + ?('<VALUE>' + '...').Length + ', '
+			int currentTokenSize = 2 + (
+					option.CanHaveValue() && (addValueToShort || !option.HasName()) ? 
+						(option.HasName() ? " <" + option.Name!.ToUpper() + ">" : " <VALUE>") +
+						(option.IsRepeatable() || option.CanHaveMultipleValue() ? "..." : "")
+						: ""
+				).Length + (option.IsRepeatable() || option.CanHaveMultipleValue() ? 3 : 0) + 2;
+			
+			if(currentTokenSize > maxTokenSize) {
+				maxTokenSize = currentTokenSize;
+			}
+		}
+		
+		// Getting the options details and calculating the max size for those.
+		List<string> optionsDetailsText = new List<string>();
+		int maxDetailsSize = 0;
+		
+		foreach(Option option in verb.Options) {
+			string currentDetails = GetOptionDetailsPart(option, (uint)maxTokenSize, addValueToShort);
+			int currentSize = (int) leftSpace + currentDetails.Length + (int) innerSpace;
+			
+			if(currentSize > maxDetailsSize) {
+				maxDetailsSize = currentSize;
+			}
+			
+			optionsDetailsText.Add(currentDetails);
+		}
+		
+		// Making the lines.
+		List<string> returnedLines = new List<string>();
+		
+		for(int iOption = 0; iOption < optionsDetailsText.Count; iOption++) {
+			string currentOptionDetails = optionsDetailsText[iOption];
+			
+			returnedLines.AddRange((
+				new string(' ', (int) leftSpace) + currentOptionDetails +
+				new string(' ', maxDetailsSize - (int) leftSpace - currentOptionDetails.Length - (int) innerSpace) +
+				new string(' ', (int) innerSpace) +
+				SplitToMultiline(verb.Options[iOption].Description, (int)consoleWidth - maxDetailsSize, new string(' ', maxDetailsSize))
+			).Split('\n').Select(a => a.TrimEnd('\r', '\n', ' ')));
+		}
+		
+		return returnedLines;
+	}
+	
 	/// <summary>
 	/// Processes a given <c>Verb</c> to get the associated options' details text in POSIX format.
 	/// </summary>
@@ -97,40 +222,11 @@ public static class HelpText {
 	/// <param name="consoleWidth">The console width used to calculate properly formatted and spaced line returns.</param>
 	/// <param name="leftSpace">Amount of spaces for any non-heading text.</param>
 	/// <param name="innerSpace">Amount of spaces between the <c>Option</c> and their description.</param>
-	/// <returns></returns>
-	public static string GetOptionsDetails(Verb verb, uint consoleWidth = 80, uint leftSpace = 2, uint innerSpace = 2) {
-		string outputString = "";
-		int maxOptionSize = 0;
-
-		foreach(Option option in verb.Options) {
-			int optionValueSize = option.CanHaveValue() ? 3 + (option.HasName() ? option.Name!.ToUpper().Length : 5) : 0;
-			int optionSize = (option.HasToken() ? 2 + optionValueSize: 0) +
-			                 (option.HasToken() && option.HasName() ? 2 : 0) +
-			                 (option.HasName() ? option.Name!.Length + 2 + optionValueSize: 0);
-			if(optionSize > maxOptionSize) {
-				maxOptionSize = optionSize;
-			}
-		}
-		
-		foreach(Option option in verb.Options) {
-			string optionValueText =
-				option.CanHaveValue() ? " " + (option.HasName() ? "<" + option.Name!.ToUpper() + ">" : "<VALUE>") : "";
-			string optionText = (option.HasToken() ? "-" + option.Token + optionValueText : "") +
-			                    (option.HasToken() && option.HasName() ? ", " : "") +
-			                    (option.HasName() ? "--" + option.Name! + optionValueText : "");
-			
-			optionText = new string(' ', (int)leftSpace) + optionText +
-			             new string(' ', maxOptionSize - optionText.Length + (int) innerSpace);
-			
-			optionText += SplitToMultiline(
-				option.Description, 
-				(int) consoleWidth - optionText.Length - 1, 
-				new string(' ', optionText.Length + 1));
-			
-			outputString += optionText + "\n";
-		}
-		
-		return outputString.TrimEnd('\n');
+	/// <param name="addValueToShort">Add the value's name part to both the short version if both short and long options are available.</param>
+	/// <returns>The <c>Option</c>s' details as a single string.</returns>
+	/// <remarks>It is recommended to subtract 1 from the console's max width to prevent weird line returns in some command prompts.</remarks>
+	public static string GetOptionsDetails(Verb verb, uint consoleWidth = 80, uint leftSpace = 2, uint innerSpace = 2, bool addValueToShort = false) {
+		return string.Join('\n', GetOptionsDetailsLines(verb, consoleWidth, leftSpace, innerSpace, addValueToShort));
 	}
 	
 	/// <summary>

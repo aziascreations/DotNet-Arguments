@@ -4,7 +4,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <PackageVersion>1.0.0</PackageVersion>
+        <PackageVersion>1.1.0</PackageVersion>
         <Title>NibblePoker Arguments</Title>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Description>A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications.</Description>
@@ -13,8 +13,11 @@
         <RepositoryUrl>https://github.com/aziascreations/DotNet-Arguments</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>argument-parser</PackageTags>
-        <PackageReleaseNotes>* Added documentation in Nuget package</PackageReleaseNotes>
+        <PackageReleaseNotes>* Improved the help text generator
+* Exposed more help text functions</PackageReleaseNotes>
         <PackageIcon>icon.png</PackageIcon>
+        <AssemblyVersion>1.1.0</AssemblyVersion>
+        <FileVersion>1.1.0</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
