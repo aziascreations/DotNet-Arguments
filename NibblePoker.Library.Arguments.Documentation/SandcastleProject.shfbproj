@@ -32,7 +32,7 @@
       <DocumentationSource sourceFile="..\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.csproj" xmlns="" />
     </DocumentationSources>
     <HelpTitle>NibblePoker.Library.Arguments - Documentation</HelpTitle>
-    <HelpFileVersion>1.0.0</HelpFileVersion>
+    <HelpFileVersion>1.1.0</HelpFileVersion>
     <NamingMethod>Guid</NamingMethod>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
     <RootNamespaceContainer>False</RootNamespaceContainer>
