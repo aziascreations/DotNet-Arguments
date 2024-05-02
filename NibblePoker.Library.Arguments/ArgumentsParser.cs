@@ -22,7 +22,10 @@ public static class ArgumentsParser {
 	public static Verb ParseArguments(Verb rootVerb, string[] arguments) {
 		Verb currentVerb = rootVerb;
 
+		// Used to skip some checks if no verbs is expected to be parsable after it is set.
 		bool hasFinishedParsingVerbs = false;
+		
+		// Used to attribute values to an option after '--'
 		bool hasReachedEndOfOptions = false;
 		
 		Option? relevantOption = null;
@@ -41,16 +44,18 @@ public static class ArgumentsParser {
 			
 			if(arguments[iArg].StartsWith("--")) {
 				// Long option or end of parameters
-				hasFinishedParsingVerbs = true;
 
 				if(arguments[iArg].Length == 2) {
-					// End of options symbol
+					// End of options '--' symbol
 					if(hasReachedEndOfOptions) {
 						throw new Exceptions.InvalidArgumentException("Dual end of options given as '--' !");
 					}
+
+					hasFinishedParsingVerbs = true;
 					hasReachedEndOfOptions = true;
+					continue;
 				} else if(hasReachedEndOfOptions) {
-					// Default option's value that starts with "--"
+					// Default option's value that starts with "--" after a '--' token.
 					relevantOption = currentVerb.GetRelevantDefaultOption();
 					
 					if(relevantOption == null) {
@@ -73,27 +78,29 @@ public static class ArgumentsParser {
 							"The option '" + arguments[iArg][2..] + "' was used more than once !");
 					}
 					relevantOption.Occurrences++;
-
-					if(!relevantOption.CanHaveValue()) {
-						continue;
-					}
-
-					if(!relevantOption.CanHaveMultipleValue() && relevantOption.Arguments.Count >= 1) {
-						throw new Exceptions.OptionValueOverflowException(
-							"The option '" + arguments[iArg][2..] + "' can only have 1 argument !");
-					}
-						
-					if(arguments.Length <= iArg + 1) {
-						throw new Exceptions.NotEnoughArgumentsException(
-							"Unable to get a value for '" + arguments[iArg][2..] + " !");
-					}
 					
-					relevantOption.Arguments.Add(arguments[iArg + 1]);
-					iArg++;
+					if(relevantOption.CanHaveValue()) {
+						if(!relevantOption.CanHaveMultipleValue() && relevantOption.Arguments.Count >= 1) {
+							throw new Exceptions.OptionValueOverflowException(
+								"The option '" + arguments[iArg][2..] + "' can only have 1 argument !");
+						}
+						
+						if(arguments.Length <= iArg + 1) {
+							throw new Exceptions.NotEnoughArgumentsException(
+								"Unable to get a value for '" + arguments[iArg][2..] + " !");
+						}
+					
+						relevantOption.Arguments.Add(arguments[iArg + 1]);
+						iArg++;
+					}
+				}
+
+				// Preventing the parsing of future verbs if the option doesn't explicitly allow it.
+				if(!relevantOption.AllowsVerbsAfter()) {
+					hasFinishedParsingVerbs = true;
 				}
 			} else if(arguments[iArg].StartsWith("-")) {
 				// Short option
-				hasFinishedParsingVerbs = true;
 				
 				for(int iChar = 1; iChar < arguments[iArg].Length; iChar++) {
 					relevantOption = currentVerb.GetOptionByToken(arguments[iArg][iChar]);
@@ -108,6 +115,10 @@ public static class ArgumentsParser {
 							"The short option '" + arguments[iArg][iChar] + "' was used more than once !");
 					}
 					relevantOption.Occurrences++;
+
+					if(!relevantOption.AllowsVerbsAfter()) {
+						hasFinishedParsingVerbs = true;
+					}
 
 					if(!relevantOption.CanHaveValue()) {
 						continue;
@@ -148,7 +159,7 @@ public static class ArgumentsParser {
 							"No relevant option found in the '" + currentVerb.Name + "' verb !");
 					}
 				} else {
-					// We will have find out it it is a verb or an option's argument.
+					// We will have find out if it is a verb or an option's argument.
 					// We should still be at the end of the arguments.
 					
 					// We check for the verb first.
@@ -171,22 +182,28 @@ public static class ArgumentsParser {
 					currentVerb = desiredVerb;
 					// 'relevantOption' will always be null in this case, there is no need to reset it !
 				} else if(relevantOption != null) {
-					hasFinishedParsingVerbs = true;
-					
 					// Not checking for flags and max value count since "GetRelevantDefaultOption" takes care of it !
 					
 					relevantOption.Occurrences++;
 					relevantOption.Arguments.Add(arguments[iArg]);
+					
+					if(!relevantOption.AllowsVerbsAfter()) {
+						hasFinishedParsingVerbs = true;
+					}
 				}
 			}
 		}
-
-		// Checking the "Required" flag.
-		foreach(Option option in currentVerb.Options) {
-			if(option.IsRequired() && !option.WasUsed()) {
-				throw new Exceptions.MissingRequiredOptionException(
-					"The required option '" + option.GetFullName() + "' wasn't given !");
+		
+		// Checking the "Required" flag recursively from the final verb back to the root verb.
+		Verb? tempReqVerb = currentVerb;
+		while(tempReqVerb != null) {
+			foreach(Option option in tempReqVerb.Options) {
+				if(option.IsRequired() && !option.WasUsed()) {
+					throw new Exceptions.MissingRequiredOptionException(
+						"The required option '" + option.GetFullName() + "' wasn't given !");
+				}
 			}
+			tempReqVerb = tempReqVerb.ParentVerb;
 		}
 		
 		return currentVerb;

@@ -163,6 +163,16 @@ public class Option {
 	public bool ShouldStopParsing() {
 		return Flags.HasFlag(OptionFlags.StopsParsing);
 	}
+
+	/// <summary>
+	/// Checks if the option was given the
+	/// <see cref="NibblePoker.Library.Arguments.OptionFlags.AllowVerbsAfter">OptionFlags.AllowVerbsAfter</see> flag in its
+	/// constructor.
+	/// </summary>
+	/// <returns>True if the flag was given, false otherwise.</returns>
+	public bool AllowsVerbsAfter() {
+		return Flags.HasFlag(OptionFlags.AllowVerbsAfter);
+	}
 	
 	/// <summary>
 	/// Checks if the option was used and received a value during the parsing process.
