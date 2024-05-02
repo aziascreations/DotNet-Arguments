@@ -45,6 +45,8 @@ jobs:
         run: |
           sudo ls -la
           docfx build ./docfx.json
+          sudo ls -la _site/
+          sudo ls -la _site/api
         continue-on-error: false
         
       - name: Fix API index
