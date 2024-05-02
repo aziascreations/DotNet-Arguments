@@ -41,10 +41,11 @@ jobs:
           sudo cp building.md NibblePoker.Library.Arguments.Documentation/building.md
       
       - name: Build DocFX documentation
-        working-directory: NibblePoker.Library.Arguments.Documentation
         run: |
           sudo ls -la
-          docfx build ./docfx.json
+          cd NibblePoker.Library.Arguments.Documentation
+          sudo ls -la
+          docfx build --logLevel Verbose ./docfx.json
           sudo ls -la _site/
           sudo ls -la _site/api
         continue-on-error: false
