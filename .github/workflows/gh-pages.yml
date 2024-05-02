@@ -47,8 +47,9 @@ jobs:
       - name: Fix API index
         working-directory: NibblePoker.Library.Arguments.Documentation
         run: |
-          sudo rm NibblePoker.Library.Arguments.Documentation/_site/api/index.html
-          sudo cp NibblePoker.Library.Arguments.Documentation/_site/api/NibblePoker.Library.Arguments.html NibblePoker.Library.Arguments.Documentation/_site/api/index.html
+          sudo rm _site/api/index.html
+          sudo cp _site/api/NibblePoker.Library.Arguments.html _site/api/index.html
+        continue-on-error: true
 
       - name: Deploy documentation to gh-pages
         uses: peaceiris/actions-gh-pages@v3
