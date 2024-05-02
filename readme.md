@@ -9,7 +9,7 @@ This library is an improved port of my [PB-Arguments](https://github.com/aziascr
 ## Features
 * Easy to use, lightweight and 'to-the-point' philosophy
   * No unnecessary types, classes, procedures and whatnot
-  * Loose declaration, registration and parsing can be done in a [**single** human-readable 'nested' statement](NibblePoker.Library.Arguments.Demo.LooseDeclaration/Program.cs).
+  * Loose declaration, registration and parsing can be done in a [**single** human-readable 'nested' statement](https://github.com/aziascreations/DotNet-Arguments/blob/master/NibblePoker.Library.Arguments.Demo.LooseDeclaration/Program.cs).
 * Support for 'git-like' verbs
 * Different behavior for options
   * Required options
@@ -66,8 +66,8 @@ if(OptionVerbose.WasUsed() && OptionVerbose.Occurrences >= 2) {
 ```
 
 ## Other Examples
-* [Loose Declaration](NibblePoker.Library.Arguments.Demo.LooseDeclaration/)
+* [Loose Declaration](https://github.com/aziascreations/DotNet-Arguments/blob/master/NibblePoker.Library.Arguments.Demo.LooseDeclaration)
   * *Declaration, registration and parsing done in a single nested statement*
 
 ## License
-[MIT License](LICENSE)
+[MIT License](https://github.com/aziascreations/DotNet-Arguments/blob/master/LICENSE)

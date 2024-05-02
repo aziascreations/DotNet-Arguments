@@ -1,0 +1,7 @@
+- name: Introduction
+  href: /
+- name: Building
+  href: /building.html
+- name: Documentation
+  href: api/NibblePoker.Library.Arguments.html
+  homepage: api/NibblePoker.Library.Arguments.html

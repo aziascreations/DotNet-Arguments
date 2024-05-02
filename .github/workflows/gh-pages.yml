@@ -1,0 +1,47 @@
+﻿name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+      - dev-cicd-and-c99-catchup
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    concurrency:
+      group: cicd-docs
+    
+    steps:
+      - name: Checkout Git
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+          fetch-depth: 0
+
+      - name: Copy Markdown files
+        run: |
+          sudo cp readme.md NibblePoker.Library.Arguments.Documentation/index.md
+          sudo cp building.md NibblePoker.Library.Arguments.Documentation/building.md
+          
+      - name: Build DocFX documentation
+        uses: nikeee/docfx-action@v1.0.0
+        with:
+          args: 'NibblePoker.Library.Arguments.Documentation/docfx.json'
+
+      - name: Fix API index
+        run: |
+          sudo rm NibblePoker.Library.Arguments.Documentation/_site/api/index.html
+          sudo cp NibblePoker.Library.Arguments.Documentation/_site/api/NibblePoker.Library.Arguments.html NibblePoker.Library.Arguments.Documentation/_site/api/index.html
+
+      - name: Deploy documentation to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/master' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./NibblePoker.Library.Arguments/_site
