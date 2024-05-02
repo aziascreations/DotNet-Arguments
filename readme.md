@@ -1,7 +1,6 @@
 # .NET - Launch Arguments Parser Library
 [![Nuget.org latest version](https://img.shields.io/nuget/v/NibblePoker.Library.Arguments?label=Latest%20version)](https://www.nuget.org/packages/NibblePoker.Library.Arguments)
 [![Nuget.org downloads count](https://img.shields.io/nuget/dt/NibblePoker.Library.Arguments?label=Downloads)](https://www.nuget.org/packages/NibblePoker.Library.Arguments)
-[![Build Status](https://github.drone.ci.nibblepoker.lu/api/badges/aziascreations/DotNet-Arguments/status.svg)](https://github.drone.ci.nibblepoker.lu/aziascreations/DotNet-Arguments)
 
 A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications.
 

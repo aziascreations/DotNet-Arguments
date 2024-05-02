@@ -97,3 +97,4 @@ NibblePoker.Library.Arguments.Documentation/Help/
 .idea/
 action.yml
 doxygen.conf
+.vs/
