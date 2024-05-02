@@ -17,7 +17,7 @@ jobs:
       matrix:
         dotnet: [ '6.x', '7.x', '8.x' ]
     
-    name: NUnit .NET ${{ matrix.dotnet }} Tests
+    name: NUnit Tests (.NET ${{ matrix.dotnet }})
     
     steps:
       - name: Checkout Git repository
@@ -31,6 +31,6 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet }}
       
-      - name: Run testsConfigure, build, and test the project
+      - name: Run NUnit tests
         run: | 
           dotnet test ./
