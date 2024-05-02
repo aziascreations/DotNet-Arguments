@@ -35,18 +35,22 @@ jobs:
 
       - name: Copy Markdown files
         run: |
+          sudo ls -la
+          sudo ls -la ./NibblePoker.Library.Arguments
           sudo cp readme.md NibblePoker.Library.Arguments.Documentation/index.md
           sudo cp building.md NibblePoker.Library.Arguments.Documentation/building.md
       
       - name: Build DocFX documentation
         working-directory: NibblePoker.Library.Arguments.Documentation
         run: |
+          sudo ls -la
           docfx build ./docfx.json
         continue-on-error: false
         
       - name: Fix API index
         working-directory: NibblePoker.Library.Arguments.Documentation
         run: |
+          sudo ls -la
           sudo cp _site/api/NibblePoker.Library.Arguments.html _site/api/index.html
 
       - name: Deploy documentation to gh-pages
