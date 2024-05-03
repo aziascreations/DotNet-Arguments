@@ -3,7 +3,7 @@
     <PropertyGroup>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <PackageVersion>1.2.0</PackageVersion>
+        <PackageVersion>1.2.1</PackageVersion>
         <Title>NibblePoker Arguments</Title>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Description>A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications.</Description>
@@ -12,10 +12,10 @@
         <RepositoryUrl>https://github.com/aziascreations/DotNet-Arguments</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>argument-parser</PackageTags>
-        <PackageReleaseNotes>Added .NET 8.0 target and in-between verbs options</PackageReleaseNotes>
+        <PackageReleaseNotes>Improved documentation and fixed small copy-paste mistakes</PackageReleaseNotes>
         <PackageIcon>icon.png</PackageIcon>
-        <AssemblyVersion>1.2.0</AssemblyVersion>
-        <FileVersion>1.2.0</FileVersion>
+        <AssemblyVersion>1.2.1</AssemblyVersion>
+        <FileVersion>1.2.1</FileVersion>
         <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     </PropertyGroup>
 

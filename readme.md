@@ -1,7 +1,7 @@
 # .NET - Launch Arguments Parser Library
 [![Nuget.org latest version](https://img.shields.io/nuget/v/NibblePoker.Library.Arguments?label=Latest%20version)](https://www.nuget.org/packages/NibblePoker.Library.Arguments)
 [![Nuget.org downloads count](https://img.shields.io/nuget/dt/NibblePoker.Library.Arguments?label=Downloads)](https://www.nuget.org/packages/NibblePoker.Library.Arguments)
-[![Repository's License](https://img.shields.io/github/license/aziascreations/DotNet-Arguments)](LICENSE)
+[![Repository's License](https://img.shields.io/github/license/aziascreations/DotNet-Arguments)](https://github.com/aziascreations/DotNet-Arguments/blob/master/LICENSE)
 
 A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications.
 
@@ -29,15 +29,14 @@ It is also has the exact same features as the port in [C99-Utility-Libraries](ht
   * 14 final errors thrown in specific places.
 
 ## Requirements
-* Any OS/CPU
-* .NET v6.0+
+* .NET v6.0
 * C# 10.0
 
 ## Documentation
 Go to [aziascreations.github.io/DotNet-Arguments/](https://aziascreations.github.io/DotNet-Arguments/) for the HTML documentation.
 
 ## Building
-See [building.md](building.md)
+Please refer to the [building.md](building.md) file for more information.
 
 ## Basic Example
 The following example shows you how to declare 2 options and how to parse and use the launch arguments.
@@ -69,7 +68,9 @@ if(OptionVerbose.WasUsed() && OptionVerbose.Occurrences >= 2) {
 ```
 
 ## Other Examples
-* [Loose Declaration](https://github.com/aziascreations/DotNet-Arguments/blob/master/NibblePoker.Library.Arguments.Demo.LooseDeclaration)
+* [Regular Declaration](https://github.com/aziascreations/DotNet-Arguments/blob/master/NibblePoker.Library.Arguments.Examples/RegularDeclaration/RegularDeclaration.cs)
+  * *Standard recommended method of declaring and using the options and verbs*
+* [Loose Declaration](https://github.com/aziascreations/DotNet-Arguments/blob/master/NibblePoker.Library.Arguments.Examples/LooseDeclaration/LooseDeclaration.cs)
   * *Declaration, registration and parsing done in a single nested statement*
 
 ## License
