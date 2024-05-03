@@ -11,14 +11,14 @@ public static class ArgumentsParser {
 	/// <param name="arguments">Array of launch arguments to parse.</param>
 	/// <returns>The last used <c>Verb</c> when parsing.</returns>
 	/// <exception cref="Exceptions.ParserException">Extended by all the following exceptions.</exception>
-	/// <exception cref="Exceptions.InvalidArgumentException">TODO</exception>
-	/// <exception cref="Exceptions.NoDefaultOptionFoundException">TODO</exception>
-	/// <exception cref="Exceptions.UnknownOptionException">TODO</exception>
-	/// <exception cref="Exceptions.RepeatedSingularOptionException">TODO</exception>
-	/// <exception cref="Exceptions.OptionValueOverflowException">TODO</exception>
-	/// <exception cref="Exceptions.NotEnoughArgumentsException">TODO</exception>
-	/// <exception cref="Exceptions.OptionHasValueAndMoreShortsException">TODO</exception>
-	/// <exception cref="Exceptions.MissingRequiredOptionException">TODO</exception>
+	/// <exception cref="Exceptions.InvalidArgumentException">If given the '--' token twice, or after reaching the end of options.</exception>
+	/// <exception cref="Exceptions.NoDefaultOptionFoundException">If no appropriate option with the `Default` flag could be found when needed.</exception>
+	/// <exception cref="Exceptions.UnknownOptionException">If a given option couldn't be found.</exception>
+	/// <exception cref="Exceptions.RepeatedSingularOptionException">If a given option that could only be used once was used twice.</exception>
+	/// <exception cref="Exceptions.OptionValueOverflowException">If a given option that could only hold one value was made to hold more.</exception>
+	/// <exception cref="Exceptions.NotEnoughArgumentsException">If a given option needs to have a value, but is the last argument.</exception>
+	/// <exception cref="Exceptions.OptionHasValueAndMoreShortsException">If a short option with an expected value isn't given at the end of a short options block.</exception>
+	/// <exception cref="Exceptions.MissingRequiredOptionException">if an option with the `Required` flag wasn't used after all arguments were parsed.</exception>
 	public static Verb ParseArguments(Verb rootVerb, string[] arguments) {
 		Verb currentVerb = rootVerb;
 

@@ -71,3 +71,6 @@ if(OptionVerbose.WasUsed() && OptionVerbose.Occurrences >= 2) {
 
 ## License
 [MIT License](https://github.com/aziascreations/DotNet-Arguments/blob/master/LICENSE)
+
+Keep in mind, the [doxygen-awesome-css](https://github.com/jothepro/doxygen-awesome-css) submodule repository uses an
+[MIT license](https://github.com/jothepro/doxygen-awesome-css/blob/main/LICENSE).
