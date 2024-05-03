@@ -1,0 +1,37 @@
+﻿name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    concurrency:
+      group: cicd-docs
+    
+    steps:
+      - name: Checkout Git
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+      
+      - name: Build Doxygen documentation
+        uses: mattnotmitt/doxygen-action@v1.9.5
+        with:
+          working-directory: 'NibblePoker.Library.Arguments.Documentation/'
+          doxyfile-path: 'Doxyfile'
+
+      - name: Deploy documentation to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/master' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./NibblePoker.Library.Arguments.Documentation/html

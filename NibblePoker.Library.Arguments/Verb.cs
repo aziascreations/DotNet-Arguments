@@ -84,10 +84,11 @@ public class Verb {
 	/// If the given <c>Option</c> or one with the same token/name is already registered
 	/// </exception>
 	/// <exception cref="Exceptions.ExistingDefaultMultipleOptionException">
-	/// If the given <c>Option</c> has the "F:NibblePoker.Library.Arguments.OptionFlags.Default" flag and is registered
-	///  after one that has the "F:NibblePoker.Library.Arguments.OptionFlags.Default",
-	///  "F:NibblePoker.Library.Arguments.OptionFlags.HasValue" and
-	///  "F:NibblePoker.Library.Arguments.OptionFlags.Repeatable" flags.
+	/// If the given <see cref="NibblePoker.Library.Arguments.Option">Option</see> has the
+	///  <see cref="NibblePoker.Library.Arguments.OptionFlags.Default">Default</see> flag and is registered
+	///  after one that also has <see cref="NibblePoker.Library.Arguments.OptionFlags.Default">OptionFlags.Default</see>,
+	///  <see cref="NibblePoker.Library.Arguments.OptionFlags.HasValue">OptionFlags.HasValue</see> and
+	///  <see cref="NibblePoker.Library.Arguments.OptionFlags.Repeatable">OptionFlags.Repeatable</see> flags.
 	/// </exception>
 	public Verb RegisterOption(Option option) {
 		if(Options.Contains(option)) {

@@ -47,7 +47,16 @@ public enum OptionFlags {
 	StopsParsing = 0b0010_0000,
 	
 	/// <summary>
+	/// Indicates that an <c>Option</c> will not prevent further <c>Verb</c>s from being parsed when encountered.
+	/// Usage of this flag required some forethought if the Option uses the `FLAG_OPTION_DEFAULT` flag since
+	///  its values may be interpreted as a verb and cause all kinds of errors.
+	/// A "better" alternative would be to only use the `FLAG_OPTION_REQUIRED` flag if the value is needed,
+	///  which will force the user to explicitly use the option's name or token.
+	/// </summary>
+	AllowVerbsAfter = 0b0100_0000,
+	
+	/// <summary>
 	/// Used for tests, do not use in any program !
 	/// </summary>
-	All = None | Default | HasValue | Repeatable | HasMultipleValue | Hidden,
+	All = None | Default | HasValue | Repeatable | HasMultipleValue | Hidden | AllowVerbsAfter,
 }

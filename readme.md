@@ -1,7 +1,6 @@
 # .NET - Launch Arguments Parser Library
 [![Nuget.org latest version](https://img.shields.io/nuget/v/NibblePoker.Library.Arguments?label=Latest%20version)](https://www.nuget.org/packages/NibblePoker.Library.Arguments)
 [![Nuget.org downloads count](https://img.shields.io/nuget/dt/NibblePoker.Library.Arguments?label=Downloads)](https://www.nuget.org/packages/NibblePoker.Library.Arguments)
-[![Build Status](https://github.drone.ci.nibblepoker.lu/api/badges/aziascreations/DotNet-Arguments/status.svg)](https://github.drone.ci.nibblepoker.lu/aziascreations/DotNet-Arguments)
 
 A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications.
 
@@ -10,7 +9,7 @@ This library is an improved port of my [PB-Arguments](https://github.com/aziascr
 ## Features
 * Easy to use, lightweight and 'to-the-point' philosophy
   * No unnecessary types, classes, procedures and whatnot
-  * Loose declaration, registration and parsing can be done in a [**single** human-readable 'nested' statement](NibblePoker.Library.Arguments.Demo.LooseDeclaration/Program.cs).
+  * Loose declaration, registration and parsing can be done in a [**single** human-readable 'nested' statement](https://github.com/aziascreations/DotNet-Arguments/blob/master/NibblePoker.Library.Arguments.Demo.LooseDeclaration/Program.cs).
 * Support for 'git-like' verbs
 * Different behavior for options
   * Required options
@@ -67,8 +66,11 @@ if(OptionVerbose.WasUsed() && OptionVerbose.Occurrences >= 2) {
 ```
 
 ## Other Examples
-* [Loose Declaration](NibblePoker.Library.Arguments.Demo.LooseDeclaration/)
+* [Loose Declaration](https://github.com/aziascreations/DotNet-Arguments/blob/master/NibblePoker.Library.Arguments.Demo.LooseDeclaration)
   * *Declaration, registration and parsing done in a single nested statement*
 
 ## License
-[MIT License](LICENSE)
+[MIT License](https://github.com/aziascreations/DotNet-Arguments/blob/master/LICENSE)
+
+Keep in mind, the [doxygen-awesome-css](https://github.com/jothepro/doxygen-awesome-css) submodule repository uses an
+[MIT license](https://github.com/jothepro/doxygen-awesome-css/blob/main/LICENSE).

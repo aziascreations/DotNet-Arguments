@@ -1,0 +1,36 @@
+﻿name: NUnit Tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+  actions: read
+  checks: write
+
+jobs:
+  do-tests:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        dotnet: [ '6.x', '7.x', '8.x' ]
+    
+    name: NUnit Tests (.NET ${{ matrix.dotnet }})
+    
+    steps:
+      - name: Checkout Git repository
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+          fetch-depth: 0
+
+      - name: Install .NET ${{ matrix.dotnet }}
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      
+      - name: Run NUnit tests
+        run: | 
+          dotnet test ./
