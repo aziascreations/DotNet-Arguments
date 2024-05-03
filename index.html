@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">DotNet-Arguments<span id="projectnumber">&#160;1.2.0</span>
+   <div id="projectname">DotNet-Arguments<span id="projectnumber">&#160;1.2.1</span>
    </div>
    <div id="projectbrief">A simple and &#39;to-the-point&#39; library to parse launch arguments in .NET and .NET Core applications.</div>
   </td>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">.NET - Launch Arguments Parser Library </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md__github_workspace_readme"></a><a href="https://www.nuget.org/packages/NibblePoker.Library.Arguments"><img src="https://img.shields.io/nuget/v/NibblePoker.Library.Arguments?label=Latest%20version" alt="Nuget.org latest version" class="inline"/></a> <a href="https://www.nuget.org/packages/NibblePoker.Library.Arguments"><img src="https://img.shields.io/nuget/dt/NibblePoker.Library.Arguments?label=Downloads" alt="Nuget.org downloads count" class="inline"/></a> [<img src="https://img.shields.io/github/license/aziascreations/DotNet-Arguments" alt="Repository's License" class="inline"/>](LICENSE)</p>
+<div class="textblock"><p ><a class="anchor" id="md__github_workspace_readme"></a><a href="https://www.nuget.org/packages/NibblePoker.Library.Arguments"><img src="https://img.shields.io/nuget/v/NibblePoker.Library.Arguments?label=Latest%20version" alt="Nuget.org latest version" class="inline"/></a> <a href="https://www.nuget.org/packages/NibblePoker.Library.Arguments"><img src="https://img.shields.io/nuget/dt/NibblePoker.Library.Arguments?label=Downloads" alt="Nuget.org downloads count" class="inline"/></a> <a href="https://github.com/aziascreations/DotNet-Arguments/blob/master/LICENSE"><img src="https://img.shields.io/github/license/aziascreations/DotNet-Arguments" alt="Repository's License" class="inline"/></a></p>
 <p >A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications.</p>
 <p >This library is an improved port of my <a href="https://github.com/aziascreations/PB-Arguments">PB-Arguments</a> library that intended to achieve the same goals but was missing support for some features.<br  />
  It is also has the exact same features as the port in <a href="https://github.com/aziascreations/C99-Utility-Libraries">C99-Utility-Libraries</a>.</p>
@@ -129,8 +129,7 @@ Features</h1>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Requirements</h1>
 <ul>
-<li>Any OS/CPU</li>
-<li>.NET v6.0+</li>
+<li>.NET v6.0</li>
 <li>C# 10.0</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md3"></a>
@@ -138,7 +137,7 @@ Documentation</h1>
 <p >Go to <a href="https://aziascreations.github.io/DotNet-Arguments/">aziascreations.github.io/DotNet-Arguments/</a> for the HTML documentation.</p>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Building</h1>
-<p >See <a class="el" href="md__github_workspace_building.html">building.md</a></p>
+<p >Please refer to the <a class="el" href="md__github_workspace_building.html">building.md</a> file for more information.</p>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Basic Example</h1>
 <p >The following example shows you how to declare 2 options and how to parse and use the launch arguments.</p>
@@ -165,21 +164,25 @@ Basic Example</h1>
 <div class="line">    <span class="comment">// We count the number of occurences to enable more logging.</span></div>
 <div class="line">    Console.WriteLine(<span class="stringliteral">&quot;Activating super-verbose mode !&quot;</span>);</div>
 <div class="line">}</div>
-<div class="ttc" id="aOptionFlags_8cs_html_a596e8c36cd4a76845679fcdbdd2b539f"><div class="ttname"><a href="OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539f">OptionFlags</a></div><div class="ttdeci">OptionFlags</div><div class="ttdoc">Binary enum that contains all the flags an Option object can use.</div><div class="ttdef"><b>Definition:</b> OptionFlags.cs:7</div></div>
+<div class="ttc" id="aOptionFlags_8cs_html_a596e8c36cd4a76845679fcdbdd2b539f"><div class="ttname"><a href="OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539f">OptionFlags</a></div><div class="ttdeci">OptionFlags</div><div class="ttdoc">Binary enum that contains all the flags an Option can use.  These flags can toggle some special behav...</div><div class="ttdef"><b>Definition:</b> OptionFlags.cs:9</div></div>
 <div class="ttc" id="aclassArgumentsParser_html"><div class="ttname"><a href="classArgumentsParser.html">ArgumentsParser</a></div><div class="ttdoc">Static class that contains a function related to parsing launch arguments.</div><div class="ttdef"><b>Definition:</b> ArgumentsParser.cs:6</div></div>
-<div class="ttc" id="aclassArgumentsParser_html_a412d7a1444af1cde081c0c2c93fdcc13"><div class="ttname"><a href="classArgumentsParser.html#a412d7a1444af1cde081c0c2c93fdcc13">ArgumentsParser.ParseArguments</a></div><div class="ttdeci">static Verb ParseArguments(Verb rootVerb, string[] arguments)</div><div class="ttdoc">Parses the given arguments into the given root Verb.</div><div class="ttdef"><b>Definition:</b> ArgumentsParser.cs:22</div></div>
+<div class="ttc" id="aclassArgumentsParser_html_a412d7a1444af1cde081c0c2c93fdcc13"><div class="ttname"><a href="classArgumentsParser.html#a412d7a1444af1cde081c0c2c93fdcc13">ArgumentsParser.ParseArguments</a></div><div class="ttdeci">static Verb ParseArguments(Verb rootVerb, string[] arguments)</div><div class="ttdoc">Parses the given arguments into the given root Verb.</div><div class="ttdef"><b>Definition:</b> ArgumentsParser.cs:56</div></div>
 <div class="ttc" id="aclassHelpText_html"><div class="ttname"><a href="classHelpText.html">HelpText</a></div><div class="ttdoc">Static class that contains helpers related to printing a help text.</div><div class="ttdef"><b>Definition:</b> HelpText.cs:8</div></div>
-<div class="ttc" id="aclassHelpText_html_a3d750b5ca01aea23c58a014952448006"><div class="ttname"><a href="classHelpText.html#a3d750b5ca01aea23c58a014952448006">HelpText.GetFullHelpText</a></div><div class="ttdeci">static string GetFullHelpText(Verb verb, string programName, uint consoleWidth=80, uint leftSpace=2, uint innerSpace=2, bool addVerbs=true)</div><div class="ttdoc">Retrieves the complete help text with the usage and verb/options info and description.</div><div class="ttdef"><b>Definition:</b> HelpText.cs:272</div></div>
+<div class="ttc" id="aclassHelpText_html_a3d750b5ca01aea23c58a014952448006"><div class="ttname"><a href="classHelpText.html#a3d750b5ca01aea23c58a014952448006">HelpText.GetFullHelpText</a></div><div class="ttdeci">static string GetFullHelpText(Verb verb, string programName, uint consoleWidth=80, uint leftSpace=2, uint innerSpace=2, bool addVerbs=true)</div><div class="ttdoc">Retrieves the complete help text with the usage and verb/options info and description.</div><div class="ttdef"><b>Definition:</b> HelpText.cs:384</div></div>
 <div class="ttc" id="aclassOption_html"><div class="ttname"><a href="classOption.html">Option</a></div><div class="ttdoc">Class Option models an option linked to one or more Verb that can be given in launch arguments to pas...</div><div class="ttdef"><b>Definition:</b> Option.cs:7</div></div>
-<div class="ttc" id="aclassOption_html_a8e5f257190a5b34bfc5bcb8606523985"><div class="ttname"><a href="classOption.html#a8e5f257190a5b34bfc5bcb8606523985">Option.Occurrences</a></div><div class="ttdeci">int Occurrences</div><div class="ttdoc">Counter used to indicate how many times the Option was used during the parsing process.</div><div class="ttdef"><b>Definition:</b> Option.cs:37</div></div>
-<div class="ttc" id="aclassOption_html_af6f7e3711b357564070820aadb5729cf"><div class="ttname"><a href="classOption.html#af6f7e3711b357564070820aadb5729cf">Option.WasUsed</a></div><div class="ttdeci">bool WasUsed()</div><div class="ttdoc">Checks if the option was used in the parsed launch arguments.</div><div class="ttdef"><b>Definition:</b> Option.cs:189</div></div>
+<div class="ttc" id="aclassOption_html_a8e5f257190a5b34bfc5bcb8606523985"><div class="ttname"><a href="classOption.html#a8e5f257190a5b34bfc5bcb8606523985">Option.Occurrences</a></div><div class="ttdeci">int Occurrences</div><div class="ttdoc">Counter used to indicate how many times the Option was used during the parsing process.</div><div class="ttdef"><b>Definition:</b> Option.cs:45</div></div>
+<div class="ttc" id="aclassOption_html_af6f7e3711b357564070820aadb5729cf"><div class="ttname"><a href="classOption.html#af6f7e3711b357564070820aadb5729cf">Option.WasUsed</a></div><div class="ttdeci">bool WasUsed()</div><div class="ttdoc">Checks if the Option was used in the parsed launch arguments.</div><div class="ttdef"><b>Definition:</b> Option.cs:240</div></div>
 <div class="ttc" id="aclassVerb_html"><div class="ttname"><a href="classVerb.html">Verb</a></div><div class="ttdoc">Class Verb models a verb that can be given in launch arguments to select a specific action or subset ...</div><div class="ttdef"><b>Definition:</b> Verb.cs:7</div></div>
-<div class="ttc" id="aclassVerb_html_adf8b6beb6a7cc7e3bc015c640a4acf9b"><div class="ttname"><a href="classVerb.html#adf8b6beb6a7cc7e3bc015c640a4acf9b">Verb.RegisterOption</a></div><div class="ttdeci">Verb RegisterOption(Option option)</div><div class="ttdoc">Attempts to register an Option in the current Verb.</div><div class="ttdef"><b>Definition:</b> Verb.cs:93</div></div>
-<div class="ttc" id="aclassVerb_html_afe9746d95ea26d7346db2d8d56b147b3"><div class="ttname"><a href="classVerb.html#afe9746d95ea26d7346db2d8d56b147b3">Verb.Clear</a></div><div class="ttdeci">void Clear()</div><div class="ttdoc">Clears any field and registered member's fields that may be modified once the launch arguments are pa...</div><div class="ttdef"><b>Definition:</b> Verb.cs:219</div></div>
+<div class="ttc" id="aclassVerb_html_adf8b6beb6a7cc7e3bc015c640a4acf9b"><div class="ttname"><a href="classVerb.html#adf8b6beb6a7cc7e3bc015c640a4acf9b">Verb.RegisterOption</a></div><div class="ttdeci">Verb RegisterOption(Option option)</div><div class="ttdoc">Attempts to register an Option in the current Verb.</div><div class="ttdef"><b>Definition:</b> Verb.cs:113</div></div>
+<div class="ttc" id="aclassVerb_html_afe9746d95ea26d7346db2d8d56b147b3"><div class="ttname"><a href="classVerb.html#afe9746d95ea26d7346db2d8d56b147b3">Verb.Clear</a></div><div class="ttdeci">void Clear()</div><div class="ttdoc">Clears any field and registered member's fields that may be modified once the launch arguments are pa...</div><div class="ttdef"><b>Definition:</b> Verb.cs:267</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
 Other Examples</h1>
 <ul>
-<li><a href="https://github.com/aziascreations/DotNet-Arguments/blob/master/NibblePoker.Library.Arguments.Demo.LooseDeclaration">Loose Declaration</a><ul>
+<li><a href="https://github.com/aziascreations/DotNet-Arguments/blob/master/NibblePoker.Library.Arguments.Examples/RegularDeclaration/RegularDeclaration.cs">Regular Declaration</a><ul>
+<li><em>Standard recommended method of declaring and using the options and verbs</em></li>
+</ul>
+</li>
+<li><a href="https://github.com/aziascreations/DotNet-Arguments/blob/master/NibblePoker.Library.Arguments.Examples/LooseDeclaration/LooseDeclaration.cs">Loose Declaration</a><ul>
 <li><em>Declaration, registration and parsing done in a single nested statement</em></li>
 </ul>
 </li>

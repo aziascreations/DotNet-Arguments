@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">DotNet-Arguments<span id="projectnumber">&#160;1.2.0</span>
+   <div id="projectname">DotNet-Arguments<span id="projectnumber">&#160;1.2.1</span>
    </div>
    <div id="projectbrief">A simple and &#39;to-the-point&#39; library to parse launch arguments in .NET and .NET Core applications.</div>
   </td>
@@ -115,7 +115,8 @@ Enumerations</h2></td></tr>
 , <a class="el" href="OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539fab1c94ca2fbc3e78fc30069c8d0f01680">All</a> = None | Default | HasValue | Repeatable | HasMultipleValue | Hidden | AllowVerbsAfter
 <br />
  }</td></tr>
-<tr class="memdesc:a596e8c36cd4a76845679fcdbdd2b539f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binary enum that contains all the flags an <code><a class="el" href="classOption.html" title="Class Option models an option linked to one or more Verb that can be given in launch arguments to pas...">Option</a></code> object can use.   <a href="OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539f">More...</a><br /></td></tr>
+<tr class="memdesc:a596e8c36cd4a76845679fcdbdd2b539f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binary enum that contains all the flags an <a class="el" href="">Option</a> can use.<br  />
+ These flags can toggle some special behaviour and conditions during the parsing process.   <a href="OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539f">More...</a><br /></td></tr>
 <tr class="separator:a596e8c36cd4a76845679fcdbdd2b539f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
@@ -131,25 +132,35 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Binary enum that contains all the flags an <code><a class="el" href="classOption.html" title="Class Option models an option linked to one or more Verb that can be given in launch arguments to pas...">Option</a></code> object can use.  </p>
+<p>Binary enum that contains all the flags an <a class="el" href="">Option</a> can use.<br  />
+ These flags can toggle some special behaviour and conditions during the parsing process.  </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fa6adf97f83acf6453d4a6a4b1070f3754" name="a596e8c36cd4a76845679fcdbdd2b539fa6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"><p >Used by default to indicate that the <code><a class="el" href="classOption.html" title="Class Option models an option linked to one or more Verb that can be given in launch arguments to pas...">Option</a></code> has no special features.  </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fa6adf97f83acf6453d4a6a4b1070f3754" name="a596e8c36cd4a76845679fcdbdd2b539fa6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"><p >Used by default to indicate that the <a class="el" href="">Option</a> has no special features and should act as a single-use toggle.  </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fa7a1920d61156abc05a60135aefe8bc67" name="a596e8c36cd4a76845679fcdbdd2b539fa7a1920d61156abc05a60135aefe8bc67"></a>Default&#160;</td><td class="fielddoc"><p >Used to indicate that an <code><a class="el" href="classOption.html" title="Class Option models an option linked to one or more Verb that can be given in launch arguments to pas...">Option</a></code> should be a default one, meaning that it can be used without using the short and long argument.  </p>
+<tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fa7a1920d61156abc05a60135aefe8bc67" name="a596e8c36cd4a76845679fcdbdd2b539fa7a1920d61156abc05a60135aefe8bc67"></a>Default&#160;</td><td class="fielddoc"><p >Used to indicate that an <a class="el" href="">Option</a> should be a default one, meaning that it can be used without using the short and long argument.<br  />
+ Must be used alongside <a class="el" href="">OptionFlags.HasValue</a> !  </p>
+<dl class="section see"><dt>See also</dt><dd>NibblePoker.Library.Arguments.Verb.GetRelevantDefaultOption</dd></dl>
 </td></tr>
-<tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fa51f1f344c102359e0bdd70eb9ae5c847" name="a596e8c36cd4a76845679fcdbdd2b539fa51f1f344c102359e0bdd70eb9ae5c847"></a>HasValue&#160;</td><td class="fielddoc"><p >Used to indicate that an <code><a class="el" href="classOption.html" title="Class Option models an option linked to one or more Verb that can be given in launch arguments to pas...">Option</a></code> can have at least one value.  </p>
+<tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fa51f1f344c102359e0bdd70eb9ae5c847" name="a596e8c36cd4a76845679fcdbdd2b539fa51f1f344c102359e0bdd70eb9ae5c847"></a>HasValue&#160;</td><td class="fielddoc"><p >Used to indicate that an <a class="el" href="">Option</a> can have at least one value.  </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fa08c2f2ad052ffdcd3191c9521fa2576c" name="a596e8c36cd4a76845679fcdbdd2b539fa08c2f2ad052ffdcd3191c9521fa2576c"></a>Repeatable&#160;</td><td class="fielddoc"><p >Used to indicate that an <code><a class="el" href="classOption.html" title="Class Option models an option linked to one or more Verb that can be given in launch arguments to pas...">Option</a></code> can be used multiple time with or without a value.  </p>
+<tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fa08c2f2ad052ffdcd3191c9521fa2576c" name="a596e8c36cd4a76845679fcdbdd2b539fa08c2f2ad052ffdcd3191c9521fa2576c"></a>Repeatable&#160;</td><td class="fielddoc"><p >Used to indicate that an <a class="el" href="">Option</a> can be used multiple time with or without a value.  </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fa47287c668706598c210455ab19026884" name="a596e8c36cd4a76845679fcdbdd2b539fa47287c668706598c210455ab19026884"></a>HasMultipleValue&#160;</td><td class="fielddoc"><p >Used to indicate that an <code><a class="el" href="classOption.html" title="Class Option models an option linked to one or more Verb that can be given in launch arguments to pas...">Option</a></code> can have at one or more value(s).  </p>
+<tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fa47287c668706598c210455ab19026884" name="a596e8c36cd4a76845679fcdbdd2b539fa47287c668706598c210455ab19026884"></a>HasMultipleValue&#160;</td><td class="fielddoc"><p >Used to indicate that an <a class="el" href="">Option</a> can have at one or more value(s).  </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fa7acdf85c69cc3c5305456a293524386e" name="a596e8c36cd4a76845679fcdbdd2b539fa7acdf85c69cc3c5305456a293524386e"></a>Hidden&#160;</td><td class="fielddoc"><p >Used to indicate that an <code><a class="el" href="classOption.html" title="Class Option models an option linked to one or more Verb that can be given in launch arguments to pas...">Option</a></code> shouldn't be shown in the help text.  </p>
+<tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fa7acdf85c69cc3c5305456a293524386e" name="a596e8c36cd4a76845679fcdbdd2b539fa7acdf85c69cc3c5305456a293524386e"></a>Hidden&#160;</td><td class="fielddoc"><p >Used to indicate that an <a class="el" href="">Option</a> shouldn't be shown in the help text.  </p>
+<dl class="section see"><dt>See also</dt><dd>NibblePoker.Library.Arguments.HelpText.GetFullHelpText</dd></dl>
 </td></tr>
-<tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fab651efdb98a5d6bd2b3935d0c3f4a5e2" name="a596e8c36cd4a76845679fcdbdd2b539fab651efdb98a5d6bd2b3935d0c3f4a5e2"></a>Required&#160;</td><td class="fielddoc"><p >Used to indicate that an <code><a class="el" href="classOption.html" title="Class Option models an option linked to one or more Verb that can be given in launch arguments to pas...">Option</a></code> must be used in the final <code><a class="el" href="classVerb.html" title="Class Verb models a verb that can be given in launch arguments to select a specific action or subset ...">Verb</a></code>.  </p>
+<tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fab651efdb98a5d6bd2b3935d0c3f4a5e2" name="a596e8c36cd4a76845679fcdbdd2b539fab651efdb98a5d6bd2b3935d0c3f4a5e2"></a>Required&#160;</td><td class="fielddoc"><p >Used to indicate that an <a class="el" href="">Option</a> must be used in the final <a class="el" href="">Verb</a>.<br  />
+ If used alongside <a class="el" href="">OptionFlags.AllowVerbsAfter</a> it must also have been used in any parent <a class="el" href="">Verb</a>.  </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fa8f2d6c4e9a9550a59f3cb505434ecaf2" name="a596e8c36cd4a76845679fcdbdd2b539fa8f2d6c4e9a9550a59f3cb505434ecaf2"></a>StopsParsing&#160;</td><td class="fielddoc"><p >Used to indicate that an <code><a class="el" href="classOption.html" title="Class Option models an option linked to one or more Verb that can be given in launch arguments to pas...">Option</a></code> must stop the parsing process as soon as it has been handled.  </p>
+<tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fa8f2d6c4e9a9550a59f3cb505434ecaf2" name="a596e8c36cd4a76845679fcdbdd2b539fa8f2d6c4e9a9550a59f3cb505434ecaf2"></a>StopsParsing&#160;</td><td class="fielddoc"><p >Used to indicate that an <a class="el" href="">Option</a> must stop the parsing process as soon as it has been handled.<br  />
+ This flag is typically reserved for options such as <code>&ndash;help</code> or <code>&ndash;version</code>.<br  />
+ Ignores any checks related to <a class="el" href="">OptionFlags.Required</a> !  </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fa91a2ba5f53f06ec5df8460085a4a42a0" name="a596e8c36cd4a76845679fcdbdd2b539fa91a2ba5f53f06ec5df8460085a4a42a0"></a>AllowVerbsAfter&#160;</td><td class="fielddoc"><p >Indicates that an <code><a class="el" href="classOption.html" title="Class Option models an option linked to one or more Verb that can be given in launch arguments to pas...">Option</a></code> will not prevent further <code><a class="el" href="classVerb.html" title="Class Verb models a verb that can be given in launch arguments to select a specific action or subset ...">Verb</a></code>s from being parsed when encountered. Usage of this flag required some forethought if the <a class="el" href="classOption.html" title="Class Option models an option linked to one or more Verb that can be given in launch arguments to pas...">Option</a> uses the <code>FLAG_OPTION_DEFAULT</code> flag since its values may be interpreted as a verb and cause all kinds of errors. A "better" alternative would be to only use the <code>FLAG_OPTION_REQUIRED</code> flag if the value is needed, which will force the user to explicitly use the option's name or token.  </p>
+<tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fa91a2ba5f53f06ec5df8460085a4a42a0" name="a596e8c36cd4a76845679fcdbdd2b539fa91a2ba5f53f06ec5df8460085a4a42a0"></a>AllowVerbsAfter&#160;</td><td class="fielddoc"><p >Indicates that an <a class="el" href="">Option</a> will not prevent further <a class="el" href="">Verb</a> from being parsed after it is encountered.<br  />
+ Usage of this flag required some forethought if the <a class="el" href="">Option</a> has the same name as a sub-<a class="el" href="">Verb</a> while using the <a class="el" href="">OptionFlags.Default</a> flag.<br  />
+ In those cases, the <a class="el" href="">Verb</a> will take precedence over the <a class="el" href="">Option</a> unless it is explicitly used with its token or name.<br  />
+ It is recommended to only use it with the <a class="el" href="">OptionFlags.Required</a> flag to force the user into explicitly using the token or name.  </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a596e8c36cd4a76845679fcdbdd2b539fab1c94ca2fbc3e78fc30069c8d0f01680" name="a596e8c36cd4a76845679fcdbdd2b539fab1c94ca2fbc3e78fc30069c8d0f01680"></a>All&#160;</td><td class="fielddoc"><p >Used for tests, do not use in any program !  </p>
 </td></tr>

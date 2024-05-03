@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">DotNet-Arguments<span id="projectnumber">&#160;1.2.0</span>
+   <div id="projectname">DotNet-Arguments<span id="projectnumber">&#160;1.2.1</span>
    </div>
    <div id="projectbrief">A simple and &#39;to-the-point&#39; library to parse launch arguments in .NET and .NET Core applications.</div>
   </td>
@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('classArgumentsParser.html',''); initRe
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a412d7a1444af1cde081c0c2c93fdcc13"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classVerb.html">Verb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArgumentsParser.html#a412d7a1444af1cde081c0c2c93fdcc13">ParseArguments</a> (<a class="el" href="classVerb.html">Verb</a> rootVerb, string[] arguments)</td></tr>
-<tr class="memdesc:a412d7a1444af1cde081c0c2c93fdcc13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the given arguments into the given root <code><a class="el" href="classVerb.html" title="Class Verb models a verb that can be given in launch arguments to select a specific action or subset ...">Verb</a></code>.   <a href="classArgumentsParser.html#a412d7a1444af1cde081c0c2c93fdcc13">More...</a><br /></td></tr>
+<tr class="memdesc:a412d7a1444af1cde081c0c2c93fdcc13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the given arguments into the given root <a class="el" href="">Verb</a>.   <a href="classArgumentsParser.html#a412d7a1444af1cde081c0c2c93fdcc13">More...</a><br /></td></tr>
 <tr class="separator:a412d7a1444af1cde081c0c2c93fdcc13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -145,26 +145,26 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Parses the given arguments into the given root <code><a class="el" href="classVerb.html" title="Class Verb models a verb that can be given in launch arguments to select a specific action or subset ...">Verb</a></code>.  </p>
+<p>Parses the given arguments into the given root <a class="el" href="">Verb</a>.  </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rootVerb</td><td>The <code><a class="el" href="classVerb.html" title="Class Verb models a verb that can be given in launch arguments to select a specific action or subset ...">Verb</a></code> for which the arguments should be processed, preferably the root <code><a class="el" href="classVerb.html" title="Class Verb models a verb that can be given in launch arguments to select a specific action or subset ...">Verb</a></code>.</td></tr>
-    <tr><td class="paramname">arguments</td><td>Array of launch arguments to parse.</td></tr>
+    <tr><td class="paramname">rootVerb</td><td>The <a class="el" href="">Verb</a> for which the given arguments should be processed. </td></tr>
+    <tr><td class="paramname">arguments</td><td>Array of launch arguments to parse. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The last used <code><a class="el" href="classVerb.html" title="Class Verb models a verb that can be given in launch arguments to select a specific action or subset ...">Verb</a></code> when parsing.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The last used <a class="el" href="">Verb</a> when parsing. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classExceptions_1_1ParserException.html" title="Common parent exception extended by all exceptions thrown by the parser.">Exceptions.ParserException</a></td><td>Extended by all the following exceptions.</td></tr>
-    <tr><td class="paramname"><a class="el" href="classExceptions_1_1InvalidArgumentException.html" title="Thrown by ArgumentsParser.ParseArguments if it is given a &#39;–&#39; token twice, or after reaching the end ...">Exceptions.InvalidArgumentException</a></td><td>If given the '&ndash;' token twice, or after reaching the end of options.</td></tr>
-    <tr><td class="paramname"><a class="el" href="classExceptions_1_1NoDefaultOptionFoundException.html" title="Thrown by ArgumentsParser.ParseArguments if no appropriate Option with the OptionFlags....">Exceptions.NoDefaultOptionFoundException</a></td><td>If no appropriate option with the <code>Default</code> flag could be found when needed.</td></tr>
-    <tr><td class="paramname"><a class="el" href="classExceptions_1_1UnknownOptionException.html" title="Thrown by ArgumentsParser.ParseArguments if a given Option couldn&#39;t be found while parsing.">Exceptions.UnknownOptionException</a></td><td>If a given option couldn't be found.</td></tr>
-    <tr><td class="paramname"><a class="el" href="classExceptions_1_1RepeatedSingularOptionException.html" title="Thrown by ArgumentsParser.ParseArguments if a given Option that could only be used once was used twic...">Exceptions.RepeatedSingularOptionException</a></td><td>If a given option that could only be used once was used twice.</td></tr>
-    <tr><td class="paramname"><a class="el" href="classExceptions_1_1OptionValueOverflowException.html" title="Thrown by ArgumentsParser.ParseArguments if a given Option that could only hold one value was made to...">Exceptions.OptionValueOverflowException</a></td><td>If a given option that could only hold one value was made to hold more.</td></tr>
-    <tr><td class="paramname"><a class="el" href="classExceptions_1_1NotEnoughArgumentsException.html" title="Thrown by ArgumentsParser.ParseArguments if a given Option needs to have a value, but is the last arg...">Exceptions.NotEnoughArgumentsException</a></td><td>If a given option needs to have a value, but is the last argument.</td></tr>
-    <tr><td class="paramname"><a class="el" href="classExceptions_1_1OptionHasValueAndMoreShortsException.html" title="Thrown by ArgumentsParser.ParseArguments if a short Option with an expected value isn&#39;t given at the ...">Exceptions.OptionHasValueAndMoreShortsException</a></td><td>If a short option with an expected value isn't given at the end of a short options block.</td></tr>
-    <tr><td class="paramname"><a class="el" href="classExceptions_1_1MissingRequiredOptionException.html" title="Thrown by ArgumentsParser.ParseArguments if an Option with the OptionFlags.Required flag wasn&#39;t used ...">Exceptions.MissingRequiredOptionException</a></td><td>if an option with the <code>Required</code> flag wasn't used after all arguments were parsed.</td></tr>
+    <tr><td class="paramname"><a class="el" href="classExceptions_1_1ParserException.html" title="Common parent exception extended by all exceptions thrown by the parser.">Exceptions.ParserException</a></td><td>Extended by all the following exceptions. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classExceptions_1_1InvalidArgumentException.html" title="Thrown by ArgumentsParser.ParseArguments if it is given a – token twice, or after reaching the end of...">Exceptions.InvalidArgumentException</a></td><td>If given the <code>&ndash;</code> token twice, or after reaching the end of options. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classExceptions_1_1NoDefaultOptionFoundException.html" title="Thrown by ArgumentsParser.ParseArguments if no appropriate Option with the OptionFlags....">Exceptions.NoDefaultOptionFoundException</a></td><td>If no appropriate <a class="el" href="">Option</a> with the <a class="el" href="">OptionFlags.Default</a> flag could be found when needed. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classExceptions_1_1UnknownOptionException.html" title="Thrown by ArgumentsParser.ParseArguments if a given Option couldn&#39;t be found while parsing.">Exceptions.UnknownOptionException</a></td><td>If a given <a class="el" href="">Option</a> couldn't be found when needed. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classExceptions_1_1RepeatedSingularOptionException.html" title="Thrown by ArgumentsParser.ParseArguments if a given Option that could only be used once was used twic...">Exceptions.RepeatedSingularOptionException</a></td><td>If a given <a class="el" href="">Option</a> that could only be used once was used twice. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classExceptions_1_1OptionValueOverflowException.html" title="Thrown by ArgumentsParser.ParseArguments if a given Option that could only hold one value was made to...">Exceptions.OptionValueOverflowException</a></td><td>If a given <a class="el" href="">Option</a> that could only hold one value was made to hold more. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classExceptions_1_1NotEnoughArgumentsException.html" title="Thrown by ArgumentsParser.ParseArguments if a given Option needs to have a value, but is the last arg...">Exceptions.NotEnoughArgumentsException</a></td><td>If a given <a class="el" href="">Option</a> needs to have a value, but is the last argument. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classExceptions_1_1OptionHasValueAndMoreShortsException.html" title="Thrown by ArgumentsParser.ParseArguments if a short Option with an expected value isn&#39;t given at the ...">Exceptions.OptionHasValueAndMoreShortsException</a></td><td>If a short <a class="el" href="">Option</a> with an expected value isn't given at the end of a short options block. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classExceptions_1_1MissingRequiredOptionException.html" title="Thrown by ArgumentsParser.ParseArguments if an Option with the OptionFlags.Required flag wasn&#39;t used ...">Exceptions.MissingRequiredOptionException</a></td><td>If an <a class="el" href="">Option</a> with the <a class="el" href="">OptionFlags.Required</a> flag wasn't used after all arguments were parsed. </td></tr>
   </table>
   </dd>
 </dl>

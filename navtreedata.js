@@ -38,17 +38,24 @@ var NAVTREE =
       [ "Setting up .NET", "md__github_workspace_building.html#autotoc_md9", [
         [ "Using Microsoft's installers", "md__github_workspace_building.html#autotoc_md10", null ],
         [ "Using Visual Studio Installer", "md__github_workspace_building.html#autotoc_md11", null ],
-        [ "Using a packet manager", "md__github_workspace_building.html#autotoc_md12", [
-          [ "Ubuntu", "md__github_workspace_building.html#autotoc_md13", null ]
-        ] ]
+        [ "Using a packet manager", "md__github_workspace_building.html#autotoc_md12", null ]
       ] ],
-      [ "Downloading the sources", "md__github_workspace_building.html#autotoc_md14", null ],
+      [ "Downloading the sources", "md__github_workspace_building.html#autotoc_md13", null ],
+      [ "Preparing the project", "md__github_workspace_building.html#autotoc_md14", null ],
       [ "Testing", "md__github_workspace_building.html#autotoc_md15", null ],
       [ "Compiling", "md__github_workspace_building.html#autotoc_md16", null ],
       [ "Packaging", "md__github_workspace_building.html#autotoc_md17", null ],
       [ "Building the documentation", "md__github_workspace_building.html#autotoc_md18", [
-        [ "Installing DocFX", "md__github_workspace_building.html#autotoc_md19", null ],
-        [ "Running DocFX", "md__github_workspace_building.html#autotoc_md20", null ]
+        [ "Installing Doxygen", "md__github_workspace_building.html#autotoc_md19", null ],
+        [ "Building manually", "md__github_workspace_building.html#autotoc_md20", [
+          [ "Windows", "md__github_workspace_building.html#autotoc_md21", null ],
+          [ "Linux", "md__github_workspace_building.html#autotoc_md22", null ]
+        ] ],
+        [ "Building automatically", "md__github_workspace_building.html#autotoc_md23", [
+          [ "Windows", "md__github_workspace_building.html#autotoc_md24", null ],
+          [ "Linux", "md__github_workspace_building.html#autotoc_md25", null ]
+        ] ],
+        [ "Checking the documentation", "md__github_workspace_building.html#autotoc_md26", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [

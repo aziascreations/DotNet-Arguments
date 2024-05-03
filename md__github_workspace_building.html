@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">DotNet-Arguments<span id="projectnumber">&#160;1.2.0</span>
+   <div id="projectname">DotNet-Arguments<span id="projectnumber">&#160;1.2.1</span>
    </div>
    <div id="projectbrief">A simple and &#39;to-the-point&#39; library to parse launch arguments in .NET and .NET Core applications.</div>
   </td>
@@ -99,49 +99,72 @@ $(document).ready(function(){initNavTree('md__github_workspace_building.html',''
 Setting up .NET</h1>
 <h2><a class="anchor" id="autotoc_md10"></a>
 Using Microsoft's installers</h2>
-<p >Navigate to <a href="https://dotnet.microsoft.com/en-us/download/dotnet">'dotnet.microsoft.com/en-us/download/dotnet'</a> and select .NET 6.0 or a newer version.</p>
-<p >Download and install the SDK that is compatible with your OS and CPU on the left side of the page.</p>
+<p >Go to '<a href="https://dotnet.microsoft.com/en-us/download/dotnet'">https://dotnet.microsoft.com/en-us/download/dotnet'</a> and select the appropriate .NET 6.0 SDK, or a newer version.</p>
+<p >Once downloaded, simply install the SDK.</p>
 <h2><a class="anchor" id="autotoc_md11"></a>
 Using Visual Studio Installer</h2>
-<p >Modify your installation and install the individual component named <code>.NET SDK</code>.</p>
+<p >Modify your installation and add the individual components named <code>.NET SDK</code> and <code>.NET 6.0 Runtime</code>.</p>
 <h2><a class="anchor" id="autotoc_md12"></a>
 Using a packet manager</h2>
-<h3><a class="anchor" id="autotoc_md13"></a>
-Ubuntu</h3>
-<p >Use the following commands: </p><div class="fragment"><div class="line">sudo apt-get update</div>
-<div class="line">sudo apt-get install -y dotnet6</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md14"></a>
+<p >Please refer to your distro's packet manager and repository for more information</p>
+<h1><a class="anchor" id="autotoc_md13"></a>
 Downloading the sources</h1>
-<p >Before compiling, you need to download the source code with git like so: </p><div class="fragment"><div class="line">git clone https://github.com/aziascreations/DotNet-Arguments</div>
+<p >Before compiling, you need to download the source code with git like so: </p><div class="fragment"><div class="line">git clone --recurse-submodules https://github.com/aziascreations/DotNet-Arguments</div>
 </div><!-- fragment --><p >Finally, once the repository is cloned, you need to enter the project's directory with: </p><div class="fragment"><div class="line">cd DotNet-Arguments</div>
 <div class="line">````</div>
 <div class="line"> </div>
-<div class="line">## Preparing the project</div>
-<div class="line">In order to prepare the project for any future task, you need to use the following command:</div>
+<div class="line">The `--recurse-submodules` is only required if you intend to build the documentation with the optional</div>
+<div class="line">[doxygen-awesome-css](https://github.com/jothepro/doxygen-awesome-css) theme.</div>
+<div class="line"> </div>
+<div class="line">If you forgot to clone the submodules, you can use the following command to pull them:</div>
 <div class="line">```shell</div>
-<div class="line">dotnet restore</div>
+<div class="line">git submodule update --init</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md14"></a>
+Preparing the project</h1>
+<p >In order to prepare the project for any future task, you need to use the following command: </p><div class="fragment"><div class="line">dotnet restore</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md15"></a>
 Testing</h1>
-<p >In order to run the tests, you can use the following command: </p><div class="fragment"><div class="line">dotnet test</div>
+<p >In order to run the NUnit tests, you can use the following command: </p><div class="fragment"><div class="line">dotnet test</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md16"></a>
 Compiling</h1>
 <p >In order to build the project, you should use the following command: </p><div class="fragment"><div class="line">dotnet build</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md17"></a>
 Packaging</h1>
-<p >The nuget package is automatically built when compiling.</p>
-<p >See the '<a href="NibblePoker.Library.Arguments/bin/Release">NibblePoker.Library.Arguments/bin/Release</a>' folder.</p>
+<p >In order to build the NuGet package, you should use the following command: </p><div class="fragment"><div class="line">dotnet pack</div>
+</div><!-- fragment --><p> Afterward, check the '<a href="NibblePoker.Library.Arguments/bin/Release">NibblePoker.Library.Arguments/bin/Release</a>' folder.</p>
 <h1><a class="anchor" id="autotoc_md18"></a>
 Building the documentation</h1>
 <h2><a class="anchor" id="autotoc_md19"></a>
-Installing DocFX</h2>
-<p >Run the following command to install DocFX: </p><div class="fragment"><div class="line">dotnet tool install -g docfx</div>
-<div class="line">dotnet tool update -g docfx</div>
-</div><!-- fragment --><p> <b>This tool may take a couple of minutes to install, just go grab a coffee in the meantime.</b></p>
-<h2><a class="anchor" id="autotoc_md20"></a>
-Running DocFX</h2>
-<p >Run the following command to build the documentation locally via the included script: </p><div class="fragment"><div class="line">cd NibblePoker.Library.Arguments.Documentation</div>
-<div class="line">.\serve.cmd</div>
-</div><!-- fragment --> </div></div><!-- contents -->
+Installing Doxygen</h2>
+<p >In order to install doxygen, you should follow the instructions given on their <a href="https://www.doxygen.nl/index.html">website</a>.</p>
+<p >If you already have it installed, make sure you have the <code>1.10.0</code> version, or a newer one by using the following command: </p><div class="fragment"><div class="line">doxygen -v</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md20"></a>
+Building manually</h2>
+<p >Run the following commands to build the documentation locally without using any script:</p>
+<h3><a class="anchor" id="autotoc_md21"></a>
+Windows</h3>
+<div class="fragment"><div class="line">cd NibblePoker.Library.Arguments.Documentation</div>
+<div class="line">rmdir html /s /q</div>
+<div class="line">doxygen</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md22"></a>
+Linux</h3>
+<div class="fragment"><div class="line">cd NibblePoker.Library.Arguments.Documentation</div>
+<div class="line">rm -rf html</div>
+<div class="line">doxygen</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md23"></a>
+Building automatically</h2>
+<p >Run the following command to build the documentation locally with the help of a small script:</p>
+<h3><a class="anchor" id="autotoc_md24"></a>
+Windows</h3>
+<div class="fragment"><div class="line">cd NibblePoker.Library.Arguments.Documentation</div>
+<div class="line">.\build.cmd</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md25"></a>
+Linux</h3>
+<p ><em>No script is provided for linux yet.</em></p>
+<h2><a class="anchor" id="autotoc_md26"></a>
+Checking the documentation</h2>
+<p >Once compiled, the documentation can be read by opening the '<a href="NibblePoker.Library.Arguments.Documentation/html/index.html]">NibblePoker.Library.Arguments.Documentation/html/index.html</a>' file. </p>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

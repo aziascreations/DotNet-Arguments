@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">DotNet-Arguments<span id="projectnumber">&#160;1.2.0</span>
+   <div id="projectname">DotNet-Arguments<span id="projectnumber">&#160;1.2.1</span>
    </div>
    <div id="projectbrief">A simple and &#39;to-the-point&#39; library to parse launch arguments in .NET and .NET Core applications.</div>
   </td>
@@ -116,7 +116,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown by <a class="el" href="">Verb.RegisterOption</a> if the given <a class="el" href="">Option</a> has the <a class="el" href="">Default</a> flag and is registered after one that also has <a class="el" href="">OptionFlags.Default</a>, <a class="el" href="">OptionFlags.HasValue</a> and <a class="el" href="">OptionFlags.Repeatable</a> flags.   <a href="classExceptions_1_1ExistingDefaultMultipleOptionException.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExceptions_1_1InvalidArgumentException.html">InvalidArgumentException</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown by <a class="el" href="">ArgumentsParser.ParseArguments</a> if it is given a '&ndash;' token twice, or after reaching the end of options.   <a href="classExceptions_1_1InvalidArgumentException.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown by <a class="el" href="">ArgumentsParser.ParseArguments</a> if it is given a <code>&ndash;</code> token twice, or after reaching the end of options.   <a href="classExceptions_1_1InvalidArgumentException.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExceptions_1_1InvalidFlagsException.html">InvalidFlagsException</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown if an <a class="el" href="">Option</a> is given an invalid <a class="el" href="">OptionFlags</a> combination.   <a href="classExceptions_1_1InvalidFlagsException.html#details">More...</a><br /></td></tr>
@@ -125,7 +125,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown if a <a class="el" href="">Verb</a>, whose name is <code>null</code> or empty, is passed to <a class="el" href="">Verb.RegisterVerb</a>.   <a href="classExceptions_1_1InvalidVerbNameException.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExceptions_1_1MissingOptionIdentifierException.html">MissingOptionIdentifierException</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown if an <a class="el" href="">Option</a> is instantiated with a <code>token</code> or a <code>name</code>.   <a href="classExceptions_1_1MissingOptionIdentifierException.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown if an <a class="el" href="">Option</a> is instantiated without a token or a name.   <a href="classExceptions_1_1MissingOptionIdentifierException.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExceptions_1_1MissingRequiredOptionException.html">MissingRequiredOptionException</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown by <a class="el" href="">ArgumentsParser.ParseArguments</a> if an <a class="el" href="">Option</a> with the <a class="el" href="">OptionFlags.Required</a> flag wasn't used after all arguments were parsed.   <a href="classExceptions_1_1MissingRequiredOptionException.html#details">More...</a><br /></td></tr>
@@ -137,7 +137,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown by <a class="el" href="">ArgumentsParser.ParseArguments</a> if a given <a class="el" href="">Option</a> needs to have a value, but is the last argument.   <a href="classExceptions_1_1NotEnoughArgumentsException.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExceptions_1_1OptionException.html">OptionException</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Common parent exception extended by all exceptions thrown by <a class="el" href="">Option</a> class.   <a href="classExceptions_1_1OptionException.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Common parent exception extended by all exceptions thrown by the <a class="el" href="">Option</a> class.   <a href="classExceptions_1_1OptionException.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExceptions_1_1OptionHasValueAndMoreShortsException.html">OptionHasValueAndMoreShortsException</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown by <a class="el" href="">ArgumentsParser.ParseArguments</a> if a short <a class="el" href="">Option</a> with an expected value isn't given at the end of a short options block.   <a href="classExceptions_1_1OptionHasValueAndMoreShortsException.html#details">More...</a><br /></td></tr>
