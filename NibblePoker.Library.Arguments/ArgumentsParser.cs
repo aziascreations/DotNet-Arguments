@@ -1,24 +1,58 @@
 ﻿namespace NibblePoker.Library.Arguments; 
 
 /// <summary>
-/// Static class that contains a function related to parsing launch arguments.
+///   Static class that contains a function related to parsing launch arguments.
 /// </summary>
 public static class ArgumentsParser {
 	/// <summary>
-	/// Parses the given arguments into the given root <c>Verb</c>.
+	///   Parses the given arguments into the given root <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>.
 	/// </summary>
-	/// <param name="rootVerb">The <c>Verb</c> for which the arguments should be processed, preferably the root <c>Verb</c>.</param>
-	/// <param name="arguments">Array of launch arguments to parse.</param>
-	/// <returns>The last used <c>Verb</c> when parsing.</returns>
-	/// <exception cref="Exceptions.ParserException">Extended by all the following exceptions.</exception>
-	/// <exception cref="Exceptions.InvalidArgumentException">If given the '--' token twice, or after reaching the end of options.</exception>
-	/// <exception cref="Exceptions.NoDefaultOptionFoundException">If no appropriate option with the `Default` flag could be found when needed.</exception>
-	/// <exception cref="Exceptions.UnknownOptionException">If a given option couldn't be found.</exception>
-	/// <exception cref="Exceptions.RepeatedSingularOptionException">If a given option that could only be used once was used twice.</exception>
-	/// <exception cref="Exceptions.OptionValueOverflowException">If a given option that could only hold one value was made to hold more.</exception>
-	/// <exception cref="Exceptions.NotEnoughArgumentsException">If a given option needs to have a value, but is the last argument.</exception>
-	/// <exception cref="Exceptions.OptionHasValueAndMoreShortsException">If a short option with an expected value isn't given at the end of a short options block.</exception>
-	/// <exception cref="Exceptions.MissingRequiredOptionException">if an option with the `Required` flag wasn't used after all arguments were parsed.</exception>
+	/// <param name="rootVerb">
+	///   The <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>
+	///    for which the given arguments should be processed.
+	/// </param>
+	/// <param name="arguments">
+	///   Array of launch arguments to parse.
+	/// </param>
+	/// <returns>
+	///   The last used <see cref="NibblePoker.Library.Arguments.Verb">Verb</see> when parsing.
+	/// </returns>
+	/// <exception cref="Exceptions.ParserException">
+	///   Extended by all the following exceptions.
+	/// </exception>
+	/// <exception cref="Exceptions.InvalidArgumentException">
+	///   If given the <c>--</c> token twice, or after reaching the end of options.
+	/// </exception>
+	/// <exception cref="Exceptions.NoDefaultOptionFoundException">
+	///   If no appropriate <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    with the <see cref="OptionFlags.Default">OptionFlags.Default</see>
+	///    flag could be found when needed.
+	/// </exception>
+	/// <exception cref="Exceptions.UnknownOptionException">
+	///   If a given <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    couldn't be found when needed.
+	/// </exception>
+	/// <exception cref="Exceptions.RepeatedSingularOptionException">
+	///   If a given <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    that could only be used once was used twice.
+	/// </exception>
+	/// <exception cref="Exceptions.OptionValueOverflowException">
+	///   If a given <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    that could only hold one value was made to hold more.
+	/// </exception>
+	/// <exception cref="Exceptions.NotEnoughArgumentsException">
+	///   If a given <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    needs to have a value, but is the last argument.
+	/// </exception>
+	/// <exception cref="Exceptions.OptionHasValueAndMoreShortsException">
+	///   If a short <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    with an expected value isn't given at the end of a short options block.
+	/// </exception>
+	/// <exception cref="Exceptions.MissingRequiredOptionException">
+	///   If an <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    with the <see cref="OptionFlags.Required">OptionFlags.Required</see> flag
+	///    wasn't used after all arguments were parsed.
+	/// </exception>
 	public static Verb ParseArguments(Verb rootVerb, string[] arguments) {
 		Verb currentVerb = rootVerb;
 
