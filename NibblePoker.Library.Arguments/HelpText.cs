@@ -3,14 +3,14 @@
 namespace NibblePoker.Library.Arguments; 
 
 /// <summary>
-/// Static class that contains helpers related to printing a help text.
+///   Static class that contains helpers related to printing a help text.
 /// </summary>
 public static class HelpText {
 	/// <summary>
-	/// Splits a given text in a series of lines with a given line prefix that fit in a given width. 
+	///   Splits a given text in a series of lines with a given line prefix that fit in a given width. 
 	/// </summary>
 	/// <param name="inputText">Text to split.</param>
-	/// <param name="maxLineLength">Maximum line size.</param>
+	/// <param name="maxLineLength">Maximum line length.</param>
 	/// <param name="sequentialPrefix">Prefix text to use for any split line.</param>
 	/// <returns>The split text as a single string.</returns>
 	public static string SplitToMultiline(string inputText, int maxLineLength, string sequentialPrefix) {        
@@ -48,9 +48,10 @@ public static class HelpText {
 	}
 	
 	/// <summary>
-	/// Processes a given <c>Option</c> and returns the usage part in POSIX format.
+	///   Processes a given <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    and returns the usage part in POSIX format.
 	/// </summary>
-	/// <param name="option">The <c>Option</c> to process.</param>
+	/// <param name="option">The <see cref="NibblePoker.Library.Arguments.Option">Option</see> to process.</param>
 	/// <returns>The formatted text as a string.</returns>
 	public static string GetOptionUsagePart(Option option) {
 		return (option.IsRequired() ? "<" : "[") + option.GetFullName(true) + 
@@ -60,11 +61,18 @@ public static class HelpText {
 	}
 	
 	/// <summary>
-	/// Processes a given <c>Option</c> and returns the details part.
+	///   Processes a given <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    and returns the details part.
 	/// </summary>
-	/// <param name="option">The <c>Option</c> to process.</param>
-	/// <param name="shortOptionSpace">Amount of spaces used by short options in other lines, must include the inner comma and space.</param>
-	/// <param name="addValueToShort">Add the value's name part to both the short version if both short and long options are available.</param>
+	/// <param name="option">
+	///   The <see cref="NibblePoker.Library.Arguments.Option">Option</see> to process.
+	/// </param>
+	/// <param name="shortOptionSpace">
+	///   Amount of spaces used by short options in other lines, must include the inner comma and space.
+	/// </param>
+	/// <param name="addValueToShort">
+	///   Add the value's name part to both the short version if both short and long options are available.
+	/// </param>
 	/// <returns>The formatted text as a string.</returns>
 	public static string GetOptionDetailsPart(Option option, uint shortOptionSpace = 0, bool addValueToShort = false) {
 		return (option.HasToken() ? "-" + option.Token + (
@@ -83,14 +91,28 @@ public static class HelpText {
 	}
 	
 	/// <summary>
-	/// Processes a given <c>Verb</c> to get the associated usage text in POSIX format as a list of lines.
+	///   Processes a given <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>
+	///    to get the associated usage text in POSIX format as a list of lines.
 	/// </summary>
-	/// <param name="verb">The <c>Verb</c> for which the help text should be rendered.</param>
-	/// <param name="programName">Executable's name to use.</param>
-	/// <param name="consoleWidth">The console width used to calculate properly formatted and spaced line returns.</param>
-	/// <param name="addVerbs">Toggle to include or exclude the <c>Verb</c>s.</param>
-	/// <returns>The formatted lines as a list.</returns>
-	/// <remarks>It is recommended to subtract 1 from the console's max width to prevent weird line returns in some command prompts.</remarks>
+	/// <param name="verb">
+	///   The <see cref="NibblePoker.Library.Arguments.Verb">Verb</see> for which the help text should be rendered.
+	/// </param>
+	/// <param name="programName">
+	///   Executable's name to use.
+	/// </param>
+	/// <param name="consoleWidth">
+	///   The console width used to calculate properly formatted and spaced line returns.
+	/// </param>
+	/// <param name="addVerbs">
+	///   Toggle to include or exclude the <see cref="NibblePoker.Library.Arguments.Verb">Verb</see> from the output.
+	/// </param>
+	/// <returns>
+	///   The formatted lines as a list.
+	/// </returns>
+	/// <remarks>
+	///   It is recommended to subtract 1 from the console's max width to prevent
+	///    weird and unexpected line returns in some command prompts.
+	/// </remarks>
 	public static List<string> GetUsageLines(Verb verb, string programName, uint consoleWidth = 80, bool addVerbs = true) {
 		List<string> usageLines = new List<string>();
 		List<string> usageParts = new List<string>();
@@ -141,27 +163,60 @@ public static class HelpText {
 	}
 	
 	/// <summary>
-	/// Processes a given <c>Verb</c> to get the associated usage text in POSIX format.
+	///   Processes a given <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>
+	///    to get the associated usage text in POSIX format.
 	/// </summary>
-	/// <param name="verb">The <c>Verb</c> for which the help text should be rendered.</param>
-	/// <param name="programName">Executable's name to use.</param>
-	/// <param name="consoleWidth">The console width used to calculate properly formatted and spaced line returns.</param>
-	/// <param name="addVerbs">Toggle to include or exclude the <c>Verb</c>s.</param>
-	/// <remarks>It is recommended to subtract 1 from the console's max width to prevent weird line returns in some command prompts.</remarks>
+	/// <param name="verb">
+	///   The <see cref="NibblePoker.Library.Arguments.Verb">Verb</see> for which the help text should be rendered.
+	/// </param>
+	/// <param name="programName">
+	///   Executable's name to use.
+	/// </param>
+	/// <param name="consoleWidth">
+	///   The console width used to calculate properly formatted and spaced line returns.
+	/// </param>
+	/// <param name="addVerbs">
+	///   Toggle to include or exclude the <see cref="NibblePoker.Library.Arguments.Verb">Verb</see> from the output.
+	/// </param>
+	/// <returns>
+	///   The formatted lines as a string with line returns.
+	/// </returns>
+	/// <remarks>
+	///   It is recommended to subtract 1 from the console's max width to prevent
+	///    weird and unexpected line returns in some command prompts.
+	/// </remarks>
 	public static string GetUsageString(Verb verb, string programName, uint consoleWidth = 80, bool addVerbs = true) {
 		return string.Join('\n', GetUsageLines(verb, programName, consoleWidth, addVerbs));
 	}
 
 	/// <summary>
-	/// Processes a given <c>Verb</c> to get the associated options' details text in POSIX format as a list.
+	///   Processes a given <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>
+	///    to get the associated <see cref="NibblePoker.Library.Arguments.Option">Options</see>'
+	///    details text in POSIX format as a list.
 	/// </summary>
-	/// <param name="verb">The <c>Verb</c> for which the help text should be rendered.</param>
-	/// <param name="consoleWidth">The console width used to calculate properly formatted and spaced line returns.</param>
-	/// <param name="leftSpace">Amount of spaces for any non-heading text.</param>
-	/// <param name="innerSpace">Amount of spaces between the <c>Option</c> and their description.</param>
-	/// <param name="addValueToShort">Add the value's name part to both the short version if both short and long options are available.</param>
-	/// <returns>The <c>Option</c>s' details as a list of string.</returns>
-	/// <remarks>It is recommended to subtract 1 from the console's max width to prevent weird line returns in some command prompts.</remarks>
+	/// <param name="verb">
+	///   The <see cref="NibblePoker.Library.Arguments.Verb">Verb</see> for which the help text should be rendered.
+	/// </param>
+	/// <param name="consoleWidth">
+	///   The console width used to calculate properly formatted and spaced line returns.
+	/// </param>
+	/// <param name="leftSpace">
+	///   Amount of spaces for any non-heading text.
+	/// </param>
+	/// <param name="innerSpace">
+	///   Amount of spaces between the <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    and their description.
+	/// </param>
+	/// <param name="addValueToShort">
+	///   Add the value's name part to both the short version if both short and long options are available.
+	/// </param>
+	/// <returns>
+	///   The <see cref="NibblePoker.Library.Arguments.Option">Options</see>' details as a list of strings.
+	/// </returns>
+	/// <remarks>
+	///   It is recommended to subtract 1 from the console's max width to prevent
+	///    weird and unexpected line returns in some command prompts.
+	/// </remarks>
 	public static List<string> GetOptionsDetailsLines(Verb verb, uint consoleWidth = 80, uint leftSpace = 2, uint innerSpace = 2, bool addValueToShort = false) {
 		// Calculating the maximum token size for the spacing later on
 		int maxTokenSize = 0;
@@ -216,27 +271,65 @@ public static class HelpText {
 	}
 	
 	/// <summary>
-	/// Processes a given <c>Verb</c> to get the associated options' details text in POSIX format.
+	///   Processes a given <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>
+	///    to get the associated <see cref="NibblePoker.Library.Arguments.Option">Options</see>'
+	///    details text in POSIX format.
 	/// </summary>
-	/// <param name="verb">The <c>Verb</c> for which the help text should be rendered.</param>
-	/// <param name="consoleWidth">The console width used to calculate properly formatted and spaced line returns.</param>
-	/// <param name="leftSpace">Amount of spaces for any non-heading text.</param>
-	/// <param name="innerSpace">Amount of spaces between the <c>Option</c> and their description.</param>
-	/// <param name="addValueToShort">Add the value's name part to both the short version if both short and long options are available.</param>
-	/// <returns>The <c>Option</c>s' details as a single string.</returns>
-	/// <remarks>It is recommended to subtract 1 from the console's max width to prevent weird line returns in some command prompts.</remarks>
+	/// <param name="verb">
+	///   The <see cref="NibblePoker.Library.Arguments.Verb">Verb</see> for which the help text should be rendered.
+	/// </param>
+	/// <param name="consoleWidth">
+	///   The console width used to calculate properly formatted and spaced line returns.
+	/// </param>
+	/// <param name="leftSpace">
+	///   Amount of spaces for any non-heading text.
+	/// </param>
+	/// <param name="innerSpace">
+	///   Amount of spaces between the <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    and their description.
+	/// </param>
+	/// <param name="addValueToShort">
+	///   Toggle to add the value's name part to both the short version if both short and long
+	///    <see cref="NibblePoker.Library.Arguments.Option">Options</see> are available.
+	/// </param>
+	/// <returns>
+	///   The <see cref="NibblePoker.Library.Arguments.Option">Options</see>'
+	///    details as a single string with line returns.
+	/// </returns>
+	/// <remarks>
+	///   It is recommended to subtract 1 from the console's max width to prevent
+	///    weird and unexpected line returns in some command prompts.
+	/// </remarks>
 	public static string GetOptionsDetails(Verb verb, uint consoleWidth = 80, uint leftSpace = 2, uint innerSpace = 2, bool addValueToShort = false) {
 		return string.Join('\n', GetOptionsDetailsLines(verb, consoleWidth, leftSpace, innerSpace, addValueToShort));
 	}
 	
 	/// <summary>
-	/// Retrieves the sub-<c>Verb</c> details section for the given <c>Verb</c>.
+	///   Retrieves the sub-<see cref="NibblePoker.Library.Arguments.Verb">Verbs</see>'s
+	///    details section for the given <see cref="NibblePoker.Library.Arguments.Verb">Verbs</see>.
 	/// </summary>
-	/// <param name="verb">The <c>Verb</c> for which the help text should be rendered.</param>
-	/// <param name="consoleWidth">The console width used to calculate properly formatted and spaced line returns.</param>
-	/// <param name="leftSpace">Amount of spaces for any non-heading text.</param>
-	/// <param name="innerSpace">Amount of spaces between the <c>Verb</c> and their description.</param>
-	/// <returns></returns>
+	/// <param name="verb">
+	///   The <see cref="NibblePoker.Library.Arguments.Verb">Verbs</see> for which the help text should be rendered.
+	/// </param>
+	/// <param name="consoleWidth">
+	///   The console width used to calculate properly formatted and spaced line returns.
+	/// </param>
+	/// <param name="leftSpace">
+	///   Amount of spaces for any non-heading text.
+	/// </param>
+	/// <param name="innerSpace">
+	///   Amount of spaces between the <see cref="NibblePoker.Library.Arguments.Verb">Verbs</see>
+	///    and their description.
+	/// </param>
+	/// <returns>
+	///   The <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>'
+	///    sub-<see cref="NibblePoker.Library.Arguments.Verb">Verbs</see>'
+	///    details as a single string with line returns.
+	/// </returns>
+	/// <remarks>
+	///   It is recommended to subtract 1 from the console's max width to prevent
+	///    weird and unexpected line returns in some command prompts.
+	/// </remarks>
 	public static string GetVerbsDetails(Verb verb, uint consoleWidth = 80, uint leftSpace = 2, uint innerSpace = 2) {
 		string outputString = "";
 		int maxSubVerbSize = 0;
@@ -260,15 +353,34 @@ public static class HelpText {
 	}
 	
 	/// <summary>
-	/// Retrieves the complete help text with the usage and verb/options info and description.
+	///   Retrieves the complete help text with the usage and verb/options info and description.
 	/// </summary>
-	/// <param name="verb">The <c>Verb</c> for which the help text should be rendered, preferably the root <c>Verb</c>.</param>
-	/// <param name="programName">Executable's name to use in the usage text.</param>
-	/// <param name="consoleWidth">The console width used to calculate properly formatted and spaced line returns.</param>
-	/// <param name="leftSpace">Amount of spaces for any non-heading text in the <c>Verb</c> and <c>Option</c> sections.</param>
-	/// <param name="innerSpace">Amount of spaces between the <c>Verb</c> and <c>Option</c> and their description.</param>
-	/// <param name="addVerbs">Toggle to include or exclude the <c>Verb</c> section.</param>
+	/// <param name="verb">
+	///   The <see cref="NibblePoker.Library.Arguments.Verb">Verb</see> for which the help text should be rendered.
+	/// </param>
+	/// <param name="programName">
+	///   Executable's name to use in the usage text.
+	/// </param>
+	/// <param name="consoleWidth">
+	///   The console width used to calculate properly formatted and spaced line returns.
+	/// </param>
+	/// <param name="leftSpace">
+	///   Amount of spaces for any non-heading text in the <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>
+	///    and <see cref="NibblePoker.Library.Arguments.Option">Option</see> sections.
+	/// </param>
+	/// <param name="innerSpace">
+	///   Amount of spaces between the <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>
+	///    and <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    and their description.
+	/// </param>
+	/// <param name="addVerbs">
+	///   Toggle to include or exclude the <see cref="NibblePoker.Library.Arguments.Verb">Verb</see> section.
+	/// </param>
 	/// <returns>The complete help text as a string.</returns>
+	/// <remarks>
+	///   It is recommended to subtract 1 from the console's max width to prevent
+	///    weird and unexpected line returns in some command prompts.
+	/// </remarks>
 	public static string GetFullHelpText(Verb verb, string programName, uint consoleWidth = 80, uint leftSpace = 2,
 		uint innerSpace = 2, bool addVerbs = true) {
 		if(addVerbs && verb.Verbs.Count == 0) {

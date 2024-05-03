@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+        <ImplicitUsings>false</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>NibblePoker.Library.Arguments.Examples.LooseDeclaration</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -1,45 +1,53 @@
 ﻿namespace NibblePoker.Library.Arguments; 
 
 /// <summary>
-/// Class <c>Verb</c> models a verb that can be given in launch arguments to select a specific action or subset of
-///  usable launch parameters.
+///   Class <c>Verb</c> models a verb that can be given in launch arguments to select a specific action or subset of
+///    usable launch parameters.
 /// </summary>
 public class Verb {
 	/// <summary>
-	/// Name used when searching for sub-verbs or rendering the help text.
+	///   Name used when searching for a sub-<see cref="NibblePoker.Library.Arguments.Verb">Verb</see>
+	///    or rendering the help text.
 	/// </summary>
 	public readonly string Name;
 	
 	/// <summary>
-	/// Description that is shown in the help text.
+	///   Description as shown in the help text.
 	/// </summary>
 	public readonly string Description;
 	
 	/// <summary>
-	/// List of registered <c>Option</c> via the 'RegisterOption' function.
+	///   List of <see cref="NibblePoker.Library.Arguments.Option">Option</see> registered via the
+	///    <see cref="NibblePoker.Library.Arguments.Verb.RegisterOption">Verb.RegisterOption</see> function.
 	/// </summary>
 	public readonly List<Option> Options;
 	
 	/// <summary>
-	/// List of registered sub-<c>Verb</c> via the 'RegisterVerb' function.
+	///   List of sub-<see cref="NibblePoker.Library.Arguments.Verb">Verb</see> registered via the
+	///    <see cref="NibblePoker.Library.Arguments.Verb.RegisterVerb">Verb.RegisterVerb</see> function.
 	/// </summary>
 	public readonly List<Verb> Verbs;
 	
 	/// <summary>
-	/// Flag used to indicate if the verb was used at any point during the parsing process.
+	///   Flag used to indicate if the <see cref="NibblePoker.Library.Arguments.Verb">Verb</see> was
+	///    used at any point during the parsing process.
 	/// </summary>
 	public bool WasUsed;
 	
 	/// <summary>
-	/// Reference to a potential <c>Verb</c> into which this one was registered.
+	///   Reference to a potential parent <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>
+	///    in which this one was registered.
 	/// </summary>
 	public Verb? ParentVerb;
 	
 	/// <summary>
-	/// Common constructor for any <c>Verb</c>.
+	///   Constructs an independant <see cref="NibblePoker.Library.Arguments.Verb">Verb</see> with the given parameters.
 	/// </summary>
-	/// <param name="name">Name used when searching for sub-verbs.</param>
-	/// <param name="description">Description that is shown in the help text.</param>
+	/// <param name="name">
+	///   Name used when searching for a sub-<see cref="NibblePoker.Library.Arguments.Verb">Verb</see>
+	///    or rendering the help text.
+	/// </param>
+	/// <param name="description">Description as shown in the help text.</param>
 	public Verb(string? name, string description = "") {
 		Name = name ?? "";
 		Description = description;
@@ -51,13 +59,20 @@ public class Verb {
 	}
 	
 	/// <summary>
-	/// Attempts to register a sub-<c>Verb</c> in the current <c>Verb</c>.
+	///   Attempts to register a sub-<see cref="NibblePoker.Library.Arguments.Verb">Verb</see>
+	///    in the current <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>.
 	/// </summary>
-	/// <param name="verb">The <c>Verb</c> to register in the current <c>Verb</c>.</param>
-	/// <returns>The current <c>Verb</c> for registration daisy-chaining.</returns>
-	/// <exception cref="Exceptions.InvalidVerbNameException">If the registered <c>Verb</c>'s name is empty or null.</exception>
+	/// <param name="verb">
+	///   The <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>
+	///    to register in <see cref="NibblePoker.Library.Arguments.Verb.Verbs">Verb.Verbs</see>
+	///    as a sub-<see cref="NibblePoker.Library.Arguments.Verb">Verb</see>.
+	/// </param>
+	/// <returns>Itself to allow for registration daisy-chaining.</returns>
+	/// <exception cref="Exceptions.InvalidVerbNameException">
+	///	  If the registered <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>'s name is empty or null.
+	/// </exception>
 	/// <exception cref="Exceptions.DuplicateVerbException">
-	/// If the given <c>Verb</c> or one with the same name is already registered
+	///   If the given <see cref="NibblePoker.Library.Arguments.Verb">Verb</see> or one with the same name is already registered.
 	/// </exception>
 	public Verb RegisterVerb(Verb verb) {
 		if(string.IsNullOrWhiteSpace(verb.Name)) {
@@ -76,19 +91,24 @@ public class Verb {
 	}
 	
 	/// <summary>
-	/// Attempts to register an <c>Option</c> in the current <c>Verb</c>.
+	///   Attempts to register an <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    in the current <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>.
 	/// </summary>
-	/// <param name="option">The <c>Option</c> to register in the current <c>Verb</c>.</param>
-	/// <returns>The current <c>Verb</c> for registration daisy-chaining.</returns>
+	/// <param name="option">
+	///   The <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    to register in <see cref="NibblePoker.Library.Arguments.Verb.Verbs">Verb.Verbs</see>.</param>
+	/// <returns>Itself to allow for registration daisy-chaining.</returns>
 	/// <exception cref="Exceptions.DuplicateOptionException">
-	/// If the given <c>Option</c> or one with the same token/name is already registered
+	///   If the given <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    or one with the same token/name is already registered.
 	/// </exception>
 	/// <exception cref="Exceptions.ExistingDefaultMultipleOptionException">
-	/// If the given <see cref="NibblePoker.Library.Arguments.Option">Option</see> has the
-	///  <see cref="NibblePoker.Library.Arguments.OptionFlags.Default">Default</see> flag and is registered
-	///  after one that also has <see cref="NibblePoker.Library.Arguments.OptionFlags.Default">OptionFlags.Default</see>,
-	///  <see cref="NibblePoker.Library.Arguments.OptionFlags.HasValue">OptionFlags.HasValue</see> and
-	///  <see cref="NibblePoker.Library.Arguments.OptionFlags.Repeatable">OptionFlags.Repeatable</see> flags.
+	///   If the given <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    has the <see cref="NibblePoker.Library.Arguments.OptionFlags.Default">Default</see>
+	///    flag and is registered after one that also has
+	///    <see cref="NibblePoker.Library.Arguments.OptionFlags.Default">OptionFlags.Default</see>,
+	///    <see cref="NibblePoker.Library.Arguments.OptionFlags.HasValue">OptionFlags.HasValue</see> and
+	///    <see cref="NibblePoker.Library.Arguments.OptionFlags.Repeatable">OptionFlags.Repeatable</see> flags.
 	/// </exception>
 	public Verb RegisterOption(Option option) {
 		if(Options.Contains(option)) {
@@ -128,10 +148,15 @@ public class Verb {
 	}
 	
 	/// <summary>
-	/// Attempts to retrieve a registered <c>Verb</c> using its name.
+	///   Attempts to retrieve a registered sub-<see cref="NibblePoker.Library.Arguments.Verb">Verb</see>
+	///    using its name.
 	/// </summary>
-	/// <param name="name">The desired <c>Verb</c>'s name</param>
-	/// <returns>The relevant <c>Verb</c>, null otherwise.</returns>
+	/// <param name="name">
+	///   The desired <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>'s name
+	/// </param>
+	/// <returns>
+	///   The relevant <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>, <c>null</c> otherwise.
+	/// </returns>
 	public Verb? GetSubVerbByName(string name) {
 		foreach(Verb verb in Verbs) {
 			if(verb.Name.Equals(name)) {
@@ -143,10 +168,12 @@ public class Verb {
 	}
 	
 	/// <summary>
-	/// Attempts to grab the default <c>Option</c> that should be used as one during the parsing process based on
-	/// whether it has been used before.
+	///   Attempts to retrieve the default <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    that should be used during the parsing process based on whether it has been used before.
 	/// </summary>
-	/// <returns></returns>
+	/// <returns>
+	///   The relevant <see cref="NibblePoker.Library.Arguments.Option">Option</see>, <c>null</c> otherwise.
+	/// </returns>
 	public Option? GetRelevantDefaultOption() {
 		foreach(Option option in Options) {
 			if(!option.IsDefault()) {
@@ -166,10 +193,15 @@ public class Verb {
 	}
 	
 	/// <summary>
-	/// Attempts to retrieve a registered <c>Option</c> using its token.
+	///   Attempts to retrieve a registered <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    using its token.
 	/// </summary>
-	/// <param name="token">The desired <c>Option</c>'s token</param>
-	/// <returns>The relevant <c>Option</c>, null otherwise.</returns>
+	/// <param name="token">
+	///   The desired <see cref="NibblePoker.Library.Arguments.Option">Option</see>'s token
+	/// </param>
+	/// <returns>
+	///   The relevant <see cref="NibblePoker.Library.Arguments.Option">Option</see>, <c>null</c> otherwise.
+	/// </returns>
 	public Option? GetOptionByToken(char token) {
 		foreach(Option option in Options) {
 			if(option.HasToken() && option.Token!.Equals(token)) {
@@ -181,10 +213,15 @@ public class Verb {
 	}
 	
 	/// <summary>
-	/// Attempts to retrieve a registered <c>Option</c> using its name.
+	///   Attempts to retrieve a registered <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    using its name.
 	/// </summary>
-	/// <param name="name">The desired <c>Option</c>'s name</param>
-	/// <returns>The relevant <c>Option</c>, null otherwise.</returns>
+	/// <param name="name">
+	///   The desired <see cref="NibblePoker.Library.Arguments.Option">Option</see>'s name
+	/// </param>
+	/// <returns>
+	///   The relevant <see cref="NibblePoker.Library.Arguments.Option">Option</see>, <c>null</c> otherwise.
+	/// </returns>
 	public Option? GetOptionByName(string name) {
 		foreach(Option option in Options) {
 			if(option.HasName() && option.Name!.Equals(name)) {
@@ -196,26 +233,37 @@ public class Verb {
 	}
 	
 	/// <summary>
-	/// Checks if a given token is used by a registered <c>Option</c>.
+	///   Checks if a given token is used by a registered <see cref="NibblePoker.Library.Arguments.Option">Option</see>.
 	/// </summary>
-	/// <param name="token">The desired <c>Option</c>'s token</param>
-	/// <returns>True if a matching <c>Option</c> was found, false otherwise.</returns>
+	/// <param name="token">
+	///   The desired <see cref="NibblePoker.Library.Arguments.Option">Option</see>'s token
+	/// </param>
+	/// <returns>
+	///   <c>true</c> if a matching <see cref="NibblePoker.Library.Arguments.Option">Option</see> was found,
+	///    <c>false</c> otherwise.
+	/// </returns>
 	public bool HasOptionByToken(char token) {
 		return GetOptionByToken(token) != null;
 	}
 	
 	/// <summary>
-	/// Checks if a given name is used by a registered <c>Option</c>.
+	///   Checks if a given name is used by a registered <see cref="NibblePoker.Library.Arguments.Option">Option</see>.
 	/// </summary>
-	/// <param name="name">The desired <c>Option</c>'s name</param>
-	/// <returns>True if a matching <c>Option</c> was found, false otherwise.</returns>
+	/// <param name="name">
+	///   The desired <see cref="NibblePoker.Library.Arguments.Option">Option</see>'s name
+	/// </param>
+	/// <returns>
+	///   <c>true</c> if a matching <see cref="NibblePoker.Library.Arguments.Option">Option</see> was found,
+	///    <c>false</c> otherwise.
+	/// </returns>
 	public bool HasOptionByName(string name) {
 		return GetOptionByName(name) != null;
 	}
 	
 	/// <summary>
-	/// Clears any field and registered member's fields that may be modified once the launch arguments are parsed.
+	///   Clears any field and registered member's fields that may be modified once the launch arguments are parsed.
 	/// </summary>
+	/// <seealso cref="NibblePoker.Library.Arguments.Option.Clear"/>
 	public void Clear() {
 		foreach(Option option in Options) {
 			option.Clear();
