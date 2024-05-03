@@ -28,8 +28,8 @@ var NAVTREE =
     [ ".NET - Launch Arguments Parser Library", "index.html", [
       [ "Features", "index.html#autotoc_md1", null ],
       [ "Requirements", "index.html#autotoc_md2", null ],
-      [ "Building", "index.html#autotoc_md3", null ],
-      [ "Documentation", "index.html#autotoc_md4", null ],
+      [ "Documentation", "index.html#autotoc_md3", null ],
+      [ "Building", "index.html#autotoc_md4", null ],
       [ "Basic Example", "index.html#autotoc_md5", null ],
       [ "Other Examples", "index.html#autotoc_md6", null ],
       [ "License", "index.html#autotoc_md7", null ]
