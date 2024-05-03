@@ -1,10 +1,13 @@
 # .NET - Launch Arguments Parser Library
 [![Nuget.org latest version](https://img.shields.io/nuget/v/NibblePoker.Library.Arguments?label=Latest%20version)](https://www.nuget.org/packages/NibblePoker.Library.Arguments)
 [![Nuget.org downloads count](https://img.shields.io/nuget/dt/NibblePoker.Library.Arguments?label=Downloads)](https://www.nuget.org/packages/NibblePoker.Library.Arguments)
+[![Repository's License](https://img.shields.io/github/license/aziascreations/DotNet-Arguments)](LICENSE)
 
 A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications.
 
-This library is an improved port of my [PB-Arguments](https://github.com/aziascreations/PB-Arguments) library that intended to achieve the same goals but was missing support for some features.
+This library is an improved port of my [PB-Arguments](https://github.com/aziascreations/PB-Arguments) library that intended to achieve the same goals but was
+missing support for some features.<br>
+It is also has the exact same features as the port in [C99-Utility-Libraries](https://github.com/aziascreations/C99-Utility-Libraries).
 
 ## Features
 * Easy to use, lightweight and 'to-the-point' philosophy
@@ -18,6 +21,7 @@ This library is an improved port of my [PB-Arguments](https://github.com/aziascr
   * Multiple default option per verb with index-based ordering
   * Hidden in help text
   * Early parser exit
+  * In-between verbs
 * Configurable help text printer
 * Easy exception filtering with inheritance
   * 1 common parent
@@ -25,16 +29,15 @@ This library is an improved port of my [PB-Arguments](https://github.com/aziascr
   * 14 final errors thrown in specific places.
 
 ## Requirements
-* Any OS
-* Any CPU
-* .NET v6.0
+* Any OS/CPU
+* .NET v6.0+
 * C# 10.0
+
+## Documentation
+Go to [aziascreations.github.io/DotNet-Arguments/](https://aziascreations.github.io/DotNet-Arguments/) for the HTML documentation.
 
 ## Building
 See [building.md](building.md)
-
-## Documentation
-Go to [https://aziascreations.github.io/DotNet-Arguments/](https://aziascreations.github.io/DotNet-Arguments/) for the HTML documentation.
 
 ## Basic Example
 The following example shows you how to declare 2 options and how to parse and use the launch arguments.
@@ -72,5 +75,5 @@ if(OptionVerbose.WasUsed() && OptionVerbose.Occurrences >= 2) {
 ## License
 [MIT License](https://github.com/aziascreations/DotNet-Arguments/blob/master/LICENSE)
 
-Keep in mind, the [doxygen-awesome-css](https://github.com/jothepro/doxygen-awesome-css) submodule repository uses an
-[MIT license](https://github.com/jothepro/doxygen-awesome-css/blob/main/LICENSE).
+The [doxygen-awesome-css](https://github.com/jothepro/doxygen-awesome-css) repository is used as a
+submodule for Doxygen and is licensed under the [MIT license](https://github.com/jothepro/doxygen-awesome-css/blob/main/LICENSE).
