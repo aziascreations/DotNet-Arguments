@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - dev-cicd-and-c99-catchup
   pull_request:
 
 jobs:
@@ -32,7 +31,7 @@ jobs:
 
       - name: Deploy documentation to gh-pages
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/dev-cicd-and-c99-catchup' }}
+        if: ${{ github.ref == 'refs/heads/master' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./NibblePoker.Library.Arguments/_site
+          publish_dir: ./NibblePoker.Library.Arguments.Documentation/html
