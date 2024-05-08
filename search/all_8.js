@@ -1,12 +1,10 @@
 var searchData=
 [
-  ['hasmultiplevalue_0',['HasMultipleValue',['../OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539fa47287c668706598c210455ab19026884',1,'OptionFlags.cs']]],
-  ['hasname_1',['HasName',['../classOption.html#a594c35d85b85d79499c5a5963a4feb06',1,'Option']]],
-  ['hasoptionbyname_2',['HasOptionByName',['../classVerb.html#a187b2f9244bb67860626405444537de8',1,'Verb']]],
-  ['hasoptionbytoken_3',['HasOptionByToken',['../classVerb.html#a5004eb960b05e123723695e9f29abd1b',1,'Verb']]],
-  ['hastoken_4',['HasToken',['../classOption.html#a96f163e6649a88b011970fa1cd015c69',1,'Option']]],
-  ['hasvalue_5',['HasValue',['../classOption.html#abdb5bcb7d858751728ac9cc2f44c3cff',1,'Option.HasValue()'],['../OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539fa51f1f344c102359e0bdd70eb9ae5c847',1,'HasValue():&#160;OptionFlags.cs']]],
-  ['helptext_6',['HelpText',['../classHelpText.html',1,'']]],
-  ['helptext_2ecs_7',['HelpText.cs',['../HelpText_8cs.html',1,'']]],
-  ['hidden_8',['Hidden',['../OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539fa7acdf85c69cc3c5305456a293524386e',1,'OptionFlags.cs']]]
+  ['hasname_0',['HasName',['../classNibblePoker_1_1Library_1_1Arguments_1_1Option.html#ae051422bb01af32440f984f3a4db0d37',1,'NibblePoker::Library::Arguments::Option']]],
+  ['hasoptionbyname_1',['HasOptionByName',['../classNibblePoker_1_1Library_1_1Arguments_1_1Verb.html#ab99f08e4c332590b31ef16c427c1e00e',1,'NibblePoker::Library::Arguments::Verb']]],
+  ['hasoptionbytoken_2',['HasOptionByToken',['../classNibblePoker_1_1Library_1_1Arguments_1_1Verb.html#a05e1629b0d0fa83df3ae5c129cb5bae1',1,'NibblePoker::Library::Arguments::Verb']]],
+  ['hastoken_3',['HasToken',['../classNibblePoker_1_1Library_1_1Arguments_1_1Option.html#a6e6bee6dc0d7d2f4b3b626b2587d79ad',1,'NibblePoker::Library::Arguments::Option']]],
+  ['hasvalue_4',['HasValue',['../classNibblePoker_1_1Library_1_1Arguments_1_1Option.html#ae2f9b2e6bfaa00a1f8935f99bf4d15c0',1,'NibblePoker::Library::Arguments::Option']]],
+  ['helptext_5',['HelpText',['../classNibblePoker_1_1Library_1_1Arguments_1_1HelpText.html',1,'NibblePoker::Library::Arguments']]],
+  ['helptext_2ecs_6',['HelpText.cs',['../HelpText_8cs.html',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['token_0',['Token',['../classOption.html#ad7cd218adae1aeec72eeba5c4744dcee',1,'Option']]]
+  ['token_0',['Token',['../classNibblePoker_1_1Library_1_1Arguments_1_1Option.html#a57c397eba009b460acd1e72fbb201cf7',1,'NibblePoker::Library::Arguments::Option']]]
 ];

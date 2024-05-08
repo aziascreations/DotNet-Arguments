@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['verb_0',['Verb',['../classVerb.html',1,'Verb'],['../classVerb.html#a6cbd3495c257027aa17d96eabcde4034',1,'Verb.Verb()']]],
+  ['verb_0',['Verb',['../classNibblePoker_1_1Library_1_1Arguments_1_1Verb.html',1,'NibblePoker.Library.Arguments.Verb'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Verb.html#a1011fbea31194772feca53db1a5c0f97',1,'NibblePoker.Library.Arguments.Verb.Verb()']]],
   ['verb_2ecs_1',['Verb.cs',['../Verb_8cs.html',1,'']]],
-  ['verbexception_2',['VerbException',['../classExceptions_1_1VerbException.html',1,'Exceptions.VerbException'],['../classExceptions_1_1VerbException.html#a61b57809c0db80b55a1c7bfb352d45d1',1,'Exceptions.VerbException.VerbException()']]],
-  ['verbs_3',['Verbs',['../classVerb.html#ad5f131f0b40243aa846aa7f13d11c72a',1,'Verb']]]
+  ['verbexception_2',['VerbException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1VerbException.html',1,'NibblePoker.Library.Arguments.Exceptions.VerbException'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1VerbException.html#a7ad2acda740eca95e2d98b012a4a65d5',1,'NibblePoker.Library.Arguments.Exceptions.VerbException.VerbException()']]],
+  ['verbs_3',['Verbs',['../classNibblePoker_1_1Library_1_1Arguments_1_1Verb.html#a6910880e812a65150459f68fc52cba61',1,'NibblePoker::Library::Arguments::Verb']]]
 ];

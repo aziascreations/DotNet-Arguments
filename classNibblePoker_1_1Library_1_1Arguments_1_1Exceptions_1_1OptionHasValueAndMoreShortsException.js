@@ -1,0 +1,4 @@
+var classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1OptionHasValueAndMoreShortsException =
+[
+    [ "OptionHasValueAndMoreShortsException", "classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1OptionHasValueAndMoreShortsException.html#ac86be56e6cd4fd87b5ed90c7f95067b6", null ]
+];

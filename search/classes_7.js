@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['option_0',['Option',['../classOption.html',1,'']]],
-  ['optionexception_1',['OptionException',['../classExceptions_1_1OptionException.html',1,'Exceptions']]],
-  ['optionhasvalueandmoreshortsexception_2',['OptionHasValueAndMoreShortsException',['../classExceptions_1_1OptionHasValueAndMoreShortsException.html',1,'Exceptions']]],
-  ['optionvalueoverflowexception_3',['OptionValueOverflowException',['../classExceptions_1_1OptionValueOverflowException.html',1,'Exceptions']]]
+  ['option_0',['Option',['../classNibblePoker_1_1Library_1_1Arguments_1_1Option.html',1,'NibblePoker::Library::Arguments']]],
+  ['optionexception_1',['OptionException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1OptionException.html',1,'NibblePoker::Library::Arguments::Exceptions']]],
+  ['optionhasvalueandmoreshortsexception_2',['OptionHasValueAndMoreShortsException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1OptionHasValueAndMoreShortsException.html',1,'NibblePoker::Library::Arguments::Exceptions']]],
+  ['optionvalueoverflowexception_3',['OptionValueOverflowException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1OptionValueOverflowException.html',1,'NibblePoker::Library::Arguments::Exceptions']]]
 ];

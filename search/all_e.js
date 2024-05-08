@@ -1,9 +1,8 @@
 var searchData=
 [
   ['readme_2emd_0',['readme.md',['../readme_8md.html',1,'']]],
-  ['registeroption_1',['RegisterOption',['../classVerb.html#adf8b6beb6a7cc7e3bc015c640a4acf9b',1,'Verb']]],
-  ['registerverb_2',['RegisterVerb',['../classVerb.html#ab0c4300eb3f81a1cc92e83c5b5f04df8',1,'Verb']]],
-  ['repeatable_3',['Repeatable',['../OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539fa08c2f2ad052ffdcd3191c9521fa2576c',1,'OptionFlags.cs']]],
-  ['repeatedsingularoptionexception_4',['RepeatedSingularOptionException',['../classExceptions_1_1RepeatedSingularOptionException.html',1,'Exceptions.RepeatedSingularOptionException'],['../classExceptions_1_1RepeatedSingularOptionException.html#a8dd3dcf5661e0587046ec8e076f43cc6',1,'Exceptions.RepeatedSingularOptionException.RepeatedSingularOptionException()']]],
-  ['required_5',['Required',['../OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539fab651efdb98a5d6bd2b3935d0c3f4a5e2',1,'OptionFlags.cs']]]
+  ['registeroption_1',['RegisterOption',['../classNibblePoker_1_1Library_1_1Arguments_1_1Verb.html#a30862ea129f86f968a6850d1d8c78e6d',1,'NibblePoker::Library::Arguments::Verb']]],
+  ['registeroptionrecursively_2',['RegisterOptionRecursively',['../classNibblePoker_1_1Library_1_1Arguments_1_1Verb.html#a7d5771ab677217ee279564ced6250582',1,'NibblePoker::Library::Arguments::Verb']]],
+  ['registerverb_3',['RegisterVerb',['../classNibblePoker_1_1Library_1_1Arguments_1_1Verb.html#a54240fd8661ab2726fb15675d8c63ed4',1,'NibblePoker::Library::Arguments::Verb']]],
+  ['repeatedsingularoptionexception_4',['RepeatedSingularOptionException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1RepeatedSingularOptionException.html',1,'NibblePoker.Library.Arguments.Exceptions.RepeatedSingularOptionException'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1RepeatedSingularOptionException.html#a536210236bc4bd98f089a285ea0e30d5',1,'NibblePoker.Library.Arguments.Exceptions.RepeatedSingularOptionException.RepeatedSingularOptionException()']]]
 ];

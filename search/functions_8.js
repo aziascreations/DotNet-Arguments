@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['nodefaultoptionfoundexception_0',['NoDefaultOptionFoundException',['../classExceptions_1_1NoDefaultOptionFoundException.html#a76dce46969ec4ff1035f70c80388c724',1,'Exceptions::NoDefaultOptionFoundException']]],
-  ['notenoughargumentsexception_1',['NotEnoughArgumentsException',['../classExceptions_1_1NotEnoughArgumentsException.html#a7e42574b9c8a75da711cddbe87683b2b',1,'Exceptions::NotEnoughArgumentsException']]]
+  ['nodefaultoptionfoundexception_0',['NoDefaultOptionFoundException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1NoDefaultOptionFoundException.html#a4b73c7fe415eb3832106dc150ee6798e',1,'NibblePoker::Library::Arguments::Exceptions::NoDefaultOptionFoundException']]],
+  ['notenoughargumentsexception_1',['NotEnoughArgumentsException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1NotEnoughArgumentsException.html#a1b78b680fb38659d29f2a6db8e9583ac',1,'NibblePoker::Library::Arguments::Exceptions::NotEnoughArgumentsException']]]
 ];

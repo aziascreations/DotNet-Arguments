@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['flags_0',['Flags',['../classOption.html#a966a9fd730b2606d17d5b1eb84797efc',1,'Option']]]
+  ['flags_0',['Flags',['../classNibblePoker_1_1Library_1_1Arguments_1_1Option.html#ae049a7d61c64ffc86d1a7827e4b54762',1,'NibblePoker::Library::Arguments::Option']]]
 ];

@@ -1,0 +1,4 @@
+var classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1MissingRequiredOptionException =
+[
+    [ "MissingRequiredOptionException", "classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1MissingRequiredOptionException.html#a510ba7e66095d6a9c39f16795626f9b7", null ]
+];

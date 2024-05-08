@@ -1,4 +1,4 @@
 var Verb_8cs =
 [
-    [ "Verb", "classVerb.html", "classVerb" ]
+    [ "NibblePoker.Library.Arguments.Verb", "classNibblePoker_1_1Library_1_1Arguments_1_1Verb.html", "classNibblePoker_1_1Library_1_1Arguments_1_1Verb" ]
 ];

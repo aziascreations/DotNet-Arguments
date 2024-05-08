@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['occurrences_0',['Occurrences',['../classOption.html#a8e5f257190a5b34bfc5bcb8606523985',1,'Option']]],
-  ['options_1',['Options',['../classVerb.html#ab5961432b1950ffbbd0e7b66a4226747',1,'Verb']]]
+  ['occurrences_0',['Occurrences',['../classNibblePoker_1_1Library_1_1Arguments_1_1Option.html#ae8e730b7bb462e2b71e51bb757c18f15',1,'NibblePoker::Library::Arguments::Option']]],
+  ['options_1',['Options',['../classNibblePoker_1_1Library_1_1Arguments_1_1Verb.html#acb2ad31af3059549ff3da04fd30c5e8c',1,'NibblePoker::Library::Arguments::Verb']]]
 ];

@@ -1,0 +1,4 @@
+var classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1OptionValueOverflowException =
+[
+    [ "OptionValueOverflowException", "classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1OptionValueOverflowException.html#a8c8ac2ed079a803331023e04c2e11a67", null ]
+];

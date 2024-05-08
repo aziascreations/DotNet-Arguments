@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_0',['Name',['../classOption.html#a0576584a05609394189dca3efbe48d5b',1,'Option.Name()'],['../classVerb.html#ad489cd8c423197af07ebe6fcb5296f2c',1,'Verb.Name()']]]
+  ['name_0',['Name',['../classNibblePoker_1_1Library_1_1Arguments_1_1Option.html#a307b2412318577bd2b862d97a6b7734a',1,'NibblePoker.Library.Arguments.Option.Name()'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Verb.html#a9258426061b952921fa172d8d4b80420',1,'NibblePoker.Library.Arguments.Verb.Name()']]]
 ];

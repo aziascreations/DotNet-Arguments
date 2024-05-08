@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['duplicateoptionexception_0',['DuplicateOptionException',['../classExceptions_1_1DuplicateOptionException.html#a4920db6a0aca00e746d1b910725b3580',1,'Exceptions::DuplicateOptionException']]],
-  ['duplicateverbexception_1',['DuplicateVerbException',['../classExceptions_1_1DuplicateVerbException.html#a9d6d9d55fc0890e9d6ec4f1b95df91e4',1,'Exceptions::DuplicateVerbException']]]
+  ['duplicateoptionexception_0',['DuplicateOptionException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1DuplicateOptionException.html#a7583c884582122c829bcb800875adda7',1,'NibblePoker::Library::Arguments::Exceptions::DuplicateOptionException']]],
+  ['duplicateverbexception_1',['DuplicateVerbException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1DuplicateVerbException.html#a41d28d57b90d5ba8a2174126bfc2af96',1,'NibblePoker::Library::Arguments::Exceptions::DuplicateVerbException']]]
 ];

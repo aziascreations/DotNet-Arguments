@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['name_0',['Name',['../classOption.html#a0576584a05609394189dca3efbe48d5b',1,'Option.Name()'],['../classVerb.html#ad489cd8c423197af07ebe6fcb5296f2c',1,'Verb.Name()']]],
-  ['nodefaultoptionfoundexception_1',['NoDefaultOptionFoundException',['../classExceptions_1_1NoDefaultOptionFoundException.html',1,'Exceptions.NoDefaultOptionFoundException'],['../classExceptions_1_1NoDefaultOptionFoundException.html#a76dce46969ec4ff1035f70c80388c724',1,'Exceptions.NoDefaultOptionFoundException.NoDefaultOptionFoundException()']]],
-  ['none_2',['None',['../OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539fa6adf97f83acf6453d4a6a4b1070f3754',1,'OptionFlags.cs']]],
-  ['notenoughargumentsexception_3',['NotEnoughArgumentsException',['../classExceptions_1_1NotEnoughArgumentsException.html',1,'Exceptions.NotEnoughArgumentsException'],['../classExceptions_1_1NotEnoughArgumentsException.html#a7e42574b9c8a75da711cddbe87683b2b',1,'Exceptions.NotEnoughArgumentsException.NotEnoughArgumentsException()']]]
+  ['arguments_0',['Arguments',['../namespaceNibblePoker_1_1Library_1_1Arguments.html',1,'NibblePoker::Library']]],
+  ['library_1',['Library',['../namespaceNibblePoker_1_1Library.html',1,'NibblePoker']]],
+  ['name_2',['Name',['../classNibblePoker_1_1Library_1_1Arguments_1_1Option.html#a307b2412318577bd2b862d97a6b7734a',1,'NibblePoker.Library.Arguments.Option.Name()'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Verb.html#a9258426061b952921fa172d8d4b80420',1,'NibblePoker.Library.Arguments.Verb.Name()']]],
+  ['nibblepoker_3',['NibblePoker',['../namespaceNibblePoker.html',1,'']]],
+  ['nodefaultoptionfoundexception_4',['NoDefaultOptionFoundException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1NoDefaultOptionFoundException.html',1,'NibblePoker.Library.Arguments.Exceptions.NoDefaultOptionFoundException'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1NoDefaultOptionFoundException.html#a4b73c7fe415eb3832106dc150ee6798e',1,'NibblePoker.Library.Arguments.Exceptions.NoDefaultOptionFoundException.NoDefaultOptionFoundException()']]],
+  ['notenoughargumentsexception_5',['NotEnoughArgumentsException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1NotEnoughArgumentsException.html',1,'NibblePoker.Library.Arguments.Exceptions.NotEnoughArgumentsException'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1NotEnoughArgumentsException.html#a1b78b680fb38659d29f2a6db8e9583ac',1,'NibblePoker.Library.Arguments.Exceptions.NotEnoughArgumentsException.NotEnoughArgumentsException()']]]
 ];

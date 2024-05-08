@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['allowsverbsafter_0',['AllowsVerbsAfter',['../classOption.html#a1ef8d2edcead2bf71afee3a96ae8a480',1,'Option']]],
-  ['argumentsexception_1',['ArgumentsException',['../classExceptions_1_1ArgumentsException.html#ae42d433c6193dd65788a0061016f842e',1,'Exceptions::ArgumentsException']]]
+  ['allowsverbsafter_0',['AllowsVerbsAfter',['../classNibblePoker_1_1Library_1_1Arguments_1_1Option.html#a5b771046036083d1abc39939cd222ecc',1,'NibblePoker::Library::Arguments::Option']]],
+  ['argumentsexception_1',['ArgumentsException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1ArgumentsException.html#ae4613659a105e7ffb03b1ce626643807',1,'NibblePoker::Library::Arguments::Exceptions::ArgumentsException']]]
 ];
