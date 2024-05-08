@@ -10,7 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.csproj" />
+        <ProjectReference Include="..\..\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.csproj"/>
     </ItemGroup>
 
 </Project>

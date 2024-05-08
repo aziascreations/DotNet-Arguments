@@ -1,14 +1,9 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using System;
 
 namespace NibblePoker.Library.Arguments.Tests {
     [TestFixture]
     public class TestParserMiddleOption {
-        private Verb _rootVerb = null!;
-        private Verb _subVerb = null!;
-        private Option _optionMiddle = null!;
-        private Option _optionFinal = null!;
-
         [SetUp]
         public void Setup() {
             _rootVerb = new Verb("_root");
@@ -18,6 +13,11 @@ namespace NibblePoker.Library.Arguments.Tests {
             _subVerb.RegisterOption(_optionFinal);
             _rootVerb.RegisterVerb(_subVerb);
         }
+
+        private Verb _rootVerb = null!;
+        private Verb _subVerb = null!;
+        private Option _optionMiddle = null!;
+        private Option _optionFinal = null!;
 
         [Test]
         public void TestOptionalMiddleFlag() {
