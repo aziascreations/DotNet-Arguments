@@ -17,7 +17,8 @@ namespace NibblePoker.Library.Arguments {
         public readonly List<string> Arguments;
 
         /// <summary>
-        ///     Description as shown in the help text.
+        ///     Description as shown in the help text.<br/>
+        ///     May be left as <c>null</c>.
         /// </summary>
         public readonly string Description;
 
@@ -29,13 +30,15 @@ namespace NibblePoker.Library.Arguments {
 
         /// <summary>
         ///     Name string used when searching for the <see cref="NibblePoker.Library.Arguments.Option">Option</see>
-        ///     or rendering the help text.
+        ///     or rendering the help text.<br/>
+        ///     May be left as <c>null</c> to indicate that it has no long name.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
 
         /// <summary>
         ///     Token character used when searching for the <see cref="NibblePoker.Library.Arguments.Option">Option</see>
-        ///     or rendering the help text.
+        ///     or rendering the help text.<br/>
+        ///     May be left as <c>null</c> to indicate that it has no token.
         /// </summary>
         public readonly char? Token;
 
@@ -69,7 +72,7 @@ namespace NibblePoker.Library.Arguments {
         ///     combination was given in <c>flags</c>.
         /// </exception>
         /// <seealso cref="NibblePoker.Library.Arguments.OptionFlags" />
-        public Option(char? token, string? name, string description = "", OptionFlags flags = OptionFlags.None) {
+        public Option(char? token, string name, string description = "", OptionFlags flags = OptionFlags.None) {
             Token = token;
             Name = name;
             Description = description;

@@ -3,10 +3,10 @@
 namespace NibblePoker.Library.Arguments.Examples.RegularDeclaration {
     internal static class RegularDeclaration {
         // Declaring the options shared in the sub-verbs.
-        private static readonly Option NameOption = new('n', "name",
+        private static readonly Option NameOption = new Option('n', "name",
             "Element's name", OptionFlags.Default | OptionFlags.HasValue);
 
-        private static readonly Option OverwriteOption = new('O', "overwrite",
+        private static readonly Option OverwriteOption = new Option('O', "overwrite",
             "Erases previous elements");
 
         // Declaring sub-verbs and registering the options in one go.
@@ -19,10 +19,10 @@ namespace NibblePoker.Library.Arguments.Examples.RegularDeclaration {
             .RegisterOption(NameOption);
 
         // Declaring the root verb's options
-        private static readonly Option HelpOption = new('h', "help",
+        private static readonly Option HelpOption = new Option('h', "help",
             "Shows this help text", OptionFlags.StopsParsing);
 
-        private static readonly Option VersionOption = new('v', "version",
+        private static readonly Option VersionOption = new Option('v', "version",
             "Shows the version information", OptionFlags.StopsParsing);
 
         // Declaring the root verb and registering the options in one go.

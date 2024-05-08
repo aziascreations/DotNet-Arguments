@@ -61,7 +61,7 @@
             // Used to attribute values to an option after '--'
             bool hasReachedEndOfOptions = false;
 
-            Option? relevantOption = null;
+            Option relevantOption = null;
 
             // Parsing arguments
             for (int iArg = 0; iArg < arguments.Length; iArg++) {
@@ -103,15 +103,15 @@
                         relevantOption.Arguments.Add(arguments[iArg]);
                     } else {
                         // Generic option by '--<name>'
-                        relevantOption = currentVerb.GetOptionByName(arguments[iArg][2..]);
+                        relevantOption = currentVerb.GetOptionByName(arguments[iArg].Substring(2));
                         if (relevantOption == null) {
                             throw new Exceptions.UnknownOptionException(
-                                "Unable to find the '" + arguments[iArg][2..] + "' option !");
+                                "Unable to find the '" + arguments[iArg].Substring(2) + "' option !");
                         }
 
                         if (relevantOption.WasUsed() && !relevantOption.IsRepeatable()) {
                             throw new Exceptions.RepeatedSingularOptionException(
-                                "The option '" + arguments[iArg][2..] + "' was used more than once !");
+                                "The option '" + arguments[iArg].Substring(2) + "' was used more than once !");
                         }
 
                         relevantOption.Occurrences++;
@@ -119,12 +119,12 @@
                         if (relevantOption.CanHaveValue()) {
                             if (!relevantOption.CanHaveMultipleValue() && relevantOption.Arguments.Count >= 1) {
                                 throw new Exceptions.OptionValueOverflowException(
-                                    "The option '" + arguments[iArg][2..] + "' can only have 1 argument !");
+                                    "The option '" + arguments[iArg].Substring(2) + "' can only have 1 argument !");
                             }
 
                             if (arguments.Length <= iArg + 1) {
                                 throw new Exceptions.NotEnoughArgumentsException(
-                                    "Unable to get a value for '" + arguments[iArg][2..] + " !");
+                                    "Unable to get a value for '" + arguments[iArg].Substring(2) + " !");
                             }
 
                             relevantOption.Arguments.Add(arguments[iArg + 1]);
@@ -184,7 +184,7 @@
                     }
                 } else {
                     // Verb or default argument
-                    Verb? desiredVerb = null;
+                    Verb desiredVerb = null;
 
                     // TODO: Optimize this condition !
                     if (hasFinishedParsingVerbs) {
@@ -233,7 +233,7 @@
             }
 
             // Checking the "Required" flag recursively from the final verb back to the root verb.
-            Verb? tempReqVerb = currentVerb;
+            Verb tempReqVerb = currentVerb;
             while (tempReqVerb != null) {
                 foreach (Option option in tempReqVerb.Options) {
                     if (option.IsRequired() && !option.WasUsed()) {

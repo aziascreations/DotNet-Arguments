@@ -35,11 +35,11 @@ namespace NibblePoker.Library.Arguments.Examples.LooseDeclaration {
             switch (relevantVerb.Name) {
                 case "root":
                     Console.WriteLine("We are in the 'root' verb !");
-                    if (relevantVerb.GetOptionByName("help")!.WasUsed()) {
+                    if (relevantVerb.GetOptionByName("help").WasUsed()) {
                         Console.WriteLine("> Showing help text...");
                     }
 
-                    if (relevantVerb.GetOptionByName("version")!.WasUsed()) {
+                    if (relevantVerb.GetOptionByName("version").WasUsed()) {
                         Console.WriteLine("> Showing version text...");
                     }
 
@@ -47,14 +47,14 @@ namespace NibblePoker.Library.Arguments.Examples.LooseDeclaration {
                 case "create":
                     Console.WriteLine("We are in the 'create' verb !");
                     Console.WriteLine("> We should create the element: " +
-                                      relevantVerb.GetOptionByName("name")!.Arguments[0]);
-                    Console.WriteLine("> We should " + (relevantVerb.GetOptionByToken('O')!.WasUsed() ? "" : "not ") +
+                                      relevantVerb.GetOptionByName("name").Arguments[0]);
+                    Console.WriteLine("> We should " + (relevantVerb.GetOptionByToken('O').WasUsed() ? "" : "not ") +
                                       "overwrite the element !");
                     break;
                 case "delete":
                     Console.WriteLine("We are in the 'delete' verb !");
                     Console.WriteLine("> We should delete the element: " +
-                                      relevantVerb.GetOptionByName("name")!.Arguments[0]);
+                                      relevantVerb.GetOptionByName("name").Arguments[0]);
                     break;
             }
 

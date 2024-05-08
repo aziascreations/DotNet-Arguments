@@ -28,8 +28,11 @@ namespace NibblePoker.Library.Arguments {
             while (stack.Count > 0) {
                 string word = stack.Pop();
                 if (word.Length > maxLineLength) {
-                    string head = word[..maxLineLength];
-                    string tail = word[maxLineLength..];
+                    //string head = word[..maxLineLength];
+                    //string tail = word[maxLineLength..];
+                    
+                    string head = word.Substring(0, maxLineLength);
+                    string tail = word.Substring(maxLineLength);
 
                     word = head;
                     stack.Push(tail);
@@ -57,7 +60,7 @@ namespace NibblePoker.Library.Arguments {
         public static string GetOptionUsagePart(Option option) {
             return (option.IsRequired() ? "<" : "[") + option.GetFullName(true) +
                    (option.CanHaveValue()
-                       ? " " + (option.HasName() ? "<" + option.Name!.ToUpper() + ">" : "<VALUE>")
+                       ? " " + (option.HasName() ? "<" + option.Name.ToUpper() + ">" : "<VALUE>")
                        : "") +
                    (option.IsRepeatable() || option.CanHaveMultipleValue() ? "..." : "") +
                    (option.IsRequired() ? ">" : "]");
@@ -82,7 +85,7 @@ namespace NibblePoker.Library.Arguments {
             return (option.HasToken()
                        ? "-" + option.Token + (
                            option.CanHaveValue() && (addValueToShort || !option.HasName())
-                               ? (option.HasName() ? " <" + option.Name!.ToUpper() + ">" : " <VALUE>") +
+                               ? (option.HasName() ? " <" + option.Name.ToUpper() + ">" : " <VALUE>") +
                                  (option.IsRepeatable() || option.CanHaveMultipleValue() ? "..." : "")
                                : ""
                        )
@@ -91,7 +94,7 @@ namespace NibblePoker.Library.Arguments {
                    (option.HasName()
                        ? "--" + option.Name + (
                            option.CanHaveValue()
-                               ? (option.HasName() ? " <" + option.Name!.ToUpper() + ">" : " <VALUE>") +
+                               ? (option.HasName() ? " <" + option.Name.ToUpper() + ">" : " <VALUE>") +
                                  (option.IsRepeatable() || option.CanHaveMultipleValue() ? "..." : "")
                                : ""
                        )
@@ -196,7 +199,7 @@ namespace NibblePoker.Library.Arguments {
         /// </remarks>
         public static string GetUsageString(Verb verb, string programName, uint consoleWidth = 80,
             bool addVerbs = true) {
-            return string.Join('\n', GetUsageLines(verb, programName, consoleWidth, addVerbs));
+            return string.Join("\n", GetUsageLines(verb, programName, consoleWidth, addVerbs));
         }
 
         /// <summary>
@@ -239,7 +242,7 @@ namespace NibblePoker.Library.Arguments {
                 // Calculated as: '-a' + ?('<VALUE>' + '...').Length + ', '
                 int currentTokenSize = 2 + (
                     option.CanHaveValue() && (addValueToShort || !option.HasName())
-                        ? (option.HasName() ? " <" + option.Name!.ToUpper() + ">" : " <VALUE>") +
+                        ? (option.HasName() ? " <" + option.Name.ToUpper() + ">" : " <VALUE>") +
                           (option.IsRepeatable() || option.CanHaveMultipleValue() ? "..." : "")
                         : ""
                 ).Length + (option.IsRepeatable() || option.CanHaveMultipleValue() ? 3 : 0) + 2;
@@ -314,8 +317,7 @@ namespace NibblePoker.Library.Arguments {
         /// </remarks>
         public static string GetOptionsDetails(Verb verb, uint consoleWidth = 80, uint leftSpace = 2,
             uint innerSpace = 2, bool addValueToShort = false) {
-            return string.Join('\n',
-                GetOptionsDetailsLines(verb, consoleWidth, leftSpace, innerSpace, addValueToShort));
+            return string.Join("\n", GetOptionsDetailsLines(verb, consoleWidth, leftSpace, innerSpace, addValueToShort));
         }
 
         /// <summary>

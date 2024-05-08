@@ -7,13 +7,15 @@ namespace NibblePoker.Library.Arguments {
     /// </summary>
     public class Verb {
         /// <summary>
-        ///     Description as shown in the help text.
+        ///     Description as shown in the help text.<br/>
+        ///     May be left as <c>null</c>.
         /// </summary>
         public readonly string Description;
 
         /// <summary>
         ///     Name used when searching for a sub-<see cref="NibblePoker.Library.Arguments.Verb">Verb</see>
-        ///     or rendering the help text.
+        ///     or rendering the help text.<br/>
+        ///     May be left as <c>null</c> if it has no parent and is the root.
         /// </summary>
         public readonly string Name;
 
@@ -31,9 +33,10 @@ namespace NibblePoker.Library.Arguments {
 
         /// <summary>
         ///     Reference to a potential parent <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>
-        ///     in which this one was registered.
+        ///     in which this one was registered.<br/>
+        ///     May be left as <c>null</c> to indicate that it has no parent and is the root.
         /// </summary>
-        public Verb? ParentVerb;
+        public Verb ParentVerb;
 
         /// <summary>
         ///     Flag used to indicate if the <see cref="NibblePoker.Library.Arguments.Verb">Verb</see> was
@@ -49,7 +52,7 @@ namespace NibblePoker.Library.Arguments {
         ///     or rendering the help text.
         /// </param>
         /// <param name="description">Description as shown in the help text.</param>
-        public Verb(string? name, string description = "") {
+        public Verb(string name, string description = "") {
             Name = name ?? "";
             Description = description;
 
@@ -206,7 +209,7 @@ namespace NibblePoker.Library.Arguments {
         /// <returns>
         ///     The relevant <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>, <c>null</c> otherwise.
         /// </returns>
-        public Verb? GetSubVerbByName(string name) {
+        public Verb GetSubVerbByName(string name) {
             foreach (Verb verb in Verbs) {
                 if (verb.Name.Equals(name)) {
                     return verb;
@@ -223,7 +226,7 @@ namespace NibblePoker.Library.Arguments {
         /// <returns>
         ///     The relevant <see cref="NibblePoker.Library.Arguments.Option">Option</see>, <c>null</c> otherwise.
         /// </returns>
-        public Option? GetRelevantDefaultOption() {
+        public Option GetRelevantDefaultOption() {
             foreach (Option option in Options) {
                 if (!option.IsDefault()) {
                     continue;
@@ -251,9 +254,9 @@ namespace NibblePoker.Library.Arguments {
         /// <returns>
         ///     The relevant <see cref="NibblePoker.Library.Arguments.Option">Option</see>, <c>null</c> otherwise.
         /// </returns>
-        public Option? GetOptionByToken(char token) {
+        public Option GetOptionByToken(char token) {
             foreach (Option option in Options) {
-                if (option.HasToken() && option.Token!.Equals(token)) {
+                if (option.HasToken() && option.Token.Equals(token)) {
                     return option;
                 }
             }
@@ -271,9 +274,9 @@ namespace NibblePoker.Library.Arguments {
         /// <returns>
         ///     The relevant <see cref="NibblePoker.Library.Arguments.Option">Option</see>, <c>null</c> otherwise.
         /// </returns>
-        public Option? GetOptionByName(string name) {
+        public Option GetOptionByName(string name) {
             foreach (Option option in Options) {
-                if (option.HasName() && option.Name!.Equals(name)) {
+                if (option.HasName() && option.Name.Equals(name)) {
                     return option;
                 }
             }

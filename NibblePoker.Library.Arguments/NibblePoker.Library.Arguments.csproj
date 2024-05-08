@@ -29,7 +29,7 @@
         <!--<PackageIconUrl></PackageIconUrl>-->
         <PackageReadmeFile>readme.md</PackageReadmeFile>
         <PackageTags>argument-parser</PackageTags>
-        <PackageReleaseNotes>Improved NuGet package authoring, Removed debug builds</PackageReleaseNotes>
+        <PackageReleaseNotes>Added support for .NET Framework 4, Added 'Verb.RegisterOptionRecursively', Disabled implicit usings and nullables</PackageReleaseNotes>
         <RepositoryUrl>https://github.com/aziascreations/DotNet-Arguments</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <RepositoryBranch>master</RepositoryBranch>
