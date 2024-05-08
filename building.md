@@ -23,7 +23,7 @@ git clone --recurse-submodules https://github.com/aziascreations/DotNet-Argument
 Finally, once the repository is cloned, you need to enter the project's directory with:
 ```shell
 cd DotNet-Arguments
-````
+```
 
 The `--recurse-submodules` is only required if you intend to build the documentation with the optional
 [doxygen-awesome-css](https://github.com/jothepro/doxygen-awesome-css) theme.
