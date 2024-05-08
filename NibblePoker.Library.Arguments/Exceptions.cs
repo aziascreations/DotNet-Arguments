@@ -1,4 +1,6 @@
-﻿namespace NibblePoker.Library.Arguments; 
+﻿using System;
+
+namespace NibblePoker.Library.Arguments; 
 
 /// <summary>
 ///   Static class that contains all exceptions thrown in the 'NibblePoker.Library.Arguments' library.

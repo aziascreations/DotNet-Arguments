@@ -6,7 +6,7 @@
 
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = "DotNet-Arguments"
-PROJECT_NUMBER         = "1.2.2"
+PROJECT_NUMBER         = "2.0.0"
 PROJECT_BRIEF          = "A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications."
 PROJECT_LOGO           = "./logo.png"
 PROJECT_ICON           = "./favicon.ico"

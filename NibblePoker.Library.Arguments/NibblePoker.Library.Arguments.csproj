@@ -3,17 +3,17 @@
     <PropertyGroup>
         <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
 
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
 
-        <AssemblyVersion>1.2.2</AssemblyVersion>
-        <FileVersion>1.2.2</FileVersion>
+        <AssemblyVersion>2.0.0</AssemblyVersion>
+        <FileVersion>2.0.0</FileVersion>
 
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
         <!-- https://learn.microsoft.com/en-us/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file -->
         <PackageId>NibblePoker.Library.Arguments</PackageId>
-        <PackageVersion>1.2.2</PackageVersion>
+        <PackageVersion>2.0.0</PackageVersion>
         <!--<VersionPrefix></VersionPrefix>-->
         <!--<VersionSuffix></VersionSuffix>-->
         <Authors>NibblePoker,Herwin Bozet</Authors>

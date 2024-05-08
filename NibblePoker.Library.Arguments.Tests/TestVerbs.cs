@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using NUnit.Framework;
 
 namespace NibblePoker.Library.Arguments.Tests; 
 

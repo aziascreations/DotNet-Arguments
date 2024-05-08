@@ -4,8 +4,9 @@
         <OutputType>Exe</OutputType>
         <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
         <ImplicitUsings>false</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <Nullable>false</Nullable>
         <RootNamespace>NibblePoker.Library.Arguments.Examples.LooseDeclaration</RootNamespace>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>

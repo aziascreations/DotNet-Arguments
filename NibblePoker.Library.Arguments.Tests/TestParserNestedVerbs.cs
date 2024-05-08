@@ -1,4 +1,6 @@
-﻿namespace NibblePoker.Library.Arguments.Tests; 
+﻿using NUnit.Framework;
+
+namespace NibblePoker.Library.Arguments.Tests; 
 
 [TestFixture]
 public class TestParserNestedVerbs {

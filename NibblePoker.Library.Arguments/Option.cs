@@ -1,4 +1,6 @@
-﻿namespace NibblePoker.Library.Arguments; 
+﻿using System.Collections.Generic;
+
+namespace NibblePoker.Library.Arguments; 
 
 /// <summary>
 ///   Class <c>Option</c> models an option linked to one or more <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>

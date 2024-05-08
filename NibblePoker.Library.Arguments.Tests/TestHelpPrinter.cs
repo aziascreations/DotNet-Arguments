@@ -1,4 +1,7 @@
-﻿namespace NibblePoker.Library.Arguments.Tests; 
+﻿using System.Collections.Generic;
+using NUnit.Framework;
+
+namespace NibblePoker.Library.Arguments.Tests; 
 
 [TestFixture]
 public class TestHelpPrinter {

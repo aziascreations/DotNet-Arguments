@@ -12,7 +12,6 @@ It is also has the exact same features as the port in [C99-Utility-Libraries](ht
 ## Features
 * Easy to use, lightweight and 'to-the-point' philosophy
   * No unnecessary types, classes, procedures and whatnot
-  * Loose declaration, registration and parsing can be done in a [**single** human-readable 'nested' statement](https://github.com/aziascreations/DotNet-Arguments/blob/master/NibblePoker.Library.Arguments.Demo.LooseDeclaration/Program.cs).
 * Support for 'git-like' verbs
 * Different behavior for options
   * Required options
@@ -29,8 +28,8 @@ It is also has the exact same features as the port in [C99-Utility-Libraries](ht
   * 14 final errors thrown in specific places.
 
 ## Requirements
-* .NET v6.0
-* C# 10.0
+* .NET Framework 4.0 or newer
+* .NET v6.0 or newer
 
 ## Documentation
 Go to [aziascreations.github.io/DotNet-Arguments/](https://aziascreations.github.io/DotNet-Arguments/) for the HTML documentation.
@@ -74,7 +73,8 @@ if(OptionVerbose.WasUsed() && OptionVerbose.Occurrences >= 2) {
   * *Declaration, registration and parsing done in a single nested statement*
 
 ## License
-[MIT License](https://github.com/aziascreations/DotNet-Arguments/blob/master/LICENSE)
+The code in this repository is licensed under
+[CC0 1.0 Universal (CC0 1.0) (Public Domain)](https://github.com/aziascreations/DotNet-Arguments/blob/master/LICENSE).
 
 The [doxygen-awesome-css](https://github.com/jothepro/doxygen-awesome-css) repository is used as a
 submodule for Doxygen and is licensed under the [MIT license](https://github.com/jothepro/doxygen-awesome-css/blob/main/LICENSE).

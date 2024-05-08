@@ -1,4 +1,6 @@
-﻿namespace NibblePoker.Library.Arguments; 
+﻿using System.Collections.Generic;
+
+namespace NibblePoker.Library.Arguments; 
 
 /// <summary>
 ///   Class <c>Verb</c> models a verb that can be given in launch arguments to select a specific action or subset of
@@ -96,7 +98,8 @@ public class Verb {
 	/// </summary>
 	/// <param name="option">
 	///   The <see cref="NibblePoker.Library.Arguments.Option">Option</see>
-	///    to register in <see cref="NibblePoker.Library.Arguments.Verb.Verbs">Verb.Verbs</see>.</param>
+	///    to register in <see cref="NibblePoker.Library.Arguments.Verb.Verbs">Verb.Verbs</see>.
+	/// </param>
 	/// <returns>Itself to allow for registration daisy-chaining.</returns>
 	/// <exception cref="Exceptions.DuplicateOptionException">
 	///   If the given <see cref="NibblePoker.Library.Arguments.Option">Option</see>
@@ -143,6 +146,51 @@ public class Verb {
 		}
 		
 		Options.Add(option);
+		
+		return this;
+	}
+
+	
+	/// <summary>
+	///   Attempts to register an <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    in the current <see cref="NibblePoker.Library.Arguments.Verb">Verb</see> and all its
+	///    <see cref="NibblePoker.Library.Arguments.Verb">sub-Verb</see> in a recursive manner.
+	/// </summary>
+	/// <param name="option">
+	///   The <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    to register in <see cref="NibblePoker.Library.Arguments.Verb.Verbs">Verb.Verbs</see>.
+	/// </param>
+	/// <param name="ignoreDuplicates">
+	///   Prevents exceptions from being raised if an <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    with the same token or name is encountered.<br/>
+	///   Default: <c>false</c>
+	/// </param>
+	/// <returns>Itself to allow for registration daisy-chaining.</returns>
+	/// <exception cref="Exceptions.DuplicateOptionException">
+	///   If the given <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    or one with the same token/name is already registered.<br/>
+	///   Will not be thrown if <c>ignoreDuplicates</c> is set to <c>true</c>.
+	/// </exception>
+	/// <exception cref="Exceptions.ExistingDefaultMultipleOptionException">
+	///   If the given <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+	///    has the <see cref="NibblePoker.Library.Arguments.OptionFlags.Default">Default</see>
+	///    flag and is registered after one that also has
+	///    <see cref="NibblePoker.Library.Arguments.OptionFlags.Default">OptionFlags.Default</see>,
+	///    <see cref="NibblePoker.Library.Arguments.OptionFlags.HasValue">OptionFlags.HasValue</see> and
+	///    <see cref="NibblePoker.Library.Arguments.OptionFlags.Repeatable">OptionFlags.Repeatable</see> flags.
+	/// </exception>
+	public Verb RegisterOptionRecursively(Option option, bool ignoreDuplicates = false) {
+		try {
+			this.RegisterOption(option);
+		} catch(Exceptions.DuplicateOptionException) {
+			if(!ignoreDuplicates) {
+				throw;
+			}
+		}
+
+		foreach(Verb subVerb in this.Verbs) {
+			subVerb.RegisterOptionRecursively(option, ignoreDuplicates);
+		}
 		
 		return this;
 	}

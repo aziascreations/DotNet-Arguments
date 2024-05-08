@@ -1,4 +1,6 @@
-﻿namespace NibblePoker.Library.Arguments; 
+﻿using System;
+
+namespace NibblePoker.Library.Arguments; 
 
 /// <summary>
 ///   Binary enum that contains all the flags an <see cref="NibblePoker.Library.Arguments.Option">Option</see>
