@@ -10,9 +10,9 @@ namespace NibblePoker.Library.Arguments.Tests {
             _mixedOption = new Option('c', "charlie", "", OptionFlags.HasValue);
         }
 
-        private Option _shortOption = null!;
-        private Option _longOption = null!;
-        private Option _mixedOption = null!;
+        private Option _shortOption;
+        private Option _longOption;
+        private Option _mixedOption;
 
         [Test]
         public void TestHasTokenName() {
@@ -52,15 +52,15 @@ namespace NibblePoker.Library.Arguments.Tests {
             });
 
             Assert.DoesNotThrow(() => {
-                Option unused = new('a', "alpha", "",
+                Option unused = new Option('a', "alpha", "",
                     OptionFlags.Default | OptionFlags.HasValue);
             });
             Assert.DoesNotThrow(() => {
-                Option unused = new('a', "alpha", "",
+                Option unused = new Option('a', "alpha", "",
                     OptionFlags.Default | OptionFlags.HasMultipleValue);
             });
             Assert.Throws<Exceptions.InvalidFlagsException>(delegate {
-                Option unused = new('a', "alpha", "", OptionFlags.Default);
+                Option unused = new Option('a', "alpha", "", OptionFlags.Default);
             });
         }
 
@@ -75,7 +75,7 @@ namespace NibblePoker.Library.Arguments.Tests {
         [Test]
         public void TestOtherErrors() {
             Assert.Throws<Exceptions.MissingOptionIdentifierException>(delegate {
-                Option unused = new(null, null);
+                Option unused = new Option(null, null);
             });
         }
     }

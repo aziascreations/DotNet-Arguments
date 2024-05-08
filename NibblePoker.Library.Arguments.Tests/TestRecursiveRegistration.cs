@@ -3,18 +3,18 @@
 namespace NibblePoker.Library.Arguments.Tests {
     public class TestRecursiveRegistration {
         // Used for other tests
-        private Option _recursiveLongOption = null!;
+        private Option _recursiveLongOption;
 
         // Used to test short options with value.
-        private Option _recursiveShortOption = null!;
+        private Option _recursiveShortOption;
 
         // Root verb
-        private Verb _rootVerb = null!;
-        private Option _singleLongOption = null!;
-        private Option _singleShortOption = null!;
-        private Verb _subSubVerb = null!;
-        private Verb _subVerb = null!;
-        private Verb _subVerbAlt = null!;
+        private Verb _rootVerb;
+        private Option _singleLongOption;
+        private Option _singleShortOption;
+        private Verb _subSubVerb;
+        private Verb _subVerb;
+        private Verb _subVerbAlt;
 
         [SetUp]
         public void Setup() {

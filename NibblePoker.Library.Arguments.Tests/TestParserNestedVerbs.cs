@@ -49,26 +49,26 @@ namespace NibblePoker.Library.Arguments.Tests {
         }
 
         // Default verb
-        private Verb _rootVerb = null!;
+        private Verb _rootVerb;
 
         // Valid sub verbs
-        private Verb _subVerb1 = null!;
-        private Verb _subVerb2 = null!;
-        private Verb _subSubVerb1 = null!;
+        private Verb _subVerb1;
+        private Verb _subVerb2;
+        private Verb _subSubVerb1;
 
         // Used to test that they are properly detected in a given verb.
-        private Option _shortFlagOption = null!;
-        private Option _longFlagOption = null!;
-        private Option _mixedFlagOption1 = null!;
-        private Option _mixedFlagOption2 = null!;
+        private Option _shortFlagOption;
+        private Option _longFlagOption;
+        private Option _mixedFlagOption1;
+        private Option _mixedFlagOption2;
 
         // Used to test options in sub-verbs.
-        private Option _shortNestedFlagOption = null!;
-        private Option _longNestedFlagOption = null!;
+        private Option _shortNestedFlagOption;
+        private Option _longNestedFlagOption;
 
-        private Option _shortCountOption = null!;
-        private Option _longCountOption = null!;
-        private Option _mixedCountOption = null!;
+        private Option _shortCountOption;
+        private Option _longCountOption;
+        private Option _mixedCountOption;
 
         [Test]
         public void TestNonNestedOption() {

@@ -24,21 +24,24 @@ namespace NibblePoker.Library.Arguments.Tests {
                 OptionFlags.HasValue | OptionFlags.Default | OptionFlags.Required);
         }
 
-        private Verb _rootVerb = null!;
-
-        private Verb _createVerb = null!;
-        private Verb _deleteVerb = null!;
-        private Verb _updateVerb = null!;
-
-        private Option _mixedOption = null!;
-        private Option _shortOption = null!;
-        private Option _longOption = null!;
-        private Option _mixedWithLongDescOption = null!;
-        private Option _mixedValueOption = null!;
-        private Option _shortMultipleValuesOption = null!;
-        private Option _longValueOption = null!;
-        private Option _defaultOption = null!;
-        private Option _defaultRequiredOption = null!;
+        private Verb _rootVerb;
+        
+        // ReSharper disable once NotAccessedField.Local
+        private Verb _createVerb;
+        // ReSharper disable once NotAccessedField.Local
+        private Verb _deleteVerb;
+        // ReSharper disable once NotAccessedField.Local
+        private Verb _updateVerb;
+        
+        private Option _mixedOption;
+        private Option _shortOption;
+        private Option _longOption;
+        private Option _mixedWithLongDescOption;
+        private Option _mixedValueOption;
+        private Option _shortMultipleValuesOption;
+        private Option _longValueOption;
+        private Option _defaultOption;
+        private Option _defaultRequiredOption;
 
         [Test]
         public void TestUsageParts() {

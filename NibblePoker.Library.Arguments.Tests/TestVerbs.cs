@@ -22,21 +22,21 @@ namespace NibblePoker.Library.Arguments.Tests {
         }
 
         // Default verb
-        private Verb _rootVerb = null!;
+        private Verb _rootVerb;
 
         // Valid sub verbs
-        private Verb _validSubVerb1 = null!;
-        private Verb _validSubVerb2 = null!;
+        private Verb _validSubVerb1;
+        private Verb _validSubVerb2;
 
         // Will throw an exception when registered into '_rootVerb'.
         // Verbs with spaces in their name aren't tested since they're allowed !
-        private Verb _invalidSubVerb1 = null!;
-        private Verb _invalidSubVerb2 = null!;
+        private Verb _invalidSubVerb1;
+        private Verb _invalidSubVerb2;
 
         // Used to test basic registration checks and getters.
-        private Option _shortOption = null!;
-        private Option _longOption = null!;
-        private Option _mixedOption = null!;
+        private Option _shortOption;
+        private Option _longOption;
+        private Option _mixedOption;
 
         [Test]
         public void TestValidSubVerbs() {

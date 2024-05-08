@@ -28,15 +28,15 @@ namespace NibblePoker.Library.Arguments.Tests {
         }
 
         // Root verb
-        private Verb _rootVerb = null!;
+        private Verb _rootVerb;
 
         // Used to test the detection between every type of option.
-        private Option _shortFlagOption = null!;
-        private Option _longFlagOption = null!;
-        private Option _mixedFlagOption1 = null!;
-        private Option _mixedFlagOption2 = null!;
+        private Option _shortFlagOption;
+        private Option _longFlagOption;
+        private Option _mixedFlagOption1;
+        private Option _mixedFlagOption2;
 
-        private Option _countingOption = null!;
+        private Option _countingOption;
 
         [Test]
         public void TestFullCorrectUsage() {

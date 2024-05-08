@@ -21,22 +21,22 @@ namespace NibblePoker.Library.Arguments.Tests {
         }
 
         // Root verb
-        private Verb _rootVerb = null!;
+        private Verb _rootVerb;
 
         // Used to the default options
-        private Option _singleDefaultOption1 = null!;
-        private Option _singleDefaultOption2 = null!;
-        private Option _singleDefaultOption3 = null!;
-        private Option _multipleDefaultOption1 = null!;
-        private Option _multipleDefaultOption2 = null!;
+        private Option _singleDefaultOption1;
+        private Option _singleDefaultOption2;
+        private Option _singleDefaultOption3;
+        private Option _multipleDefaultOption1;
+        private Option _multipleDefaultOption2;
 
         // Required option's flag
-        private Option _requiredOption1 = null!;
-        private Option _requiredOption2 = null!;
+        private Option _requiredOption1;
+        private Option _requiredOption2;
 
         // Stopping option's flag
-        private Option _nonStoppingOption = null!;
-        private Option _stoppingOption = null!;
+        private Option _nonStoppingOption;
+        private Option _stoppingOption;
 
         [Test]
         public void TestDefaultOptionsRegistration() {

@@ -14,10 +14,10 @@ namespace NibblePoker.Library.Arguments.Tests {
             _rootVerb.RegisterVerb(_subVerb);
         }
 
-        private Verb _rootVerb = null!;
-        private Verb _subVerb = null!;
-        private Option _optionMiddle = null!;
-        private Option _optionFinal = null!;
+        private Verb _rootVerb;
+        private Verb _subVerb;
+        private Option _optionMiddle;
+        private Option _optionFinal;
 
         [Test]
         public void TestOptionalMiddleFlag() {
@@ -28,7 +28,7 @@ namespace NibblePoker.Library.Arguments.Tests {
             // Args: []
             _rootVerb.Clear();
             Assert.DoesNotThrow(() => {
-                Verb returnedVerb = ArgumentsParser.ParseArguments(_rootVerb, Array.Empty<string>());
+                Verb returnedVerb = ArgumentsParser.ParseArguments(_rootVerb, new string[0]);
                 Assert.That(returnedVerb, Is.EqualTo(_rootVerb));
             });
             Assert.Multiple(() => {
@@ -84,7 +84,7 @@ namespace NibblePoker.Library.Arguments.Tests {
             // Args: []
             _rootVerb.Clear();
             Assert.DoesNotThrow(() => {
-                Verb returnedVerb = ArgumentsParser.ParseArguments(_rootVerb, Array.Empty<string>());
+                Verb returnedVerb = ArgumentsParser.ParseArguments(_rootVerb, new string[0]);
                 Assert.That(returnedVerb, Is.EqualTo(_rootVerb));
             });
             Assert.Multiple(() => {
@@ -146,7 +146,7 @@ namespace NibblePoker.Library.Arguments.Tests {
             // Args: []
             _rootVerb.Clear();
             Assert.DoesNotThrow(() => {
-                Verb returnedVerb = ArgumentsParser.ParseArguments(_rootVerb, Array.Empty<string>());
+                Verb returnedVerb = ArgumentsParser.ParseArguments(_rootVerb, new string[0]);
                 Assert.That(returnedVerb, Is.EqualTo(_rootVerb));
             });
             Assert.Multiple(() => {
@@ -193,7 +193,7 @@ namespace NibblePoker.Library.Arguments.Tests {
             // Args: []
             _rootVerb.Clear();
             Assert.Throws<Exceptions.MissingRequiredOptionException>(delegate {
-                ArgumentsParser.ParseArguments(_rootVerb, Array.Empty<string>());
+                ArgumentsParser.ParseArguments(_rootVerb, new string[0]);
             });
 
             // Args: ['alpha']

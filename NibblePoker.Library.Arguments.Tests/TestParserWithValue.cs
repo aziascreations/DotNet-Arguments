@@ -26,15 +26,15 @@ namespace NibblePoker.Library.Arguments.Tests {
         }
 
         // Root verb
-        private Verb _rootVerb = null!;
+        private Verb _rootVerb;
 
         // Used to test short options with value.
-        private Option _shortFlagOption = null!;
-        private Option _shortValueOption = null!;
+        private Option _shortFlagOption;
+        private Option _shortValueOption;
 
         // Used for other tests
-        private Option _singleValueOption = null!;
-        private Option _multipleValueOption = null!;
+        private Option _singleValueOption;
+        private Option _multipleValueOption;
 
         [Test]
         public void TestValidShortOptions() {
