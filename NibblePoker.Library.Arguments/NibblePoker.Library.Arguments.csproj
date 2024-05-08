@@ -12,7 +12,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
         <!-- https://learn.microsoft.com/en-us/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file -->
-        <PackageId>NibblePoker.Data.Arguments</PackageId>
+        <PackageId>NibblePoker.Library.Arguments</PackageId>
         <PackageVersion>1.2.2</PackageVersion>
         <!--<VersionPrefix></VersionPrefix>-->
         <!--<VersionSuffix></VersionSuffix>-->
