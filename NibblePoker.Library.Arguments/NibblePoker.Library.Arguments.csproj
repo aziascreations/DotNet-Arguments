@@ -1,22 +1,40 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <PackageVersion>1.2.1</PackageVersion>
-        <Title>NibblePoker Arguments</Title>
+
+        <AssemblyVersion>1.2.2</AssemblyVersion>
+        <FileVersion>1.2.2</FileVersion>
+
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <!-- https://learn.microsoft.com/en-us/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file -->
+        <PackageId>NibblePoker.Data.Arguments</PackageId>
+        <PackageVersion>1.2.2</PackageVersion>
+        <!--<VersionPrefix></VersionPrefix>-->
+        <!--<VersionSuffix></VersionSuffix>-->
+        <Authors>NibblePoker,Herwin Bozet</Authors>
+        <Title>NibblePoker Arguments</Title>
         <Description>A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications.</Description>
+        <!--<Copyright></Copyright>-->
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <!--<PackageLicenseExpression></PackageLicenseExpression>-->
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <!--<PackageLicenseUrl></PackageLicenseUrl>-->
         <PackageProjectUrl>https://github.com/aziascreations/DotNet-Arguments</PackageProjectUrl>
-        <PackageLicenseUrl>https://github.com/aziascreations/DotNet-Arguments/blob/master/LICENSE</PackageLicenseUrl>
+        <PackageIcon>icon.png</PackageIcon>
+        <!--<PackageIconUrl></PackageIconUrl>-->
+        <PackageReadmeFile>readme.md</PackageReadmeFile>
+        <PackageTags>argument-parser</PackageTags>
+        <PackageReleaseNotes>Improved NuGet package authoring, Removed debug builds</PackageReleaseNotes>
         <RepositoryUrl>https://github.com/aziascreations/DotNet-Arguments</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageTags>argument-parser</PackageTags>
-        <PackageReleaseNotes>Improved documentation and fixed small copy-paste mistakes</PackageReleaseNotes>
-        <PackageIcon>icon.png</PackageIcon>
-        <AssemblyVersion>1.2.1</AssemblyVersion>
-        <FileVersion>1.2.1</FileVersion>
-        <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+        <RepositoryBranch>master</RepositoryBranch>
+        <!--<RepositoryCommit></RepositoryCommit>-->
+        <!--<PackageType></PackageType>-->
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -24,16 +42,10 @@
       <DocumentationFile>bin\Release\NibblePoker.Library.Arguments.xml</DocumentationFile>
     </PropertyGroup>
 
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <DocumentationFile>bin\Debug\NibblePoker.Library.Arguments.xml</DocumentationFile>
-    </PropertyGroup>
-
     <ItemGroup>
-      <None Include="..\icon.png">
-        <Pack>True</Pack>
-        <PackagePath></PackagePath>
-        <Link>icon.png</Link>
-      </None>
+        <None Include="..\icon.png" Pack="true" PackagePath=""/>
+        <None Include="..\LICENSE" Pack="true" PackagePath=""/>
+        <None Include="..\readme.md" Pack="true" PackagePath=""/>
     </ItemGroup>
 
 </Project>
