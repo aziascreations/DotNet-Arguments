@@ -1,19 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+        <TargetFrameworks>net40;net6.0;net7.0;net8.0</TargetFrameworks>
 
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
 
-        <AssemblyVersion>1.2.2</AssemblyVersion>
-        <FileVersion>1.2.2</FileVersion>
+        <AssemblyVersion>2.0.0</AssemblyVersion>
+        <FileVersion>2.0.0</FileVersion>
 
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
         <!-- https://learn.microsoft.com/en-us/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file -->
         <PackageId>NibblePoker.Library.Arguments</PackageId>
-        <PackageVersion>1.2.2</PackageVersion>
+        <PackageVersion>2.0.0</PackageVersion>
         <!--<VersionPrefix></VersionPrefix>-->
         <!--<VersionSuffix></VersionSuffix>-->
         <Authors>NibblePoker,Herwin Bozet</Authors>
@@ -29,7 +29,7 @@
         <!--<PackageIconUrl></PackageIconUrl>-->
         <PackageReadmeFile>readme.md</PackageReadmeFile>
         <PackageTags>argument-parser</PackageTags>
-        <PackageReleaseNotes>Improved NuGet package authoring, Removed debug builds</PackageReleaseNotes>
+        <PackageReleaseNotes>Added support for .NET Framework 4, Added 'Verb.RegisterOptionRecursively', Disabled implicit usings and nullables</PackageReleaseNotes>
         <RepositoryUrl>https://github.com/aziascreations/DotNet-Arguments</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <RepositoryBranch>master</RepositoryBranch>
@@ -38,8 +38,8 @@
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-      <DebugType>none</DebugType>
-      <DocumentationFile>bin\Release\NibblePoker.Library.Arguments.xml</DocumentationFile>
+        <DebugType>none</DebugType>
+        <DocumentationFile>bin\Release\NibblePoker.Library.Arguments.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>

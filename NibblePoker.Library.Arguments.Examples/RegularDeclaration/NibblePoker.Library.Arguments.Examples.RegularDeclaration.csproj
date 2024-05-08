@@ -2,14 +2,15 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
-        <ImplicitUsings>false</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <TargetFrameworks>net40;net6.0;net7.0;net8.0</TargetFrameworks>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
         <RootNamespace>NibblePoker.Library.Arguments.Examples.RegularDeclaration</RootNamespace>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.csproj" />
+        <ProjectReference Include="..\..\NibblePoker.Library.Arguments\NibblePoker.Library.Arguments.csproj"/>
     </ItemGroup>
 
 </Project>
