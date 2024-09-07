@@ -31,12 +31,12 @@ in [C99-Utility-Libraries](https://github.com/aziascreations/C99-Utility-Librari
     * 3 child for distinct parts of the library
     * 14 final errors thrown in specific places.
 
-    * 
+
 ## Requirements
 * .NET Framework 4.0 or newer
 * .NET v6.0 or newer
 
-* 
+
 ## Documentation
 Go to [aziascreations.github.io/DotNet-Arguments/](https://aziascreations.github.io/DotNet-Arguments/) for the HTML
 documentation.
