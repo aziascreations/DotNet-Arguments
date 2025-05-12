@@ -34,7 +34,7 @@ in [C99-Utility-Libraries](https://github.com/aziascreations/C99-Utility-Librari
 
 ## Requirements
 * .NET Framework 4.0 or newer
-* .NET v6.0 or newer
+* .NET Core 8.0 or newer
 
 
 ## Documentation
