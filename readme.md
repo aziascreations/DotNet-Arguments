@@ -83,6 +83,8 @@ if(OptionVerbose.WasUsed() && OptionVerbose.Occurrences >= 2) {
     * *Declaration, registration and parsing done in a single nested statement*
 * [Help Text Printing](https://github.com/aziascreations/DotNet-Arguments/blob/master/NibblePoker.Library.Arguments.Examples/HelpTextPrinting/HelpTextPrinting.cs)
     * *Showcases the behaviour of different option types, and how to properly print a help text*
+* [Basic Verb Usage](https://github.com/aziascreations/DotNet-Arguments/blob/master/NibblePoker.Library.Arguments.Examples/VerbBasics/VerbBasics.cs)
+    * *Simple verb usage, recursive help option, and normal processing*
 
 
 ## License

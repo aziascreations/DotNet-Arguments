@@ -1,19 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net40;net6.0;net7.0;net8.0</TargetFrameworks>
+        <TargetFrameworks>net40;net8.0;net9.0</TargetFrameworks>
 
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>disable</Nullable>
 
-        <AssemblyVersion>2.0.1</AssemblyVersion>
-        <FileVersion>2.0.1</FileVersion>
+        <AssemblyVersion>3.0.0</AssemblyVersion>
+        <FileVersion>3.0.0</FileVersion>
 
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
         <!-- https://learn.microsoft.com/en-us/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file -->
         <PackageId>NibblePoker.Library.Arguments</PackageId>
-        <PackageVersion>2.0.1</PackageVersion>
+        <PackageVersion>3.0.0</PackageVersion>
         <!--<VersionPrefix></VersionPrefix>-->
         <!--<VersionSuffix></VersionSuffix>-->
         <Authors>NibblePoker,Herwin Bozet</Authors>
@@ -29,7 +29,7 @@
         <!--<PackageIconUrl></PackageIconUrl>-->
         <PackageReadmeFile>readme.md</PackageReadmeFile>
         <PackageTags>argument-parser</PackageTags>
-        <PackageReleaseNotes>Fixed an issue causing hidden options to be shown in the help text.</PackageReleaseNotes>
+        <PackageReleaseNotes>Added support for .NET Framework 4/Core 8/Core 9, Removed support for .NET Core 6/Core7, Fixed an issue causing hidden options to be shown in the help text.</PackageReleaseNotes>
         <RepositoryUrl>https://github.com/aziascreations/DotNet-Arguments</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <RepositoryBranch>master</RepositoryBranch>
