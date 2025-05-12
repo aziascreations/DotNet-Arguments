@@ -12,11 +12,7 @@ permissions:
 jobs:
   do-tests:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        dotnet: [ '8.x', '9.x' ]
-
+    
     steps:
       - name: Checkout Git repository
         uses: actions/checkout@v4
@@ -24,10 +20,10 @@ jobs:
           submodules: false
           fetch-depth: 0
       
-      - name: Install .NET ${{ matrix.dotnet }}
+      - name: Install .NET 9.x
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: ${{ matrix.dotnet }}
+          dotnet-version: 9.x
       
       - name: Run NUnit tests
         run: | 
