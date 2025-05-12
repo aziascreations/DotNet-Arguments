@@ -1,4 +1,4 @@
-﻿namespace NibblePoker.Library.Arguments {
+namespace NibblePoker.Library.Arguments {
     /// <summary>
     ///     Static class that contains a function related to parsing launch arguments.
     /// </summary>
@@ -233,18 +233,20 @@
             }
 
             // Checking the "Required" flag recursively from the final verb back to the root verb.
-            Verb tempReqVerb = currentVerb;
-            while (tempReqVerb != null) {
-                foreach (Option option in tempReqVerb.Options) {
-                    if (option.IsRequired() && !option.WasUsed()) {
-                        throw new Exceptions.MissingRequiredOptionException(
-                            "The required option '" + option.GetFullName() + "' wasn't given !");
+            if(relevantOption == null || !relevantOption.Flags.HasFlag(OptionFlags.SkipsRequiredChecks)) {
+                Verb tempReqVerb = currentVerb;
+                while (tempReqVerb != null) {
+                    foreach (Option option in tempReqVerb.Options) {
+                        if (option.IsRequired() && !option.WasUsed()) {
+                            throw new Exceptions.MissingRequiredOptionException(
+                                "The required option '" + option.GetFullName() + "' wasn't given !");
+                        }
                     }
+
+                    tempReqVerb = tempReqVerb.ParentVerb;
                 }
-
-                tempReqVerb = tempReqVerb.ParentVerb;
             }
-
+            
             return currentVerb;
         }
     }

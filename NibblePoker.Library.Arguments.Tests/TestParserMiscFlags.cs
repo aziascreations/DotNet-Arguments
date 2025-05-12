@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 
 namespace NibblePoker.Library.Arguments.Tests {
     [TestFixture]
@@ -18,6 +18,7 @@ namespace NibblePoker.Library.Arguments.Tests {
 
             _nonStoppingOption = new Option('h', null, "", OptionFlags.Repeatable);
             _stoppingOption = new Option('i', null, "", OptionFlags.StopsParsing);
+            _stoppingSkippingOption = new Option('j', null, "", OptionFlags.StopsParsing | OptionFlags.SkipsRequiredChecks);
         }
 
         // Root verb
@@ -37,6 +38,7 @@ namespace NibblePoker.Library.Arguments.Tests {
         // Stopping option's flag
         private Option _nonStoppingOption;
         private Option _stoppingOption;
+        private Option _stoppingSkippingOption;
 
         [Test]
         public void TestDefaultOptionsRegistration() {
@@ -113,7 +115,7 @@ namespace NibblePoker.Library.Arguments.Tests {
         }
 
         [Test]
-        public void TestStoppingOptions() {
+        public void TestStoppingOptionsWithoutRequired() {
             Assert.DoesNotThrow(() => {
                 // test.exe [-h] [-i]
                 // '-i' stops parsing earlier 
@@ -128,6 +130,58 @@ namespace NibblePoker.Library.Arguments.Tests {
                 Assert.That(_nonStoppingOption.WasUsed, Is.True);
                 Assert.That(_nonStoppingOption.Occurrences, Is.EqualTo(2));
             });
+        }
+
+        [Test]
+        public void TestStoppingOptionsWithRequiredFlag() {
+            Assert.DoesNotThrow(() => {
+                // test.exe <-g> [-i] [-j]
+                // '-i' should stop parsing earlier and '-j' should also not check for required options.
+                _rootVerb.RegisterOption(_stoppingOption).RegisterOption(_requiredOption2).RegisterOption(_stoppingSkippingOption);
+            });
+
+            _rootVerb.Clear();
+            Assert.DoesNotThrow(() => { ArgumentsParser.ParseArguments(_rootVerb, new[] { "-g", "-i" }); });
+
+            _rootVerb.Clear();
+            Assert.DoesNotThrow(() => { ArgumentsParser.ParseArguments(_rootVerb, new[] { "-g", "-j" }); });
+
+            _rootVerb.Clear();
+            Assert.DoesNotThrow(() => { ArgumentsParser.ParseArguments(_rootVerb, new[] { "-g" }); });
+
+            _rootVerb.Clear();
+            Assert.DoesNotThrow(() => { ArgumentsParser.ParseArguments(_rootVerb, new[] { "-j" }); });
+
+            _rootVerb.Clear();
+            Assert.Throws<Exceptions.MissingRequiredOptionException>(
+                () => { ArgumentsParser.ParseArguments(_rootVerb, new[] { "-i" }); }
+            );
+        }
+
+        [Test]
+        public void TestStoppingOptionsWithRequiredValue() {
+            Assert.DoesNotThrow(() => {
+                // test.exe <-f <VALUE>> [-i] [-j]
+                // '-i' should stop parsing earlier and '-j' should also not check for required options.
+                _rootVerb.RegisterOption(_stoppingOption).RegisterOption(_requiredOption1).RegisterOption(_stoppingSkippingOption);
+            });
+
+            _rootVerb.Clear();
+            Assert.DoesNotThrow(() => { ArgumentsParser.ParseArguments(_rootVerb, new[] { "-f", "test", "-i" }); });
+
+            _rootVerb.Clear();
+            Assert.DoesNotThrow(() => { ArgumentsParser.ParseArguments(_rootVerb, new[] { "-f", "test", "-j" }); });
+
+            _rootVerb.Clear();
+            Assert.DoesNotThrow(() => { ArgumentsParser.ParseArguments(_rootVerb, new[] { "-f", "test" }); });
+
+            _rootVerb.Clear();
+            Assert.DoesNotThrow(() => { ArgumentsParser.ParseArguments(_rootVerb, new[] { "-j" }); });
+
+            _rootVerb.Clear();
+            Assert.Throws<Exceptions.MissingRequiredOptionException>(
+                () => { ArgumentsParser.ParseArguments(_rootVerb, new[] { "-i" }); }
+            );
         }
     }
 }
