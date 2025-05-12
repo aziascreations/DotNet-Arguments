@@ -81,6 +81,8 @@ if(OptionVerbose.WasUsed() && OptionVerbose.Occurrences >= 2) {
     * *Standard recommended method of declaring and using the options and verbs*
 * [Loose Declaration](https://github.com/aziascreations/DotNet-Arguments/blob/master/NibblePoker.Library.Arguments.Examples/LooseDeclaration/LooseDeclaration.cs)
     * *Declaration, registration and parsing done in a single nested statement*
+* [Basic Verb Usage](https://github.com/aziascreations/DotNet-Arguments/blob/master/NibblePoker.Library.Arguments.Examples/VerbBasics/VerbBasics.cs)
+    * *Simple verb usage, recursive help option, and normal processing*
 
 ## License
 
