@@ -27,4 +27,4 @@ jobs:
       
       - name: Run NUnit tests
         run: | 
-          dotnet test ./
+          dotnet test
