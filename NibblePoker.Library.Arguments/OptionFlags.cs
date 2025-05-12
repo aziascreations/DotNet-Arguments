@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace NibblePoker.Library.Arguments {
     /// <summary>
@@ -77,6 +77,20 @@ namespace NibblePoker.Library.Arguments {
         ///     flag to force the user into explicitly using the token or name.
         /// </summary>
         AllowVerbsAfter = 0b0100_0000,
+
+        /// <summary>
+        ///     Used to indicate that an <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+        ///     should skip all verification steps that ensures every
+        ///     <see cref="NibblePoker.Library.Arguments.Option">Option</see> with the <see cref="Required"/>
+        ///     were given.<br/>
+        ///     This flag should only be used with the <see cref="Required"/> one for help text options !
+        /// </summary>
+        SkipsRequiredChecks = 0b1000_0000,
+
+        /// <summary>
+        ///     Used for help text and other simple text printing options that ignore all other options.
+        /// </summary>
+        HelpLikeOption = StopsParsing | SkipsRequiredChecks,
 
         /// <summary>
         ///     Used for tests, do not use in any program !
