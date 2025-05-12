@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -80,8 +80,7 @@ namespace NibblePoker.Library.Arguments {
         ///     Add the value's name part to both the short version if both short and long options are available.
         /// </param>
         /// <returns>The formatted text as a string.</returns>
-        public static string GetOptionDetailsPart(Option option, uint shortOptionSpace = 0,
-            bool addValueToShort = false) {
+        public static string GetOptionDetailsPart(Option option, uint shortOptionSpace = 0, bool addValueToShort = false) {
             return (option.HasToken()
                        ? "-" + option.Token + (
                            option.CanHaveValue() && (addValueToShort || !option.HasName())
@@ -124,8 +123,7 @@ namespace NibblePoker.Library.Arguments {
         ///     It is recommended to subtract 1 from the console's max width to prevent
         ///     weird and unexpected line returns in some command prompts.
         /// </remarks>
-        public static List<string> GetUsageLines(Verb verb, string programName, uint consoleWidth = 80,
-            bool addVerbs = true) {
+        public static List<string> GetUsageLines(Verb verb, string programName, uint consoleWidth = 80, bool addVerbs = true) {
             List<string> usageLines = new List<string>();
             List<string> usageParts = new List<string>();
 
@@ -142,13 +140,13 @@ namespace NibblePoker.Library.Arguments {
 
             // Getting the non-default options and then the default ones.
             foreach (Option option in verb.Options) {
-                if (!option.IsDefault()) {
+                if (!option.IsDefault() && !option.IsHidden()) {
                     usageParts.Add(GetOptionUsagePart(option));
                 }
             }
 
             foreach (Option option in verb.Options) {
-                if (option.IsDefault()) {
+                if (option.IsDefault() && !option.IsHidden()) {
                     usageParts.Add(GetOptionUsagePart(option));
                 }
             }
@@ -197,8 +195,7 @@ namespace NibblePoker.Library.Arguments {
         ///     It is recommended to subtract 1 from the console's max width to prevent
         ///     weird and unexpected line returns in some command prompts.
         /// </remarks>
-        public static string GetUsageString(Verb verb, string programName, uint consoleWidth = 80,
-            bool addVerbs = true) {
+        public static string GetUsageString(Verb verb, string programName, uint consoleWidth = 80, bool addVerbs = true) {
             return string.Join("\n", GetUsageLines(verb, programName, consoleWidth, addVerbs));
         }
 
@@ -232,10 +229,11 @@ namespace NibblePoker.Library.Arguments {
         /// </remarks>
         public static List<string> GetOptionsDetailsLines(Verb verb, uint consoleWidth = 80, uint leftSpace = 2,
             uint innerSpace = 2, bool addValueToShort = false) {
+
             // Calculating the maximum token size for the spacing later on
             int maxTokenSize = 0;
             foreach (Option option in verb.Options) {
-                if (!option.HasToken()) {
+                if (!option.HasToken() || option.IsHidden()) {
                     continue;
                 }
 
@@ -257,6 +255,10 @@ namespace NibblePoker.Library.Arguments {
             int maxDetailsSize = 0;
 
             foreach (Option option in verb.Options) {
+                if (option.IsHidden()) {
+                    continue;
+                }
+
                 string currentDetails = GetOptionDetailsPart(option, (uint) maxTokenSize, addValueToShort);
                 int currentSize = (int) leftSpace + currentDetails.Length + (int) innerSpace;
 
