@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Examples/">
+    <Project Path="NibblePoker.Library.Arguments.Examples/HelpTextPrinting/NibblePoker.Library.Arguments.Examples.HelpTextPrinting.csproj" />
+    <Project Path="NibblePoker.Library.Arguments.Examples/LooseDeclaration/NibblePoker.Library.Arguments.Examples.LooseDeclaration.csproj" />
+    <Project Path="NibblePoker.Library.Arguments.Examples/RegularDeclaration/NibblePoker.Library.Arguments.Examples.RegularDeclaration.csproj" />
+    <Project Path="NibblePoker.Library.Arguments.Examples/VerbBasics/NibblePoker.Library.Arguments.Examples.VerbBasics.csproj" />
+  </Folder>
+  <Project Path="NibblePoker.Library.Arguments.Tests/NibblePoker.Library.Arguments.Tests.csproj" />
+  <Project Path="NibblePoker.Library.Arguments/NibblePoker.Library.Arguments.csproj" />
+</Solution>

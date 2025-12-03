@@ -30,10 +30,14 @@ in [C99-Utility-Libraries](https://github.com/aziascreations/C99-Utility-Librari
     * 1 common parent
     * 3 child for distinct parts of the library
     * 14 final errors thrown in specific places.
+* Supports modern developer QoL
+  * Fully compatible with [Microsoft.DotNet.ILCompiler](https://www.nuget.org/packages/Microsoft.DotNet.ILCompiler/)
+  * Nullable annotations
+  * Fully documented
 
 
 ## Requirements
-* .NET Framework 4.0 or newer
+* .NET Framework 3.5, 4.0 or newer
 * .NET Core 8.0 or newer
 
 
@@ -59,7 +63,7 @@ Verb RootVerb = new Verb("").RegisterOption(OptionHelp).RegisterOption(OptionVer
 // Parsing lanch arguments
 try {
     ArgumentsParser.ParseArguments(RootVerb, args);  // 'args' is gotten from Main().
-} catch(ArgumentException) {
+} catch(ArgumentsException) {
     Console.Error.Write("Failed to parse the launch arguments !");
     RootVerb.Clear();  // Ignoring the error and simulating no launch parameters.
 }
