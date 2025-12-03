@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['missingoptionidentifierexception_0',['MissingOptionIdentifierException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1MissingOptionIdentifierException.html#a5ab603bbedfef0780346edbc9f32d6e5',1,'NibblePoker.Library.Arguments.Exceptions.MissingOptionIdentifierException.MissingOptionIdentifierException()'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1MissingOptionIdentifierException.html',1,'NibblePoker.Library.Arguments.Exceptions.MissingOptionIdentifierException']]],
-  ['missingrequiredoptionexception_1',['MissingRequiredOptionException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1MissingRequiredOptionException.html#a510ba7e66095d6a9c39f16795626f9b7',1,'NibblePoker.Library.Arguments.Exceptions.MissingRequiredOptionException.MissingRequiredOptionException()'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1MissingRequiredOptionException.html',1,'NibblePoker.Library.Arguments.Exceptions.MissingRequiredOptionException']]]
+  ['name_0',['Name',['../classOption.html#a0576584a05609394189dca3efbe48d5b',1,'Option.Name()'],['../classVerb.html#ae97491f0b5a152ff9b05519369dd8366',1,'Verb.Name()']]],
+  ['none_1',['None',['../OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539fa6adf97f83acf6453d4a6a4b1070f3754',1,'OptionFlags.cs']]]
 ];

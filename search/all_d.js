@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['parentverb_0',['ParentVerb',['../classNibblePoker_1_1Library_1_1Arguments_1_1Verb.html#a4b4db481eef53bbba2e1feb78fbc1432',1,'NibblePoker::Library::Arguments::Verb']]],
-  ['parsearguments_1',['ParseArguments',['../classNibblePoker_1_1Library_1_1Arguments_1_1ArgumentsParser.html#a07c3d4085f8edb0ae1e0b517ac755e37',1,'NibblePoker::Library::Arguments::ArgumentsParser']]],
-  ['parserexception_2',['ParserException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1ParserException.html',1,'NibblePoker.Library.Arguments.Exceptions.ParserException'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1ParserException.html#ad3ce45d8e4caffbf7edc06313fdf6611',1,'NibblePoker.Library.Arguments.Exceptions.ParserException.ParserException()']]]
+  ['readme_2emd_0',['readme.md',['../readme_8md.html',1,'']]],
+  ['registeroption_1',['RegisterOption',['../classVerb.html#adf8b6beb6a7cc7e3bc015c640a4acf9b',1,'Verb']]],
+  ['registeroptionrecursively_2',['RegisterOptionRecursively',['../classVerb.html#a198fabeda184cbd9272bc93dcd776861',1,'Verb']]],
+  ['registerverb_3',['RegisterVerb',['../classVerb.html#ab0c4300eb3f81a1cc92e83c5b5f04df8',1,'Verb']]],
+  ['repeatable_4',['Repeatable',['../OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539fa08c2f2ad052ffdcd3191c9521fa2576c',1,'OptionFlags.cs']]],
+  ['required_5',['Required',['../OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539fab651efdb98a5d6bd2b3935d0c3f4a5e2',1,'OptionFlags.cs']]]
 ];

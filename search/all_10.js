@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['token_0',['Token',['../classNibblePoker_1_1Library_1_1Arguments_1_1Option.html#a57c397eba009b460acd1e72fbb201cf7',1,'NibblePoker::Library::Arguments::Option']]]
+  ['verb_0',['Verb',['../classVerb.html',1,'Verb'],['../classVerb.html#a48d853b417f975562c0475bfb0dff963',1,'Verb.Verb()']]],
+  ['verb_2ecs_1',['Verb.cs',['../Verb_8cs.html',1,'']]],
+  ['verbs_2',['Verbs',['../classVerb.html#ad5f131f0b40243aa846aa7f13d11c72a',1,'Verb']]]
 ];

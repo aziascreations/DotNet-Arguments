@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['description_0',['Description',['../classNibblePoker_1_1Library_1_1Arguments_1_1Option.html#af1b5811d8222875f73c498552febeadc',1,'NibblePoker.Library.Arguments.Option.Description()'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Verb.html#ae9f0807ae6180e27c4d0dcedcd971e9f',1,'NibblePoker.Library.Arguments.Verb.Description()']]],
-  ['duplicateoptionexception_1',['DuplicateOptionException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1DuplicateOptionException.html#a7583c884582122c829bcb800875adda7',1,'NibblePoker.Library.Arguments.Exceptions.DuplicateOptionException.DuplicateOptionException()'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1DuplicateOptionException.html',1,'NibblePoker.Library.Arguments.Exceptions.DuplicateOptionException']]],
-  ['duplicateverbexception_2',['DuplicateVerbException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1DuplicateVerbException.html#a41d28d57b90d5ba8a2174126bfc2af96',1,'NibblePoker.Library.Arguments.Exceptions.DuplicateVerbException.DuplicateVerbException()'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1DuplicateVerbException.html',1,'NibblePoker.Library.Arguments.Exceptions.DuplicateVerbException']]]
+  ['default_0',['Default',['../OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539fa7a1920d61156abc05a60135aefe8bc67',1,'OptionFlags.cs']]],
+  ['description_1',['Description',['../classOption.html#afaef8d07ea5114191deed5b96b50aba3',1,'Option.Description()'],['../classVerb.html#a1703963ac915acca46060e181c242274',1,'Verb.Description()']]]
 ];

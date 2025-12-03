@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['arguments_0',['Arguments',['../namespaceNibblePoker_1_1Library_1_1Arguments.html',1,'NibblePoker::Library']]],
-  ['library_1',['Library',['../namespaceNibblePoker_1_1Library.html',1,'NibblePoker']]],
-  ['name_2',['Name',['../classNibblePoker_1_1Library_1_1Arguments_1_1Option.html#a307b2412318577bd2b862d97a6b7734a',1,'NibblePoker.Library.Arguments.Option.Name()'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Verb.html#a9258426061b952921fa172d8d4b80420',1,'NibblePoker.Library.Arguments.Verb.Name()']]],
-  ['nibblepoker_3',['NibblePoker',['../namespaceNibblePoker.html',1,'']]],
-  ['nodefaultoptionfoundexception_4',['NoDefaultOptionFoundException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1NoDefaultOptionFoundException.html',1,'NibblePoker.Library.Arguments.Exceptions.NoDefaultOptionFoundException'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1NoDefaultOptionFoundException.html#a4b73c7fe415eb3832106dc150ee6798e',1,'NibblePoker.Library.Arguments.Exceptions.NoDefaultOptionFoundException.NoDefaultOptionFoundException()']]],
-  ['notenoughargumentsexception_5',['NotEnoughArgumentsException',['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1NotEnoughArgumentsException.html',1,'NibblePoker.Library.Arguments.Exceptions.NotEnoughArgumentsException'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Exceptions_1_1NotEnoughArgumentsException.html#a1b78b680fb38659d29f2a6db8e9583ac',1,'NibblePoker.Library.Arguments.Exceptions.NotEnoughArgumentsException.NotEnoughArgumentsException()']]]
+  ['occurrences_0',['Occurrences',['../classOption.html#a8e5f257190a5b34bfc5bcb8606523985',1,'Option']]],
+  ['option_1',['Option',['../classOption.html',1,'Option'],['../classOption.html#a93e5173ccacd636d2b47a1a5a470042f',1,'Option.Option()']]],
+  ['option_2ecs_2',['Option.cs',['../Option_8cs.html',1,'']]],
+  ['optionflags_3',['OptionFlags',['../OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539f',1,'OptionFlags.cs']]],
+  ['optionflags_2ecs_4',['OptionFlags.cs',['../OptionFlags_8cs.html',1,'']]],
+  ['options_5',['Options',['../classVerb.html#ab5961432b1950ffbbd0e7b66a4226747',1,'Verb']]]
 ];

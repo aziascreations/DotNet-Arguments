@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['description_0',['Description',['../classNibblePoker_1_1Library_1_1Arguments_1_1Option.html#af1b5811d8222875f73c498552febeadc',1,'NibblePoker.Library.Arguments.Option.Description()'],['../classNibblePoker_1_1Library_1_1Arguments_1_1Verb.html#ae9f0807ae6180e27c4d0dcedcd971e9f',1,'NibblePoker.Library.Arguments.Verb.Description()']]]
+  ['description_0',['Description',['../classOption.html#afaef8d07ea5114191deed5b96b50aba3',1,'Option.Description()'],['../classVerb.html#a1703963ac915acca46060e181c242274',1,'Verb.Description()']]]
 ];

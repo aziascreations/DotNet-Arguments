@@ -1,0 +1,25 @@
+var classOption =
+[
+    [ "Option", "classOption.html#a93e5173ccacd636d2b47a1a5a470042f", null ],
+    [ "Clear", "classOption.html#aa69c8b0b01d0dceb4df138b1b5dda77f", null ],
+    [ "GetFullName", "classOption.html#a1228d2b2309e909bb6e5a04013bd6d44", null ],
+    [ "HasName", "classOption.html#a594c35d85b85d79499c5a5963a4feb06", null ],
+    [ "HasToken", "classOption.html#a96f163e6649a88b011970fa1cd015c69", null ],
+    [ "HasValue", "classOption.html#abdb5bcb7d858751728ac9cc2f44c3cff", null ],
+    [ "WasUsed", "classOption.html#af6f7e3711b357564070820aadb5729cf", null ],
+    [ "Arguments", "classOption.html#a34dae3156035210377d10bff1e931c20", null ],
+    [ "Description", "classOption.html#afaef8d07ea5114191deed5b96b50aba3", null ],
+    [ "Flags", "classOption.html#abfe87891117d716593e90ca6f7d44af8", null ],
+    [ "Name", "classOption.html#a0576584a05609394189dca3efbe48d5b", null ],
+    [ "Occurrences", "classOption.html#a8e5f257190a5b34bfc5bcb8606523985", null ],
+    [ "Token", "classOption.html#ad7cd218adae1aeec72eeba5c4744dcee", null ],
+    [ "AllowsVerbsAfter", "classOption.html#a2bc07ad16e8720b573d2c8b315564202", null ],
+    [ "CanHaveMultipleValue", "classOption.html#a36852bb5288f8152a4999ac9e4ce2d9e", null ],
+    [ "CanHaveValue", "classOption.html#abaf191e182a8d7a960f21d6841661b61", null ],
+    [ "IsDefault", "classOption.html#a20f31cb36eb1c6bb9ae121c02eaafe68", null ],
+    [ "IsHidden", "classOption.html#aa72701b0aea055c978916a5c6c07c37b", null ],
+    [ "IsRepeatable", "classOption.html#a31699e7bdceee69d53b73d6b496cc3d6", null ],
+    [ "IsRequired", "classOption.html#af2343ea3deba32638ed99434e2c79ea5", null ],
+    [ "ShouldSkipParsingRequirementChecks", "classOption.html#a4212887f35637bf8602cace4a08e87ea", null ],
+    [ "ShouldStopParsing", "classOption.html#a58978cc8c6608ec4f50efe3d7f7b31b5", null ]
+];
