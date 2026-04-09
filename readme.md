@@ -9,7 +9,7 @@ A simple and 'to-the-point' library to parse launch arguments in .NET Framework 
 This library is an improved port of my [PB-Arguments](https://github.com/aziascreations/PB-Arguments) library that
 intended to achieve the same goals but was
 missing support for some features.<br>
-It is also has the exact same features as the port
+It is also has more features than the port
 in [C99-Utility-Libraries](https://github.com/aziascreations/C99-Utility-Libraries).
 
 

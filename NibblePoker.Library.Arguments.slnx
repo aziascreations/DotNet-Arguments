@@ -5,6 +5,7 @@
     <Project Path="NibblePoker.Library.Arguments.Examples/RegularDeclaration/NibblePoker.Library.Arguments.Examples.RegularDeclaration.csproj" />
     <Project Path="NibblePoker.Library.Arguments.Examples/VerbBasics/NibblePoker.Library.Arguments.Examples.VerbBasics.csproj" />
   </Folder>
+  <Project Path="NibblePoker.Library.Arguments.ManualTests/NibblePoker.Library.Arguments.ManualTests.csproj" Id="f8e9cee3-1b84-4e4d-b4df-5f41b0d3d912" />
   <Project Path="NibblePoker.Library.Arguments.Tests/NibblePoker.Library.Arguments.Tests.csproj" />
   <Project Path="NibblePoker.Library.Arguments/NibblePoker.Library.Arguments.csproj" />
 </Solution>

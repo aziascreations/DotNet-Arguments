@@ -267,11 +267,12 @@ public static class HelpText {
         }
 
         // Getting the options details and calculating the max size for those.
-        List<string> optionsDetailsText = new List<string>();
+        List<string?> optionsDetailsText = new List<string?>();
         int maxDetailsSize = 0;
 
         foreach (Option option in verb.Options) {
             if (option.IsHidden) {
+                optionsDetailsText.Add(null);
                 continue;
             }
 
@@ -289,7 +290,13 @@ public static class HelpText {
         List<string> returnedLines = new List<string>();
 
         for (int iOption = 0; iOption < optionsDetailsText.Count; iOption++) {
-            string currentOptionDetails = optionsDetailsText[iOption];
+            string? currentOptionDetails = optionsDetailsText[iOption];
+
+            // Skips over hidden options to prevent their description
+            //  from being show on the next option. (#12)
+            if(currentOptionDetails == null) {
+                continue;
+            }
 
             returnedLines.AddRange((
                 new string(' ', (int) leftSpace) + currentOptionDetails +
