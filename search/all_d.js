@@ -1,8 +1,8 @@
 var searchData=
 [
   ['readme_2emd_0',['readme.md',['../readme_8md.html',1,'']]],
-  ['registeroption_1',['RegisterOption',['../classVerb.html#adf8b6beb6a7cc7e3bc015c640a4acf9b',1,'Verb']]],
-  ['registeroptionrecursively_2',['RegisterOptionRecursively',['../classVerb.html#a198fabeda184cbd9272bc93dcd776861',1,'Verb']]],
+  ['registeroption_1',['RegisterOption',['../classVerb.html#adf8b6beb6a7cc7e3bc015c640a4acf9b',1,'Verb.RegisterOption(Option option)'],['../classVerb.html#a7fa6646d8623915f782c435bc6e9ded9',1,'Verb.RegisterOption(params Option[] options)']]],
+  ['registeroptionrecursively_2',['RegisterOptionRecursively',['../classVerb.html#a198fabeda184cbd9272bc93dcd776861',1,'Verb.RegisterOptionRecursively(Option option, bool ignoreDuplicates=false)'],['../classVerb.html#a5567965d3459a7e4c86bdc6a7a84c33c',1,'Verb.RegisterOptionRecursively(params Option[] options)']]],
   ['registerverb_3',['RegisterVerb',['../classVerb.html#ab0c4300eb3f81a1cc92e83c5b5f04df8',1,'Verb']]],
   ['repeatable_4',['Repeatable',['../OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539fa08c2f2ad052ffdcd3191c9521fa2576c',1,'OptionFlags.cs']]],
   ['required_5',['Required',['../OptionFlags_8cs.html#a596e8c36cd4a76845679fcdbdd2b539fab651efdb98a5d6bd2b3935d0c3f4a5e2',1,'OptionFlags.cs']]]
