@@ -47,12 +47,12 @@ public static class HelpText {
             if (line.Length + word.Length > maxLineLength) {
                 result.AppendLine(line.ToString());
                 result.Append(sequentialPrefix);
-                
-                #if NET20 || NET30 || NET35
+
+#if NET20 || NET30 || NET35
                 line = new StringBuilder();
-                #else
+#else
                 line.Clear();
-                #endif
+#endif
             }
 
             line.Append(word + " ");
@@ -210,9 +210,9 @@ public static class HelpText {
         return string.Join(
             "\n",
             GetUsageLines(verb, programName, consoleWidth, addVerbs)
-                #if NET20 || NET30 || NET35
+#if NET20 || NET30 || NET35
                 .ToArray()
-            #endif
+#endif
         );
     }
 
@@ -246,36 +246,38 @@ public static class HelpText {
     /// </remarks>
     public static List<string> GetOptionsDetailsLines(Verb verb, uint consoleWidth = 80, uint leftSpace = 2,
         uint innerSpace = 2, bool addValueToShort = false) {
-        // Calculating the maximum token size for the spacing later on
-        int maxTokenSize = 0;
-        foreach (Option option in verb.Options) {
-            if (!option.HasToken() || option.IsHidden) {
-                continue;
-            }
 
-            // Calculated as: '-a' + ?('<VALUE>' + '...').Length + ', '
-            int currentTokenSize = 2 + (
-                option.CanHaveValue && (addValueToShort || !option.HasName())
-                    ? (option.HasName() ? " <" + option.Name!.ToUpper() + ">" : " <VALUE>") +
-                      (option.IsRepeatable || option.CanHaveMultipleValue ? "..." : "")
-                    : ""
-            ).Length + (option.IsRepeatable || option.CanHaveMultipleValue ? 3 : 0) + 2;
-
-            if (currentTokenSize > maxTokenSize) {
-                maxTokenSize = currentTokenSize;
-            }
-        }
-
-        // Getting the options details and calculating the max size for those.
-        List<string> optionsDetailsText = new List<string>();
-        int maxDetailsSize = 0;
+        // Checking if we have tokens and need a special case for those later.
+        bool isTokenPresent = false;
 
         foreach (Option option in verb.Options) {
             if (option.IsHidden) {
                 continue;
             }
+            if(option.HasToken()) {
+                isTokenPresent = true;
+                break;
+            }
+        }
 
-            string currentDetails = GetOptionDetailsPart(option, (uint) maxTokenSize, addValueToShort);
+        // Will be used to iterate by index later.
+        // If an entry is null, it indicates a hidden option.
+        // Content: `-a, --alpha <ALPHA>`
+        List<string?> optionsDetailsText = new List<string?>();
+        int maxDetailsSize = 0;
+
+        foreach (Option option in verb.Options) {
+            if (option.IsHidden) {
+                optionsDetailsText.Add(null);
+                continue;
+            }
+
+            // Getting the options details and calculating the max size for those.
+            string currentDetails = GetOptionDetailsPart(
+                option,
+                (uint)(isTokenPresent && !option.HasToken() ? 4 : 0),  // Skips `-x, `
+                addValueToShort
+            );
             int currentSize = (int) leftSpace + currentDetails.Length + (int) innerSpace;
 
             if (currentSize > maxDetailsSize) {
@@ -289,7 +291,13 @@ public static class HelpText {
         List<string> returnedLines = new List<string>();
 
         for (int iOption = 0; iOption < optionsDetailsText.Count; iOption++) {
-            string currentOptionDetails = optionsDetailsText[iOption];
+            string? currentOptionDetails = optionsDetailsText[iOption];
+
+            // Skips over hidden options to prevent their description
+            //  from being show on the next option. (#12)
+            if(currentOptionDetails == null) {
+                continue;
+            }
 
             returnedLines.AddRange((
                 new string(' ', (int) leftSpace) + currentOptionDetails +
@@ -339,9 +347,9 @@ public static class HelpText {
         return string.Join(
             "\n",
             GetOptionsDetailsLines(verb, consoleWidth, leftSpace, innerSpace, addValueToShort)
-                #if NET20 || NET30 || NET35
+#if NET20 || NET30 || NET35
                 .ToArray()
-            #endif
+#endif
         );
     }
 

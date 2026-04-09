@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 // ReSharper disable ArrangeNamespaceBody
 // ReSharper disable MemberCanBePrivate.Global
@@ -104,9 +104,9 @@ public class Option {
         Occurrences = 0;
     }
 
-    
+
     #region Generic Getters
-    
+
     /// <summary>
     ///     Checks if the <see cref="NibblePoker.Library.Arguments.Option">Option</see> has a token character.
     /// </summary>
@@ -164,9 +164,9 @@ public class Option {
     public bool WasUsed() {
         return Occurrences >= 1;
     }
-    
+
     #endregion
-    
+
 
     #region Properties for Flags field
 
@@ -175,11 +175,11 @@ public class Option {
     ///    flag that may have been given in the constructor, or modified through this property.
     /// </summary>
     public bool IsDefault {
-        #if NET20 || NET30 || NET35
+#if NET20 || NET30 || NET35
         get => (Flags & OptionFlags.Default) == OptionFlags.Default;
-        #else
+#else
             get => Flags.HasFlag(OptionFlags.Default);
-        #endif
+#endif
         set {
             if (value) {
                 Flags |= OptionFlags.Default;
@@ -194,11 +194,11 @@ public class Option {
     ///    flag that may have been given in the constructor, or modified through this property.
     /// </summary>
     public bool CanHaveValue {
-        #if NET20 || NET30 || NET35
+#if NET20 || NET30 || NET35
         get => (Flags & OptionFlags.HasValue) == OptionFlags.HasValue;
-        #else
+#else
             get => Flags.HasFlag(OptionFlags.HasValue);
-        #endif
+#endif
         set {
             if (value) {
                 Flags |= OptionFlags.HasValue;
@@ -213,11 +213,11 @@ public class Option {
     ///    flag that may have been given in the constructor, or modified through this property.
     /// </summary>
     public bool IsRepeatable {
-        #if NET20 || NET30 || NET35
+#if NET20 || NET30 || NET35
         get => (Flags & OptionFlags.Repeatable) == OptionFlags.Repeatable;
-        #else
+#else
             get => Flags.HasFlag(OptionFlags.Repeatable);
-        #endif
+#endif
         set {
             if (value) {
                 Flags |= OptionFlags.Repeatable;
@@ -232,11 +232,11 @@ public class Option {
     ///    flag that may have been given in the constructor, or modified through this property.
     /// </summary>
     public bool IsHidden {
-        #if NET20 || NET30 || NET35
+#if NET20 || NET30 || NET35
         get => (Flags & OptionFlags.Hidden) == OptionFlags.Hidden;
-        #else
+#else
             get => Flags.HasFlag(OptionFlags.Hidden);
-        #endif
+#endif
         set {
             if (value) {
                 Flags |= OptionFlags.Hidden;
@@ -251,11 +251,11 @@ public class Option {
     ///    flag that may have been given in the constructor, or modified through this property.
     /// </summary>
     public bool IsRequired {
-        #if NET20 || NET30 || NET35
+#if NET20 || NET30 || NET35
         get => (Flags & OptionFlags.Required) == OptionFlags.Required;
-        #else
+#else
             get => Flags.HasFlag(OptionFlags.Required);
-        #endif
+#endif
         set {
             if (value) {
                 Flags |= OptionFlags.Required;
@@ -270,11 +270,11 @@ public class Option {
     ///    flag that may have been given in the constructor, or modified through this property.
     /// </summary>
     public bool ShouldStopParsing {
-        #if NET20 || NET30 || NET35
+#if NET20 || NET30 || NET35
         get => (Flags & OptionFlags.StopsParsing) == OptionFlags.StopsParsing;
-        #else
+#else
             get => Flags.HasFlag(OptionFlags.StopsParsing);
-        #endif
+#endif
         set {
             if (value) {
                 Flags |= OptionFlags.StopsParsing;
@@ -289,11 +289,11 @@ public class Option {
     ///    flag that may have been given in the constructor, or modified through this property.
     /// </summary>
     public bool AllowsVerbsAfter {
-        #if NET20 || NET30 || NET35
+#if NET20 || NET30 || NET35
         get => (Flags & OptionFlags.AllowVerbsAfter) == OptionFlags.AllowVerbsAfter;
-        #else
+#else
             get => Flags.HasFlag(OptionFlags.AllowVerbsAfter);
-        #endif
+#endif
         set {
             if (value) {
                 Flags |= OptionFlags.AllowVerbsAfter;
@@ -302,17 +302,17 @@ public class Option {
             }
         }
     }
-    
+
     /// <summary>
     ///   Interacts with the <see cref="NibblePoker.Library.Arguments.OptionFlags.SkipsRequiredChecks">OptionFlags.SkipsRequiredChecks</see>
     ///    flag that may have been given in the constructor, or modified through this property.
     /// </summary>
     public bool ShouldSkipParsingRequirementChecks {
-        #if NET20 || NET30 || NET35
+#if NET20 || NET30 || NET35
         get => (Flags & OptionFlags.SkipsRequiredChecks) == OptionFlags.SkipsRequiredChecks;
-        #else
+#else
             get => Flags.HasFlag(OptionFlags.SkipsRequiredChecks);
-        #endif
+#endif
         set {
             if (value) {
                 Flags |= OptionFlags.SkipsRequiredChecks;
@@ -321,7 +321,7 @@ public class Option {
             }
         }
     }
-    
+
     /// <summary>
     ///   Interacts with the <see cref="NibblePoker.Library.Arguments.OptionFlags.HasValue">OptionFlags.HasValue</see>
     ///    and <see cref="NibblePoker.Library.Arguments.OptionFlags.Repeatable">OptionFlags.Repeatable</see>
@@ -336,5 +336,5 @@ public class Option {
     }
 
     #endregion
-    
+
 }

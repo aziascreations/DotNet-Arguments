@@ -7,14 +7,14 @@
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
-        <AssemblyVersion>4.0.0</AssemblyVersion>
-        <FileVersion>4.0.0</FileVersion>
+        <AssemblyVersion>4.1.0</AssemblyVersion>
+        <FileVersion>4.1.0</FileVersion>
 
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
         <!-- https://learn.microsoft.com/en-us/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file -->
         <PackageId>NibblePoker.Library.Arguments</PackageId>
-        <PackageVersion>4.0.0</PackageVersion>
+        <PackageVersion>4.1.0</PackageVersion>
         <!--<VersionPrefix></VersionPrefix>-->
         <!--<VersionSuffix></VersionSuffix>-->
         <Authors>NibblePoker,Herwin Bozet</Authors>
@@ -30,7 +30,8 @@
         <!--<PackageIconUrl></PackageIconUrl>-->
         <PackageReadmeFile>readme.md</PackageReadmeFile>
         <PackageTags>argument-parser</PackageTags>
-        <PackageReleaseNotes>Added support for .NET Framework 3.5/Core 10, Added nullable indicators, Changed Option flags check to get/set properties.</PackageReleaseNotes>
+        <PackageReleaseNotes>
+            Added ability to register multiple options with single call, Fixed bug related to help text printing.</PackageReleaseNotes>
         <RepositoryUrl>https://github.com/aziascreations/DotNet-Arguments</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <RepositoryBranch>master</RepositoryBranch>

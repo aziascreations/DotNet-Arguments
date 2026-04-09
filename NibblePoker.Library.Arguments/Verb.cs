@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 // ReSharper disable ArrangeNamespaceBody
 // ReSharper disable ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
@@ -86,15 +86,15 @@ public class Verb {
     ///     registered.
     /// </exception>
     public Verb RegisterVerb(Verb verb) {
-        #if NET20 || NET30 || NET35
+#if NET20 || NET30 || NET35
         if (verb.Name == null || verb.Name.Trim().Length == 0) {
             throw new Exceptions.InvalidVerbNameException("The given verb's name is empty !");
         }
-        #else
+#else
         if (string.IsNullOrWhiteSpace(verb.Name)) {
             throw new Exceptions.InvalidVerbNameException("The given verb's name is empty !");
         }
-        #endif
+#endif
 
         if (Verbs.Contains(verb) || GetSubVerbByName(verb.Name) != null) {
             throw new Exceptions.DuplicateVerbException("The given verb '" + verb.Name +
@@ -166,6 +166,33 @@ public class Verb {
         return this;
     }
 
+    /// <summary>
+    ///     Attempts to register one or more <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+    ///     in the current <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>.
+    /// </summary>
+    /// <param name="options">
+    ///     An array of <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+    ///     to register in <see cref="NibblePoker.Library.Arguments.Verb.Verbs">Verb.Verbs</see>.
+    /// </param>
+    /// <returns>Itself to allow for registration daisy-chaining.</returns>
+    /// <exception cref="Exceptions.DuplicateOptionException">
+    ///     If the given <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+    ///     or one with the same token/name is already registered.
+    /// </exception>
+    /// <exception cref="Exceptions.ExistingDefaultMultipleOptionException">
+    ///     If the given <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+    ///     has the <see cref="NibblePoker.Library.Arguments.OptionFlags.Default">Default</see>
+    ///     flag and is registered after one that also has
+    ///     <see cref="NibblePoker.Library.Arguments.OptionFlags.Default">OptionFlags.Default</see>,
+    ///     <see cref="NibblePoker.Library.Arguments.OptionFlags.HasValue">OptionFlags.HasValue</see> and
+    ///     <see cref="NibblePoker.Library.Arguments.OptionFlags.Repeatable">OptionFlags.Repeatable</see> flags.
+    /// </exception>
+    public Verb RegisterOption(params Option[] options) {
+        foreach (Option option in options) {
+            RegisterOption(option);
+        }
+        return this;
+    }
 
     /// <summary>
     ///     Attempts to register an <see cref="NibblePoker.Library.Arguments.Option">Option</see>
@@ -212,6 +239,36 @@ public class Verb {
     }
 
     /// <summary>
+    ///     Attempts to register one or more <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+    ///     in the current <see cref="NibblePoker.Library.Arguments.Verb">Verb</see> and all its
+    ///     <see cref="NibblePoker.Library.Arguments.Verb">sub-Verb</see> in a recursive manner.
+    /// </summary>
+    /// <param name="options">
+    ///     A list of <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+    ///     to register in <see cref="NibblePoker.Library.Arguments.Verb.Verbs">Verb.Verbs</see>.
+    /// </param>
+    /// <returns>Itself to allow for registration daisy-chaining.</returns>
+    /// <exception cref="Exceptions.DuplicateOptionException">
+    ///     If the given <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+    ///     or one with the same token/name is already registered.<br />
+    ///     Will not be thrown if <c>ignoreDuplicates</c> is set to <c>true</c>.
+    /// </exception>
+    /// <exception cref="Exceptions.ExistingDefaultMultipleOptionException">
+    ///     If the given <see cref="NibblePoker.Library.Arguments.Option">Option</see>
+    ///     has the <see cref="NibblePoker.Library.Arguments.OptionFlags.Default">Default</see>
+    ///     flag and is registered after one that also has
+    ///     <see cref="NibblePoker.Library.Arguments.OptionFlags.Default">OptionFlags.Default</see>,
+    ///     <see cref="NibblePoker.Library.Arguments.OptionFlags.HasValue">OptionFlags.HasValue</see> and
+    ///     <see cref="NibblePoker.Library.Arguments.OptionFlags.Repeatable">OptionFlags.Repeatable</see> flags.
+    /// </exception>
+    public Verb RegisterOptionRecursively(params Option[] options) {
+        foreach (Option option in options) {
+            RegisterOptionRecursively(option);
+        }
+        return this;
+    }
+
+    /// <summary>
     ///     Attempts to retrieve a registered sub-<see cref="NibblePoker.Library.Arguments.Verb">Verb</see>
     ///     using its name.
     /// </summary>
@@ -223,12 +280,12 @@ public class Verb {
     /// </returns>
     public Verb? GetSubVerbByName(string? name) {
         // ReSharper disable once InvertIf
-        if(name != null) {
+        if (name != null) {
             foreach (Verb verb in Verbs) {
                 if (verb.Name != null && verb.Name.Equals(name)) {
                     return verb;
                 }
-                
+
             }
         }
 
