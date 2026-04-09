@@ -246,27 +246,23 @@ public static class HelpText {
     /// </remarks>
     public static List<string> GetOptionsDetailsLines(Verb verb, uint consoleWidth = 80, uint leftSpace = 2,
         uint innerSpace = 2, bool addValueToShort = false) {
-        // Calculating the maximum token size for the spacing later on
-        int maxTokenSize = 0;
+
+        // Checking if we have tokens and need a special case for those later.
+        bool isTokenPresent = false;
+
         foreach (Option option in verb.Options) {
-            if (!option.HasToken() || option.IsHidden) {
+            if (option.IsHidden) {
                 continue;
             }
-
-            // Calculated as: '-a' + ?('<VALUE>' + '...').Length + ', '
-            int currentTokenSize = 2 + (
-                option.CanHaveValue && (addValueToShort || !option.HasName())
-                    ? (option.HasName() ? " <" + option.Name!.ToUpper() + ">" : " <VALUE>") +
-                      (option.IsRepeatable || option.CanHaveMultipleValue ? "..." : "")
-                    : ""
-            ).Length + (option.IsRepeatable || option.CanHaveMultipleValue ? 3 : 0) + 2;
-
-            if (currentTokenSize > maxTokenSize) {
-                maxTokenSize = currentTokenSize;
+            if(option.HasToken()) {
+                isTokenPresent = true;
+                break;
             }
         }
 
-        // Getting the options details and calculating the max size for those.
+        // Will be used to iterate by index later.
+        // If an entry is null, it indicates a hidden option.
+        // Content: `-a, --alpha <ALPHA>`
         List<string?> optionsDetailsText = new List<string?>();
         int maxDetailsSize = 0;
 
@@ -276,7 +272,12 @@ public static class HelpText {
                 continue;
             }
 
-            string currentDetails = GetOptionDetailsPart(option, (uint) maxTokenSize, addValueToShort);
+            // Getting the options details and calculating the max size for those.
+            string currentDetails = GetOptionDetailsPart(
+                option,
+                (uint)(isTokenPresent && !option.HasToken() ? 4 : 0),  // Skips `-x, `
+                addValueToShort
+            );
             int currentSize = (int) leftSpace + currentDetails.Length + (int) innerSpace;
 
             if (currentSize > maxDetailsSize) {
