@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 // ReSharper disable ArrangeNamespaceBody
 namespace NibblePoker.Library.Arguments;
@@ -143,7 +143,7 @@ public static class Exceptions {
     /// </summary>
     /// <param name="message">Exception's detailed error message.</param>
     public class OptionHasValueAndMoreShortsException(string message) : ParserException(message);
-    
+
     /// <summary>
     ///     Thrown by
     ///     <see cref="NibblePoker.Library.Arguments.ArgumentsParser.ParseArguments">ArgumentsParser.ParseArguments</see>

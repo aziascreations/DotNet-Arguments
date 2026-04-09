@@ -1,160 +1,160 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 
-namespace NibblePoker.Library.Arguments.Tests {
-    public class TestRecursiveRegistration {
-        // Used for other tests
-        private Option _recursiveLongOption;
+namespace NibblePoker.Library.Arguments.Tests;
 
-        // Used to test short options with value.
-        private Option _recursiveShortOption;
+public class TestRecursiveRegistration {
+    // Used for other tests
+    private Option _recursiveLongOption;
 
-        // Root verb
-        private Verb _rootVerb;
-        private Option _singleLongOption;
-        private Option _singleShortOption;
-        private Verb _subSubVerb;
-        private Verb _subVerb;
-        private Verb _subVerbAlt;
+    // Used to test short options with value.
+    private Option _recursiveShortOption;
 
-        [SetUp]
-        public void Setup() {
-            _rootVerb = new Verb(null);
-            _subVerb = new Verb("sub");
-            _subSubVerb = new Verb("sub-sub");
-            _subVerbAlt = new Verb("alt");
+    // Root verb
+    private Verb _rootVerb;
+    private Option _singleLongOption;
+    private Option _singleShortOption;
+    private Verb _subSubVerb;
+    private Verb _subVerb;
+    private Verb _subVerbAlt;
 
-            _recursiveShortOption = new Option('a', null);
-            _singleShortOption = new Option('a', null);
+    [SetUp]
+    public void Setup() {
+        _rootVerb = new Verb(null);
+        _subVerb = new Verb("sub");
+        _subSubVerb = new Verb("sub-sub");
+        _subVerbAlt = new Verb("alt");
 
-            _recursiveLongOption = new Option(null, "alpha");
-            _singleLongOption = new Option(null, "alpha");
+        _recursiveShortOption = new Option('a', null);
+        _singleShortOption = new Option('a', null);
 
-            _subVerb.RegisterVerb(_subSubVerb);
-            _rootVerb.RegisterVerb(_subVerb);
-            _rootVerb.RegisterVerb(_subVerbAlt);
-        }
+        _recursiveLongOption = new Option(null, "alpha");
+        _singleLongOption = new Option(null, "alpha");
 
-        [Test]
-        public void TestRecursiveEmptyShort() {
-            // Testing the proper registration on an empty root verb for short options
+        _subVerb.RegisterVerb(_subSubVerb);
+        _rootVerb.RegisterVerb(_subVerb);
+        _rootVerb.RegisterVerb(_subVerbAlt);
+    }
 
-            // Safety clear
-            _rootVerb.Clear();
-            Assert.DoesNotThrow(() => { _rootVerb.RegisterOptionRecursively(_recursiveShortOption); });
+    [Test]
+    public void TestRecursiveEmptyShort() {
+        // Testing the proper registration on an empty root verb for short options
 
-            Assert.Multiple(() => {
-                Assert.That(_rootVerb.Options.Contains(_recursiveShortOption));
-                Assert.That(_subVerb.Options.Contains(_recursiveShortOption));
-                Assert.That(_subSubVerb.Options.Contains(_recursiveShortOption));
-                Assert.That(_subVerbAlt.Options.Contains(_recursiveShortOption));
-            });
-        }
+        // Safety clear
+        _rootVerb.Clear();
+        Assert.DoesNotThrow(() => { _rootVerb.RegisterOptionRecursively(_recursiveShortOption); });
 
-        [Test]
-        public void TestRecursiveEmptyLong() {
-            // Testing the proper registration on an empty root verb for long options
+        Assert.Multiple(() => {
+            Assert.That(_rootVerb.Options.Contains(_recursiveShortOption));
+            Assert.That(_subVerb.Options.Contains(_recursiveShortOption));
+            Assert.That(_subSubVerb.Options.Contains(_recursiveShortOption));
+            Assert.That(_subVerbAlt.Options.Contains(_recursiveShortOption));
+        });
+    }
 
-            // Safety clear
-            _rootVerb.Clear();
-            Assert.DoesNotThrow(() => { _rootVerb.RegisterOptionRecursively(_recursiveLongOption); });
+    [Test]
+    public void TestRecursiveEmptyLong() {
+        // Testing the proper registration on an empty root verb for long options
 
-            Assert.Multiple(() => {
-                Assert.That(_rootVerb.Options.Contains(_recursiveLongOption));
-                Assert.That(_subVerb.Options.Contains(_recursiveLongOption));
-                Assert.That(_subSubVerb.Options.Contains(_recursiveLongOption));
-                Assert.That(_subVerbAlt.Options.Contains(_recursiveLongOption));
-            });
-        }
+        // Safety clear
+        _rootVerb.Clear();
+        Assert.DoesNotThrow(() => { _rootVerb.RegisterOptionRecursively(_recursiveLongOption); });
 
-        [Test]
-        public void TestRecursiveDuplicateRoot() {
-            // Testing with duplicate in root
-            // We don't test sub-verbs as we'll assume they're in an unknown state.
+        Assert.Multiple(() => {
+            Assert.That(_rootVerb.Options.Contains(_recursiveLongOption));
+            Assert.That(_subVerb.Options.Contains(_recursiveLongOption));
+            Assert.That(_subSubVerb.Options.Contains(_recursiveLongOption));
+            Assert.That(_subVerbAlt.Options.Contains(_recursiveLongOption));
+        });
+    }
 
-            // Safety clear
-            _rootVerb.Clear();
-            Assert.DoesNotThrow(() => {
-                _rootVerb.RegisterOption(_singleShortOption);
-                _rootVerb.RegisterOption(_singleLongOption);
-            });
+    [Test]
+    public void TestRecursiveDuplicateRoot() {
+        // Testing with duplicate in root
+        // We don't test sub-verbs as we'll assume they're in an unknown state.
 
-            Assert.Throws<Exceptions.DuplicateOptionException>(delegate {
-                _rootVerb.RegisterOptionRecursively(_recursiveShortOption);
-            });
+        // Safety clear
+        _rootVerb.Clear();
+        Assert.DoesNotThrow(() => {
+            _rootVerb.RegisterOption(_singleShortOption);
+            _rootVerb.RegisterOption(_singleLongOption);
+        });
 
-            Assert.Multiple(() => {
-                Assert.That(_rootVerb.Options, Has.Count.EqualTo(2));
-                Assert.That(_rootVerb.Options, Does.Contain(_singleShortOption));
-                Assert.That(_rootVerb.Options, Does.Contain(_singleLongOption));
-                Assert.That(_rootVerb.Options, !Does.Contain(_recursiveShortOption));
-                Assert.That(_rootVerb.Options, !Does.Contain(_recursiveLongOption));
-            });
+        Assert.Throws<Exceptions.DuplicateOptionException>(delegate {
+            _rootVerb.RegisterOptionRecursively(_recursiveShortOption);
+        });
 
-            Assert.Throws<Exceptions.DuplicateOptionException>(delegate {
-                _rootVerb.RegisterOptionRecursively(_recursiveLongOption);
-            });
+        Assert.Multiple(() => {
+            Assert.That(_rootVerb.Options, Has.Count.EqualTo(2));
+            Assert.That(_rootVerb.Options, Does.Contain(_singleShortOption));
+            Assert.That(_rootVerb.Options, Does.Contain(_singleLongOption));
+            Assert.That(_rootVerb.Options, !Does.Contain(_recursiveShortOption));
+            Assert.That(_rootVerb.Options, !Does.Contain(_recursiveLongOption));
+        });
 
-            Assert.Multiple(() => {
-                Assert.That(_rootVerb.Options, Has.Count.EqualTo(2));
-                Assert.That(_rootVerb.Options, Does.Contain(_singleShortOption));
-                Assert.That(_rootVerb.Options, Does.Contain(_singleLongOption));
-                Assert.That(_rootVerb.Options, !Does.Contain(_recursiveShortOption));
-                Assert.That(_rootVerb.Options, !Does.Contain(_recursiveLongOption));
-            });
-        }
+        Assert.Throws<Exceptions.DuplicateOptionException>(delegate {
+            _rootVerb.RegisterOptionRecursively(_recursiveLongOption);
+        });
 
-        [Test]
-        public void TestRecursiveDuplicateIgnoredRoot() {
-            // Testing with duplicate in root that are ignored
-            // We will test sub-verbs as they should have the new option registered.
+        Assert.Multiple(() => {
+            Assert.That(_rootVerb.Options, Has.Count.EqualTo(2));
+            Assert.That(_rootVerb.Options, Does.Contain(_singleShortOption));
+            Assert.That(_rootVerb.Options, Does.Contain(_singleLongOption));
+            Assert.That(_rootVerb.Options, !Does.Contain(_recursiveShortOption));
+            Assert.That(_rootVerb.Options, !Does.Contain(_recursiveLongOption));
+        });
+    }
 
-            // Safety clear
-            _rootVerb.Clear();
-            Assert.DoesNotThrow(() => {
-                _rootVerb.RegisterOption(_singleShortOption);
-                _rootVerb.RegisterOption(_singleLongOption);
-            });
+    [Test]
+    public void TestRecursiveDuplicateIgnoredRoot() {
+        // Testing with duplicate in root that are ignored
+        // We will test sub-verbs as they should have the new option registered.
 
-            Assert.DoesNotThrow(() => { _rootVerb.RegisterOptionRecursively(_recursiveShortOption, true); });
+        // Safety clear
+        _rootVerb.Clear();
+        Assert.DoesNotThrow(() => {
+            _rootVerb.RegisterOption(_singleShortOption);
+            _rootVerb.RegisterOption(_singleLongOption);
+        });
 
-            Assert.Multiple(() => {
-                Assert.That(_rootVerb.Options, Has.Count.EqualTo(2));
-                Assert.That(_rootVerb.Options, Does.Contain(_singleShortOption));
-                Assert.That(_rootVerb.Options, Does.Contain(_singleLongOption));
-                Assert.That(_rootVerb.Options, !Does.Contain(_recursiveShortOption));
-                Assert.That(_rootVerb.Options, !Does.Contain(_recursiveLongOption));
+        Assert.DoesNotThrow(() => { _rootVerb.RegisterOptionRecursively(_recursiveShortOption, true); });
 
-                Assert.That(_subVerb.Options, Has.Count.EqualTo(1));
-                Assert.That(_subVerb.Options, Does.Contain(_recursiveShortOption));
+        Assert.Multiple(() => {
+            Assert.That(_rootVerb.Options, Has.Count.EqualTo(2));
+            Assert.That(_rootVerb.Options, Does.Contain(_singleShortOption));
+            Assert.That(_rootVerb.Options, Does.Contain(_singleLongOption));
+            Assert.That(_rootVerb.Options, !Does.Contain(_recursiveShortOption));
+            Assert.That(_rootVerb.Options, !Does.Contain(_recursiveLongOption));
 
-                Assert.That(_subSubVerb.Options, Has.Count.EqualTo(1));
-                Assert.That(_subSubVerb.Options, Does.Contain(_recursiveShortOption));
+            Assert.That(_subVerb.Options, Has.Count.EqualTo(1));
+            Assert.That(_subVerb.Options, Does.Contain(_recursiveShortOption));
 
-                Assert.That(_subVerbAlt.Options, Has.Count.EqualTo(1));
-                Assert.That(_subVerbAlt.Options, Does.Contain(_recursiveShortOption));
-            });
+            Assert.That(_subSubVerb.Options, Has.Count.EqualTo(1));
+            Assert.That(_subSubVerb.Options, Does.Contain(_recursiveShortOption));
 
-            Assert.DoesNotThrow(() => { _rootVerb.RegisterOptionRecursively(_recursiveLongOption, true); });
+            Assert.That(_subVerbAlt.Options, Has.Count.EqualTo(1));
+            Assert.That(_subVerbAlt.Options, Does.Contain(_recursiveShortOption));
+        });
 
-            Assert.Multiple(() => {
-                Assert.That(_rootVerb.Options, Has.Count.EqualTo(2));
-                Assert.That(_rootVerb.Options, Does.Contain(_singleShortOption));
-                Assert.That(_rootVerb.Options, Does.Contain(_singleLongOption));
-                Assert.That(_rootVerb.Options, !Does.Contain(_recursiveShortOption));
-                Assert.That(_rootVerb.Options, !Does.Contain(_recursiveLongOption));
+        Assert.DoesNotThrow(() => { _rootVerb.RegisterOptionRecursively(_recursiveLongOption, true); });
 
-                Assert.That(_subVerb.Options, Has.Count.EqualTo(2));
-                Assert.That(_subVerb.Options, Does.Contain(_recursiveShortOption));
-                Assert.That(_subVerb.Options, Does.Contain(_recursiveLongOption));
+        Assert.Multiple(() => {
+            Assert.That(_rootVerb.Options, Has.Count.EqualTo(2));
+            Assert.That(_rootVerb.Options, Does.Contain(_singleShortOption));
+            Assert.That(_rootVerb.Options, Does.Contain(_singleLongOption));
+            Assert.That(_rootVerb.Options, !Does.Contain(_recursiveShortOption));
+            Assert.That(_rootVerb.Options, !Does.Contain(_recursiveLongOption));
 
-                Assert.That(_subSubVerb.Options, Has.Count.EqualTo(2));
-                Assert.That(_subSubVerb.Options, Does.Contain(_recursiveShortOption));
-                Assert.That(_subSubVerb.Options, Does.Contain(_recursiveLongOption));
+            Assert.That(_subVerb.Options, Has.Count.EqualTo(2));
+            Assert.That(_subVerb.Options, Does.Contain(_recursiveShortOption));
+            Assert.That(_subVerb.Options, Does.Contain(_recursiveLongOption));
 
-                Assert.That(_subVerbAlt.Options, Has.Count.EqualTo(2));
-                Assert.That(_subVerbAlt.Options, Does.Contain(_recursiveShortOption));
-                Assert.That(_subVerbAlt.Options, Does.Contain(_recursiveLongOption));
-            });
-        }
+            Assert.That(_subSubVerb.Options, Has.Count.EqualTo(2));
+            Assert.That(_subSubVerb.Options, Does.Contain(_recursiveShortOption));
+            Assert.That(_subSubVerb.Options, Does.Contain(_recursiveLongOption));
+
+            Assert.That(_subVerbAlt.Options, Has.Count.EqualTo(2));
+            Assert.That(_subVerbAlt.Options, Does.Contain(_recursiveShortOption));
+            Assert.That(_subVerbAlt.Options, Does.Contain(_recursiveLongOption));
+        });
     }
 }

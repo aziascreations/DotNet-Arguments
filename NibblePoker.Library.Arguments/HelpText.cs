@@ -47,12 +47,12 @@ public static class HelpText {
             if (line.Length + word.Length > maxLineLength) {
                 result.AppendLine(line.ToString());
                 result.Append(sequentialPrefix);
-                
-                #if NET20 || NET30 || NET35
+
+#if NET20 || NET30 || NET35
                 line = new StringBuilder();
-                #else
+#else
                 line.Clear();
-                #endif
+#endif
             }
 
             line.Append(word + " ");
@@ -210,9 +210,9 @@ public static class HelpText {
         return string.Join(
             "\n",
             GetUsageLines(verb, programName, consoleWidth, addVerbs)
-                #if NET20 || NET30 || NET35
+#if NET20 || NET30 || NET35
                 .ToArray()
-            #endif
+#endif
         );
     }
 
@@ -339,9 +339,9 @@ public static class HelpText {
         return string.Join(
             "\n",
             GetOptionsDetailsLines(verb, consoleWidth, leftSpace, innerSpace, addValueToShort)
-                #if NET20 || NET30 || NET35
+#if NET20 || NET30 || NET35
                 .ToArray()
-            #endif
+#endif
         );
     }
 

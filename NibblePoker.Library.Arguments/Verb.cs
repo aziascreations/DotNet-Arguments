@@ -86,15 +86,15 @@ public class Verb {
     ///     registered.
     /// </exception>
     public Verb RegisterVerb(Verb verb) {
-        #if NET20 || NET30 || NET35
+#if NET20 || NET30 || NET35
         if (verb.Name == null || verb.Name.Trim().Length == 0) {
             throw new Exceptions.InvalidVerbNameException("The given verb's name is empty !");
         }
-        #else
+#else
         if (string.IsNullOrWhiteSpace(verb.Name)) {
             throw new Exceptions.InvalidVerbNameException("The given verb's name is empty !");
         }
-        #endif
+#endif
 
         if (Verbs.Contains(verb) || GetSubVerbByName(verb.Name) != null) {
             throw new Exceptions.DuplicateVerbException("The given verb '" + verb.Name +
@@ -165,7 +165,7 @@ public class Verb {
 
         return this;
     }
-    
+
     /// <summary>
     ///     Attempts to register one or more <see cref="NibblePoker.Library.Arguments.Option">Option</see>
     ///     in the current <see cref="NibblePoker.Library.Arguments.Verb">Verb</see>.
@@ -280,12 +280,12 @@ public class Verb {
     /// </returns>
     public Verb? GetSubVerbByName(string? name) {
         // ReSharper disable once InvertIf
-        if(name != null) {
+        if (name != null) {
             foreach (Verb verb in Verbs) {
                 if (verb.Name != null && verb.Name.Equals(name)) {
                     return verb;
                 }
-                
+
             }
         }
 

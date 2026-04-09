@@ -1,131 +1,131 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 
-namespace NibblePoker.Library.Arguments.Tests {
-    [TestFixture]
-    public class TestParserWithValue {
-        [SetUp]
-        public void Setup() {
-            // Definition
-            _rootVerb = new Verb(null);
+namespace NibblePoker.Library.Arguments.Tests;
 
-            _shortFlagOption = new Option('a', null);
-            _shortValueOption = new Option('b', null, "", OptionFlags.HasValue);
+[TestFixture]
+public class TestParserWithValue {
+    [SetUp]
+    public void Setup() {
+        // Definition
+        _rootVerb = new Verb(null);
 
-            _singleValueOption = new Option('c', "charlie", "", OptionFlags.HasValue);
-            _multipleValueOption = new Option('d', "delta", "", OptionFlags.HasMultipleValue);
+        _shortFlagOption = new Option('a', null);
+        _shortValueOption = new Option('b', null, "", OptionFlags.HasValue);
 
-            // Registration
-            _rootVerb
-                .RegisterOption(_shortFlagOption)
-                .RegisterOption(_shortValueOption)
-                .RegisterOption(_singleValueOption)
-                .RegisterOption(_multipleValueOption);
+        _singleValueOption = new Option('c', "charlie", "", OptionFlags.HasValue);
+        _multipleValueOption = new Option('d', "delta", "", OptionFlags.HasMultipleValue);
 
-            // Usage:
-            // test.exe [-a] [-b <value>] [-c|--charlie <value>] [-d|--delta <values>]...
-        }
+        // Registration
+        _rootVerb
+            .RegisterOption(_shortFlagOption)
+            .RegisterOption(_shortValueOption)
+            .RegisterOption(_singleValueOption)
+            .RegisterOption(_multipleValueOption);
 
-        // Root verb
-        private Verb _rootVerb;
+        // Usage:
+        // test.exe [-a] [-b <value>] [-c|--charlie <value>] [-d|--delta <values>]...
+    }
 
-        // Used to test short options with value.
-        private Option _shortFlagOption;
-        private Option _shortValueOption;
+    // Root verb
+    private Verb _rootVerb;
 
-        // Used for other tests
-        private Option _singleValueOption;
-        private Option _multipleValueOption;
+    // Used to test short options with value.
+    private Option _shortFlagOption;
+    private Option _shortValueOption;
 
-        [Test]
-        public void TestValidShortOptions() {
-            // Testing '-b <value>' alone
-            _rootVerb.Clear();
+    // Used for other tests
+    private Option _singleValueOption;
+    private Option _multipleValueOption;
 
-            Assert.DoesNotThrow(() => { ArgumentsParser.ParseArguments(_rootVerb, new[] { "-b", "one" }); });
-            Assert.Multiple(() => {
-                Assert.That(_shortValueOption.WasUsed, Is.True);
-                Assert.That(_shortValueOption.Occurrences, Is.EqualTo(1));
-                Assert.That(_shortValueOption.Arguments[0], Is.EqualTo("one"));
-            });
+    [Test]
+    public void TestValidShortOptions() {
+        // Testing '-b <value>' alone
+        _rootVerb.Clear();
 
-            // Testing '-ab <value>'.
-            _rootVerb.Clear();
+        Assert.DoesNotThrow(() => { ArgumentsParser.ParseArguments(_rootVerb, new[] { "-b", "one" }); });
+        Assert.Multiple(() => {
+            Assert.That(_shortValueOption.WasUsed, Is.True);
+            Assert.That(_shortValueOption.Occurrences, Is.EqualTo(1));
+            Assert.That(_shortValueOption.Arguments[0], Is.EqualTo("one"));
+        });
 
-            Assert.DoesNotThrow(() => { ArgumentsParser.ParseArguments(_rootVerb, new[] { "-ab", "two" }); });
-            Assert.Multiple(() => {
-                Assert.That(_shortFlagOption.WasUsed, Is.True);
-                Assert.That(_shortFlagOption.Occurrences, Is.EqualTo(1));
-                Assert.That(_shortValueOption.WasUsed, Is.True);
-                Assert.That(_shortValueOption.Occurrences, Is.EqualTo(1));
-                Assert.That(_shortValueOption.Arguments[0], Is.EqualTo("two"));
-            });
+        // Testing '-ab <value>'.
+        _rootVerb.Clear();
 
-            // Testing '-b <value> -a'.
-            _rootVerb.Clear();
+        Assert.DoesNotThrow(() => { ArgumentsParser.ParseArguments(_rootVerb, new[] { "-ab", "two" }); });
+        Assert.Multiple(() => {
+            Assert.That(_shortFlagOption.WasUsed, Is.True);
+            Assert.That(_shortFlagOption.Occurrences, Is.EqualTo(1));
+            Assert.That(_shortValueOption.WasUsed, Is.True);
+            Assert.That(_shortValueOption.Occurrences, Is.EqualTo(1));
+            Assert.That(_shortValueOption.Arguments[0], Is.EqualTo("two"));
+        });
 
-            Assert.DoesNotThrow(() => { ArgumentsParser.ParseArguments(_rootVerb, new[] { "-b", "three", "-a" }); });
-            Assert.Multiple(() => {
-                Assert.That(_shortFlagOption.WasUsed, Is.True);
-                Assert.That(_shortFlagOption.Occurrences, Is.EqualTo(1));
-                Assert.That(_shortValueOption.WasUsed, Is.True);
-                Assert.That(_shortValueOption.Occurrences, Is.EqualTo(1));
-                Assert.That(_shortValueOption.Arguments[0], Is.EqualTo("three"));
-            });
-        }
+        // Testing '-b <value> -a'.
+        _rootVerb.Clear();
 
-        [Test]
-        public void TestInvalidShortOptions() {
-            // Testing '-b' alone
-            _rootVerb.Clear();
+        Assert.DoesNotThrow(() => { ArgumentsParser.ParseArguments(_rootVerb, new[] { "-b", "three", "-a" }); });
+        Assert.Multiple(() => {
+            Assert.That(_shortFlagOption.WasUsed, Is.True);
+            Assert.That(_shortFlagOption.Occurrences, Is.EqualTo(1));
+            Assert.That(_shortValueOption.WasUsed, Is.True);
+            Assert.That(_shortValueOption.Occurrences, Is.EqualTo(1));
+            Assert.That(_shortValueOption.Arguments[0], Is.EqualTo("three"));
+        });
+    }
 
-            Assert.Throws<Exceptions.NotEnoughArgumentsException>(delegate {
-                ArgumentsParser.ParseArguments(_rootVerb, new[] { "-b" });
-            });
+    [Test]
+    public void TestInvalidShortOptions() {
+        // Testing '-b' alone
+        _rootVerb.Clear();
 
-            // Testing '-ba <value>'
-            _rootVerb.Clear();
+        Assert.Throws<Exceptions.NotEnoughArgumentsException>(delegate {
+            ArgumentsParser.ParseArguments(_rootVerb, new[] { "-b" });
+        });
 
-            Assert.Throws<Exceptions.OptionHasValueAndMoreShortsException>(delegate {
-                ArgumentsParser.ParseArguments(_rootVerb, new[] { "-ba", "one" });
-            });
+        // Testing '-ba <value>'
+        _rootVerb.Clear();
 
-            // Testing '-b <value> -b <value>'
-            _rootVerb.Clear();
+        Assert.Throws<Exceptions.OptionHasValueAndMoreShortsException>(delegate {
+            ArgumentsParser.ParseArguments(_rootVerb, new[] { "-ba", "one" });
+        });
 
-            Assert.Throws<Exceptions.RepeatedSingularOptionException>(delegate {
-                ArgumentsParser.ParseArguments(_rootVerb, new[] { "-b", "two", "-b", "three" });
-            });
-        }
+        // Testing '-b <value> -b <value>'
+        _rootVerb.Clear();
 
-        [Test]
-        public void TestShortMultipleOptions() {
-            // Testing '-d <value> --delta <value> -d <value>'.
-            _rootVerb.Clear();
+        Assert.Throws<Exceptions.RepeatedSingularOptionException>(delegate {
+            ArgumentsParser.ParseArguments(_rootVerb, new[] { "-b", "two", "-b", "three" });
+        });
+    }
 
-            Assert.DoesNotThrow(() => {
-                ArgumentsParser.ParseArguments(_rootVerb, new[] { "-d", "one", "--delta", "two", "-d", "three" });
-            });
-            Assert.Multiple(() => {
-                Assert.That(_multipleValueOption.WasUsed, Is.True);
-                Assert.That(_multipleValueOption.Occurrences, Is.EqualTo(3));
-                Assert.That(_multipleValueOption.Arguments[0], Is.EqualTo("one"));
-                Assert.That(_multipleValueOption.Arguments[1], Is.EqualTo("two"));
-                Assert.That(_multipleValueOption.Arguments[2], Is.EqualTo("three"));
-            });
+    [Test]
+    public void TestShortMultipleOptions() {
+        // Testing '-d <value> --delta <value> -d <value>'.
+        _rootVerb.Clear();
 
-            // Testing '-d'.
-            _rootVerb.Clear();
+        Assert.DoesNotThrow(() => {
+            ArgumentsParser.ParseArguments(_rootVerb, new[] { "-d", "one", "--delta", "two", "-d", "three" });
+        });
+        Assert.Multiple(() => {
+            Assert.That(_multipleValueOption.WasUsed, Is.True);
+            Assert.That(_multipleValueOption.Occurrences, Is.EqualTo(3));
+            Assert.That(_multipleValueOption.Arguments[0], Is.EqualTo("one"));
+            Assert.That(_multipleValueOption.Arguments[1], Is.EqualTo("two"));
+            Assert.That(_multipleValueOption.Arguments[2], Is.EqualTo("three"));
+        });
 
-            Assert.Throws<Exceptions.NotEnoughArgumentsException>(delegate {
-                ArgumentsParser.ParseArguments(_rootVerb, new[] { "-d" });
-            });
+        // Testing '-d'.
+        _rootVerb.Clear();
 
-            // Testing '-dd <value>'.
-            _rootVerb.Clear();
+        Assert.Throws<Exceptions.NotEnoughArgumentsException>(delegate {
+            ArgumentsParser.ParseArguments(_rootVerb, new[] { "-d" });
+        });
 
-            Assert.Throws<Exceptions.OptionHasValueAndMoreShortsException>(delegate {
-                ArgumentsParser.ParseArguments(_rootVerb, new[] { "-dd", "four" });
-            });
-        }
+        // Testing '-dd <value>'.
+        _rootVerb.Clear();
+
+        Assert.Throws<Exceptions.OptionHasValueAndMoreShortsException>(delegate {
+            ArgumentsParser.ParseArguments(_rootVerb, new[] { "-dd", "four" });
+        });
     }
 }
