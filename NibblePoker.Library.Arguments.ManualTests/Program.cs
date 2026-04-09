@@ -6,6 +6,22 @@ using NibblePoker.Library.Arguments;
 // ------------------------------------
 
 
+// Test for #14 where verbs are not detailed ?
+
+Verb rootVerb = new Verb(null);
+Verb subVerb1 = new Verb("test1", "This is a test");
+Verb subVerb2 = new Verb("test2");
+
+rootVerb.RegisterVerb(subVerb1);
+rootVerb.RegisterVerb(subVerb2);
+
+Console.WriteLine(HelpText.GetFullHelpText(rootVerb, "test.exe", addVerbs: false));
+
+
+// ------------------------------------
+
+
+/*
 // Test for #13 where tokens with value cause alignment issues.
 
 Verb rootVerb = new Verb(null);
@@ -32,6 +48,7 @@ Console.WriteLine(HelpText.GetFullHelpText(rootVerb, "test.exe"));
 //               --george <GEORGE>  desc g
 
 // After: Properly aligned
+*/
 
 
 // ------------------------------------
